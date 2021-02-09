@@ -1,3 +1,5 @@
+const isProvided = require('./utilities/exports').helpers.isProvided
+
 /*
  * Express is the framework we're going to use to handle routing of HTTP Requests.
  * https://expressjs.com/ - a quick check in package.json shows Express 4.x
@@ -30,6 +32,17 @@ app.use(middleware.jsonError)
  */
 app.use('/node', require('./routes/hello.js'))
 
+app.use('/auth', require('./routes/signin.js'))
+
+app.use('/auth', require('./routes/register.js'))
+
+app.use("/api", express.static('apidoc'))
+
+app.use('/demosql', require('./routes/demosql.js'))
+
+app.use('/', require('./routes/demo_eps.js'))
+
+app.use('/reverse', require('./routes/lab4.js'))
 /*
  * When clients connect to the base URL, hosts html and other static files found 
  * in the web directory.
