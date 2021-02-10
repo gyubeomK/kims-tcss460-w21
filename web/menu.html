@@ -182,22 +182,142 @@
               <div class="modal-body">
                 
                 <!-- HERE COMES PIZZA CUSTOMIZATION OPTION -->
-                <p>Some text in the modal.</p>
+                
+                
+                
+
                 <form>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+
+                  <!-- Size: 10, 12, 14 -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Size</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value="option1" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            10 Inch
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                            12 Inch
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios3" value="option3" >
+                          <label class="form-check-label" for="gridRadios3">
+                            14 Inch
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- Container (Crust): Thin, Regular, Bacon and Cheese Stuffed -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Crust</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios2" id="gridRadios1" value="option1" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            Thin
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios2" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                            Regular
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="gridRadios2" id="gridRadios3" value="option3" >
+                          <label class="form-check-label" for="gridRadios3">
+                            Bacon and Cheese Stuffed
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- Primary Ingredient Category: Cheese  -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Cheese</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios3" id="gridRadios1" value="option1" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            Parmesan
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios3" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                            Mozzarella
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="gridRadios3" id="gridRadios3" value="option3" >
+                          <label class="form-check-label" for="gridRadios3">
+                            Cheddar
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="gridRadios3" id="gridRadios3" value="option3" >
+                          <label class="form-check-label" for="gridRadios3">
+                            Gouda
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- Primary Ingredient Category: Sauce  -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Sauce</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios4" id="gridRadios1" value="option1" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            Marinara
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios4" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                            Buffalo
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="gridRadios4" id="gridRadios3" value="option3" >
+                          <label class="form-check-label" for="gridRadios3">
+                            Pesto
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="gridRadios4" id="gridRadios3" value="option3" >
+                          <label class="form-check-label" for="gridRadios3">
+                            White Garlic Sauce
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  
+                  <!-- Secondary Ingredient Category: Toppings  -->
+
+                  
+                  
+                  
+                  
+
+
+
+
                 </form>
 
 
@@ -205,7 +325,8 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
               </div>
               
             </div>
