@@ -15,3 +15,13 @@ CREATE TABLE Demo (DemoID SERIAL PRIMARY KEY,
                         Name VARCHAR(255) NOT NULL UNIQUE,
                         Message VARCHAR(255)
 );
+
+DROP TABLE IF EXISTS PizzaOrder;
+CREATE TABLE PizzaOrder (OrderID SERIAL PRIMARY KEY,
+                    Size INT NOT NULL,
+                    Crust VARCHAR(255) NOT NULL,
+                    Cheese VARCHAR(255) NOT NULL,
+                    Sauce VARCHAR(255) NOT NULL,
+                    Topping1 INT NOT NULL,
+                    Topping2 INT NOT NULL
+);
