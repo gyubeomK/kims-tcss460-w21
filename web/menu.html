@@ -184,19 +184,19 @@
                       <legend class="col-form-label col-sm-2 pt-0">Size</legend>
                       <div class="col-sm-10">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="size" id="gridRadios1" value="10" checked>
+                          <input class="form-check-input" type="radio" name="size" id="gridRadios1" value="10" onclick="totalCalculation()" checked>
                           <label class="form-check-label" for="gridRadios1">
                             10 Inch (+ $15)
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="size" id="gridRadios2" value="12">
+                          <input class="form-check-input" type="radio" name="size" id="gridRadios2" value="12" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios2">
                             12 Inch (+ $20)
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="size" id="gridRadios3" value="14" >
+                          <input class="form-check-input" type="radio" name="size" id="gridRadios3" value="14" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios3">
                             14 Inch (+ $25)
                           </label>
@@ -211,19 +211,19 @@
                       <legend class="col-form-label col-sm-2 pt-0">Crust</legend>
                       <div class="col-sm-10">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="crust" id="gridRadios1" value="Thin" checked>
+                          <input class="form-check-input" type="radio" name="crust" id="gridRadios1" value="Thin" onclick="totalCalculation()" checked>
                           <label class="form-check-label" for="gridRadios1">
                             Thin (+ $3)
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="crust" id="gridRadios2" value="Regular">
+                          <input class="form-check-input" type="radio" name="crust" id="gridRadios2" value="Regular" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios2">
                             Regular (+ $0)
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="crust" id="gridRadios3" value="Cheese" >
+                          <input class="form-check-input" type="radio" name="crust" id="gridRadios3" value="Cheese" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios3">
                             Cheese Stuffed (+ $5)
                           </label>
@@ -238,25 +238,25 @@
                       <legend class="col-form-label col-sm-2 pt-0">Cheese</legend>
                       <div class="col-sm-10">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios1" value="Parmesan" checked>
+                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios1" value="Parmesan" onclick="totalCalculation()" checked>
                           <label class="form-check-label" for="gridRadios1">
                             Parmesan (+ $2)
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios2" value="Mozzarella">
+                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios2" value="Mozzarella" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios2">
                             Mozzarella (+ $2)
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios3" value="Cheddar" >
+                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios3" value="Cheddar" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios3">
                             Cheddar (+ $2)
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios3" value="Gouda" >
+                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios3" value="Gouda" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios3">
                             Gouda (+ $4)
                           </label>
@@ -271,25 +271,25 @@
                       <legend class="col-form-label col-sm-2 pt-0">Sauce</legend>
                       <div class="col-sm-10">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios1" value="Marinara" checked>
+                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios1" value="Marinara" onclick="totalCalculation()" checked>
                           <label class="form-check-label" for="gridRadios1">
                             Marinara (+ $0)
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios2" value="Buffalo">
+                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios2" value="Buffalo" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios2">
                             Buffalo (+ $0)
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios3" value="Pesto" >
+                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios3" value="Pesto" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios3">
                             Pesto (+ $2)
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios3" value="Garlic" >
+                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios3" value="Garlic" onclick="totalCalculation()">
                           <label class="form-check-label" for="gridRadios3">
                             White Garlic Sauce (+ $3)
                           </label>
@@ -304,28 +304,28 @@
                       <legend class="col-form-label col-sm-2 pt-0">Topppings</legend>
                       <div class="col-sm-10">
 
-                        <input type="checkbox" id="topping1" name="secIng" value="pepperoni">
+                        <input type="checkbox" id="topping1" name="secIng" value="pepperoni" onclick="totalCalculation()">
                         <label for="topping1"> Pepperoni (+ $5)</label><br>
                         
-                        <input type="checkbox" id="topping2" name="secIng" value="mushrooms">
+                        <input type="checkbox" id="topping2" name="secIng" value="mushrooms" onclick="totalCalculation()">
                         <label for="topping2"> Mushrooms (+ $5)</label><br>
                         
-                        <input type="checkbox" id="topping3" name="secIng" value="onions">
+                        <input type="checkbox" id="topping3" name="secIng" value="onions" onclick="totalCalculation()">
                         <label for="topping3"> Onions (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping4" name="secIng" value="sausage">
+                        <input type="checkbox" id="topping4" name="secIng" value="sausage" onclick="totalCalculation()">
                         <label for="topping4"> Sausage (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping5" name="secIng" value="extraCheese">
+                        <input type="checkbox" id="topping5" name="secIng" value="extraCheese" onclick="totalCalculation()">
                         <label for="topping5"> Extra cheese (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping6" name="secIng" value="olives">
+                        <input type="checkbox" id="topping6" name="secIng" value="olives" onclick="totalCalculation()">
                         <label for="topping6"> Black olives (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping7" name="secIng" value="pineapple">
+                        <input type="checkbox" id="topping7" name="secIng" value="pineapple" onclick="totalCalculation()">
                         <label for="topping7"> Pineapple (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping8" name="secIng" value="spinach">
+                        <input type="checkbox" id="topping8" name="secIng" value="spinach" onclick="totalCalculation()">
                         <label for="topping8"> Spinach (+ $5)</label><br>
 
                       </div>
@@ -337,16 +337,16 @@
                       <legend class="col-form-label col-sm-2 pt-0">Special Topppings</legend>
                       <div class="col-sm-10">
 
-                        <input type="checkbox" id="sptopping1" name="thirdIng" value="anchovy">
+                        <input type="checkbox" id="sptopping1" name="thirdIng" value="anchovy" onclick="totalCalculation()">
                         <label for="sptopping1"> Anchovy (+ $5)</label><br>
                         
-                        <input type="checkbox" id="sptopping2" name="thirdIng" value="chicken">
+                        <input type="checkbox" id="sptopping2" name="thirdIng" value="chicken" onclick="totalCalculation()">
                         <label for="sptopping2"> Chicken (+ $5)</label><br>
 
-                        <input type="checkbox" id="sptopping3" name="thirdIng" value="steak">
+                        <input type="checkbox" id="sptopping3" name="thirdIng" value="steak" onclick="totalCalculation()">
                         <label for="sptopping3"> Philly Steak (+ $5)</label><br>
 
-                        <input type="checkbox" id="sptopping4" name="thirdIng" value="ham">
+                        <input type="checkbox" id="sptopping4" name="thirdIng" value="ham" onclick="totalCalculation()">
                         <label for="sptopping4"> Ham (+ $5)</label><br>
 
 

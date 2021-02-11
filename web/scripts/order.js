@@ -4,8 +4,94 @@ function initialTotal() {
 }
 
 function totalCalculation() {
-    console.log("total calculation triggered")
+    //console.log("total calculation triggered")
+    let total = 0
+
+    let sizeInput = document.querySelector('input[name = "size"]:checked').value;
+    let sizeCost = sizePrice(sizeInput)
+    console.log("Size Cost: " + sizeCost)
+    total += sizeCost
+
+    let crustInput = document.querySelector('input[name = "crust"]:checked').value;
+    let crustCost = crustPrice(crustInput)
+    console.log("Crust Cost: " + crustCost)
+    total += crustCost
+
+    let cheeseInput = document.querySelector('input[name = "cheese"]:checked').value;
+    let cheeseCost = cheesePrice(cheeseInput)
+    console.log("Cheese Cost: " + cheeseCost)
+    total += cheeseCost
+
+    let sauceInput = document.querySelector('input[name = "sauce"]:checked').value;
+    let sauceCost = saucePrice(sauceInput)
+    console.log("Sauce Cost: " + sauceCost)
+    total += sauceCost
+
+    var secIngredientInput = [];
+    $("input:checkbox[name=secIng]:checked").each(function(){
+        secIngredientInput.push($(this).val());
+    });
+    total += secIngredientInput.length * 5
+
+    //console.log(secIngredientInput.length)
+
+    var thirdIngredientInput = [];
+    $("input:checkbox[name=thirdIng]:checked").each(function(){
+        thirdIngredientInput.push($(this).val());
+    });
+    console.log(thirdIngredientInput.length)
+    total += thirdIngredientInput.length * 5
+
+
+
+    document.getElementById("subTotal").innerHTML = "Current Total: $" + total
 }
+
+function sizePrice(sizeInput) {
+    if(sizeInput == "10") {
+        return 15
+    } else if(sizeInput == "12") {
+        return 20
+    } else {
+        return 25
+    }
+}
+
+function crustPrice(crustInput) {
+    if(crustInput == "Thin") {
+        return 3
+    } else if(crustInput == "Regular") {
+        return 0
+    } else {
+        return 5
+    }
+}
+
+function cheesePrice(cheeseInput) {
+    if(cheeseInput == "Parmesan") {
+        return 2
+    } else if(cheeseInput == "Mozzarella") {
+        return 2
+    } else if(cheeseInput == "Cheddar") {
+        return 2
+    } else {
+        return 4
+    }
+
+}
+
+function saucePrice(sauceInput) {
+    if(sauceInput == "Marinara") {
+        return 0
+    } else if(sauceInput == "Buffalo") {
+        return 0
+    } else if(sauceInput == "Pesto") {
+        return 2
+    } else {
+        return 3
+    }
+}
+
 
 function order() {
     console.log("order triggered")
