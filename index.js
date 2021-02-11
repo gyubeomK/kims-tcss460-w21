@@ -43,6 +43,9 @@ app.use('/demosql', require('./routes/demosql.js'))
 app.use('/', require('./routes/demo_eps.js'))
 
 app.use('/reverse', require('./routes/lab4.js'))
+
+app.use('/order', require('./routes/order.js'))
+
 /*
  * When clients connect to the base URL, hosts html and other static files found 
  * in the web directory.

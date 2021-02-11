@@ -18,10 +18,10 @@ CREATE TABLE Demo (DemoID SERIAL PRIMARY KEY,
 
 DROP TABLE IF EXISTS PizzaOrder;
 CREATE TABLE PizzaOrder (OrderID SERIAL PRIMARY KEY,
-                    Size INT NOT NULL,
+                    Size VARCHAR(255) NOT NULL,
                     Crust VARCHAR(255) NOT NULL,
                     Cheese VARCHAR(255) NOT NULL,
                     Sauce VARCHAR(255) NOT NULL,
-                    Topping1 INT NOT NULL,
-                    Topping2 INT NOT NULL
+                    Topping1 VARCHAR(255) NOT NULL,
+                    Topping2 VARCHAR(255) NOT NULL
 );
