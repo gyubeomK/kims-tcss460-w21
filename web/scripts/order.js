@@ -1,3 +1,12 @@
+function initialTotal() {
+    console.log("initial total triggered")
+    document.getElementById("subTotal").innerHTML = "Current Total: $20"
+}
+
+function totalCalculation() {
+    console.log("total calculation triggered")
+}
+
 function order() {
     console.log("order triggered")
 
@@ -33,27 +42,44 @@ function order() {
         console.log(thirdIngredientInput[i]);
     }
 
-    
+    // getContent()
 
     // 인풋 전부 다 정리 후, sql 데타 베이스에 넣기
     
 }
 
 //dealing with async function
-async function getContent(endPoint) {
-    console.log("end point URL: " + endPoint);
-    let response = await fetch(endPoint);
-    if(response.ok) {
-        console.log("Response Ok");
-        
-        let json = await response.json();
-        console.log("json message:" + json.message);
-        $("#reverseInput").val(json.message);
+// async function getContent() {
+    
+//     let endPoint = "http://localhost:5000/order"; //need to be changed later
 
-        //Store
-        localStorage.setItem("revOutput", json.message);
-        sessionStorage.setItem("revOutput", json.message);
-    } else {
-        alert("HTTP-Error:" + response.status);
-    }
-}
+
+//     console.log("end point URL: " + endPoint);
+//     let response = await fetch(endPoint,  {
+//         method: 'GET',
+//         // headers: {
+//         //     'Content-Type': 'application/json;charset=utf-8'
+//         // }//,
+//         // body: JSON.stringify({'phrase':palinInput,
+//         //                       'strict':strictInput})
+//     })
+//     if (response.ok) { // if HTTP-status is 200-299
+//         // get the response body (the method explained below)
+//         let json = await response.json()
+        
+//         console.log(json.isPalindrome)
+
+//         //here use if/else to change the color of the input box
+//         if(json.isPalindrome) {
+//             $("#palinInput").css("color", "white")
+//             $("#palinInput").css("background-color", "green")
+//         } else {
+//             $("#palinInput").css("color", "white")
+//             $("#palinInput").css("background-color", "red")
+//         }
+
+        
+//     } else {
+//         alert("HTTP-Error: " + response.status)
+//     }
+// }

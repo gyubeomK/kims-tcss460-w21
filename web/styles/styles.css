@@ -11,3 +11,8 @@
 .your-class input{
     float:left;
   }
+
+  #subTotal{
+    font-size:large;
+    font-style: oblique;
+  }
