@@ -15,7 +15,9 @@
   <!-- CSS stylesheet -->
   <link rel="stylesheet" href="./styles/styles.css" media="screen">
 
-  <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">\
+
+  <script src="./scripts/order.js"></script>
 </head>
 
 <body>
@@ -90,7 +92,8 @@
                 <div class="card-body">
                   <h5 class="card-title">Hawaiian Pizza</h5>
                   <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
+                  <!-- <a href="#" class="btn btn-primary">Add to Cart</a> -->
+                  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add to Cart</button>
                 </div>
               </div>
 
@@ -99,7 +102,8 @@
                 <div class="card-body">
                   <h5 class="card-title">Super Supreme Pizza</h5>
                   <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
+                  <!-- <a href="#" class="btn btn-primary">Add to Cart</a> -->
+                  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add to Cart</button>
                 </div>
               </div>
 
@@ -108,7 +112,8 @@
                 <div class="card-body">
                   <h5 class="card-title">Seafood Pizza</h5>
                   <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
+                  <!-- <a href="#" class="btn btn-primary">Add to Cart</a> -->
+                  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add to Cart</button>
                 </div>
               </div>
             </div>       
@@ -129,7 +134,8 @@
               <div class="card-body">
                 <h5 class="card-title">Cheese Pizza</h5>
                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <!-- <a href="#" class="btn btn-primary">Add to Cart</a> -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add to Cart</button>
               </div>
             </div>
 
@@ -138,7 +144,8 @@
               <div class="card-body">
                 <h5 class="card-title">Pepperoni Pizza</h5>
                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <!-- <a href="#" class="btn btn-primary">Add to Cart</a> -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add to Cart</button>
               </div>
             </div>
 
@@ -147,14 +154,238 @@
               <div class="card-body">
                 <h5 class="card-title">BBQ Chicken Pizza</h5>
                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <!-- <a href="#" class="btn btn-primary">Add to Cart</a> -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add to Cart</button>
               </div>
             </div>
 
 
 
           </div>       
-      </div>
+        </div>
+
+
+              
+        
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Customize Your Pizza!</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                
+                <!-- HERE COMES PIZZA CUSTOMIZATION OPTION -->
+                
+                
+                
+
+                <form>
+
+                  <!-- Size: 10, 12, 14 -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Size</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="size" id="gridRadios1" value="10" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            10 Inch
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="size" id="gridRadios2" value="12">
+                          <label class="form-check-label" for="gridRadios2">
+                            12 Inch
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="size" id="gridRadios3" value="14" >
+                          <label class="form-check-label" for="gridRadios3">
+                            14 Inch
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- Container (Crust): Thin, Regular, Bacon and Cheese Stuffed -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Crust</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="crust" id="gridRadios1" value="Thin" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            Thin
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="crust" id="gridRadios2" value="Regular">
+                          <label class="form-check-label" for="gridRadios2">
+                            Regular
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="crust" id="gridRadios3" value="Cheese" >
+                          <label class="form-check-label" for="gridRadios3">
+                            Cheese Stuffed
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- Primary Ingredient Category: Cheese  -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Cheese</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios1" value="Parmesan" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            Parmesan
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios2" value="Mozzarella">
+                          <label class="form-check-label" for="gridRadios2">
+                            Mozzarella
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios3" value="Cheddar" >
+                          <label class="form-check-label" for="gridRadios3">
+                            Cheddar
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios3" value="Gouda" >
+                          <label class="form-check-label" for="gridRadios3">
+                            Gouda
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- Primary Ingredient Category: Sauce  -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Sauce</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios1" value="Marinara" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            Marinara
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios2" value="Buffalo">
+                          <label class="form-check-label" for="gridRadios2">
+                            Buffalo
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios3" value="Pesto" >
+                          <label class="form-check-label" for="gridRadios3">
+                            Pesto
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios3" value="Garlic" >
+                          <label class="form-check-label" for="gridRadios3">
+                            White Garlic Sauce
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  
+                  <!-- Secondary Ingredient Category: Toppings  -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Topppings</legend>
+                      <div class="col-sm-10">
+
+                        <input type="checkbox" id="topping1" name="secIng" value="pepperoni">
+                        <label for="topping1"> Pepperoni</label><br>
+                        
+                        <input type="checkbox" id="topping2" name="secIng" value="mushrooms">
+                        <label for="topping2"> Mushrooms</label><br>
+                        
+                        <input type="checkbox" id="topping3" name="secIng" value="onions">
+                        <label for="topping3"> Onions</label><br>
+
+                        <input type="checkbox" id="topping4" name="secIng" value="sausage">
+                        <label for="topping4"> Sausage</label><br>
+
+                        <input type="checkbox" id="topping5" name="secIng" value="extraCheese">
+                        <label for="topping5"> Extra cheese</label><br>
+
+                        <input type="checkbox" id="topping6" name="secIng" value="olives">
+                        <label for="topping6"> Black olives</label><br>
+
+                        <input type="checkbox" id="topping7" name="secIng" value="pineapple">
+                        <label for="topping7"> Pineapple</label><br>
+
+                        <input type="checkbox" id="topping8" name="secIng" value="spinach">
+                        <label for="topping8"> Spinach</label><br>
+
+                      </div>
+                    </div>
+                  </fieldset>
+                  <!-- Tertiary Ingredient Category: Special Toppings  -->
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Special Topppings</legend>
+                      <div class="col-sm-10">
+
+                        <input type="checkbox" id="sptopping1" name="thirdIng" value="anchovy">
+                        <label for="sptopping1"> Anchovy</label><br>
+                        
+                        <input type="checkbox" id="sptopping2" name="thirdIng" value="chicken">
+                        <label for="sptopping2"> Chicken</label><br>
+
+                        <input type="checkbox" id="sptopping3" name="thirdIng" value="steak">
+                        <label for="sptopping3"> Philly Steak</label><br>
+
+                        <input type="checkbox" id="sptopping4" name="thirdIng" value="ham">
+                        <label for="sptopping4"> Ham</label><br>
+
+
+                      </div>
+                    </div>
+                  </fieldset>
+                  
+                  
+                  
+                  
+
+
+
+
+                </form>
+
+
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" onclick="order()">Submit</button>
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+
           <!-- --------------------------------------------------------------------------------------------------------------- -->
         </article>
         
