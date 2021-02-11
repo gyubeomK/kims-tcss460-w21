@@ -7,3 +7,7 @@
     font-size:x-large;
     font-style: oblique;
 }
+
+.your-class input{
+    float:left;
+  }

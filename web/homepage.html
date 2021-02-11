@@ -28,11 +28,6 @@
         <img src="./images/logo.png" id="logo">
       </a>
       
-
-
-
-
-
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,6 +36,11 @@
       
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          
+          <li class="nav-item active">
+            <a class="nav-link" href="homepage.html">Home</a>
+          </li>
+
           <li class="nav-item active">
             <a class="nav-link" href="menu.html">Menu</a>
           </li>
@@ -54,13 +54,8 @@
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="signIn.html">Sign In</a>
+            <button type="button" class="btn" data-toggle="modal" data-target="#mySignInModal" style="background-color: red; color: white">Sign In</button>
           </li>
-
-          <li class="nav-item active">
-            <a class="nav-link" href="signUp.html">Sign Up</a>
-          </li>
-          
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -68,6 +63,74 @@
     <!-- /.container -->
   </nav>
   <!-- End of navbar -->
+
+  <!-- Sign in Modal-->
+  <div id="mySignInModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Kim's Pizzeria</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" style="width:460px;">
+                  </div>
+                  <div class="form-group">
+                    <p> 
+                    <label for="pwd">Password<a href="register.html" style="margin-left: 16.0em; color: grey;"> Forgot Password?</a></label>
+                    </p>
+                      <input type="password" class="form-control" id="pwd" style="width:460px;">
+                  </div>
+                  <div class="checkbox">
+                    <p> 
+                      New to Kim's Pizzeria?<a data-toggle="modal" href="#mySignUpModal"> Sign Up</a>
+                      <label style="margin-left: 6.0em;"><input type="checkbox"> Remember me</label>
+                    </p>
+                  </div>
+                  <button type="submit" class="btn" style="width:460px; background-color: red; color: white">Sign In</button>
+                  </form>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Sign up Modal-->
+  <div id="mySignUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Welcome To Kim's Pizzeria</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="firstName">First Name <label for="lastName" style="margin-left: 9.4em;">Last Name</label></label>
+                    <table>
+                      <tr>
+                        <td><input type="firstName" class="form-control" id="firstName" style="width:230px;"></td>
+                        <td><input type="lastName" class="form-control" id="lastName" style="width:230px;"></td>
+                      </tr>
+                    </table>
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" style="width:460px;">
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password" class="form-control" id="pwd" style="width:460px;">
+                    <label for="cnfpwd">Confirm Password</label>
+                    <input type="password" class="form-control" id="cnfpwd" style="width:460px;">
+                  </div>
+                  <button type="submit" class="btn" style="width:460px; background-color: red; color: white">Sign Up</button>
+                  </form>
+          </div>
+        </div>
+    </div>
+  </div>
+
 
   <div class="two-toned-footer-color"></div>
 
@@ -116,11 +179,20 @@
           <div class="row">
             <div class="col-sm-6" style="background-color:;">
               <p id="heading">OUR FOOD IS FRESH! NEVER FROZEN</p>
-              Welcome to Kim's Pizzeria. We offer one of the best Gourmet Pizza in Tacoma. 
+              <label style="margin-left: 8.0em;">Welcome to Kim's Pizzeria.</label>
+              <br><label style="margin-left: 3.0em;">We offer one of the best Gourmet Pizza in Tacoma.</label>
+              <label style="margin-left: 10.0em;"><strong>Working Hours</strong></label> 
+              <br>Monday <label style="margin-left: 16.1em;"> 09:00AM - 08:00PM</label> 
+              <br>Tuesday <label style="margin-left: 16.0em;"> 09:00AM - 08:00PM</label> 
+              <br>Wednesday <label style="margin-left: 14.5em;"> 09:00AM - 08:00PM</label> 
+              <br>Thursday <label style="margin-left: 15.5em;"> 09:00AM - 08:00PM</label> 
+              <br>Friday <label style="margin-left: 17.0em;"> 09:00AM - 08:00PM</label> 
+              <br>Saturday <label style="margin-left: 15.7em;"> 11:00AM - 08:00PM</label> 
+              <br>Sunday <label style="margin-left: 16.3em;"> 12:00PM - 08:00PM</label> 
             </div>
             <div class="col-sm-6" style="background-color:;">
               <p id="heading">FIND US HERE!</p>
-              902 NE 43rd ST  
+              1515 Tacoma Ave S. Map will go here
             </div>
           </div>
           <!-- --------------------------------------------------------------------------------------------------------------- -->
