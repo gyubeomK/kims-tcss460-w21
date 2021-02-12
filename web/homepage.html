@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="./styles/styles.css" media="screen">
 
   <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
+
+  <script src="./scripts/login_reg.js"></script>
+
 </head>
 
 <body>
@@ -69,16 +72,21 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
               <div class="modal-body">
-                <form>
+                <form onsubmit="return checkSignForm(this);">
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" style="width:460px;">
+                    <input type="email" id="emailSign" style="width:460px;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                   </div>
                   <div class="form-group">
                     <p> 
                     <label for="pwd">Password<a href="register.html" style="margin-left: 16.0em; color: grey;"> Forgot Password?</a></label>
                     </p>
-                      <input type="password" class="form-control" id="pwd" style="width:460px;">
+                      <input 
+                        type="password" 
+                        class="form-control" 
+                        id="pwdSign" 
+                        style="width:460px;" 
+                      >
                   </div>
                   <div class="checkbox">
                     <p> 
@@ -87,7 +95,7 @@
                     </p>
                   </div>
                   <button type="submit" class="btn" style="width:460px; background-color: red; color: white">Sign In</button>
-                  </form>
+              </form>
           </div>
         </div>
     </div>
@@ -102,26 +110,33 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
               <div class="modal-body">
-                <form>
+                <form onsubmit="return checkRegForm(this);">
                   <div class="form-group">
                     <label for="firstName">First Name <label for="lastName" style="margin-left: 9.4em;">Last Name</label></label>
                     <table>
                       <tr>
-                        <td><input type="firstName" class="form-control" id="firstName" style="width:230px;"></td>
-                        <td><input type="lastName" class="form-control" id="lastName" style="width:230px;"></td>
+                        <td><input type="firstName" class="form-control" id="firstName" style="width:230px;" pattern=".{1,}$" required></td>
+                        <td><input type="lastName" class="form-control" id="lastName" style="width:230px;" pattern=".{1,}$" required></td>
                       </tr>
                     </table>
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" style="width:460px;">
+                    <input type="email" class="form-control" id="emailReg" style="width:460px;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                   </div>
                   <div class="form-group">
                     <label for="pwd">Password</label>
-                    <input type="password" class="form-control" id="pwd" style="width:460px;">
+                    <input 
+                      type="password" 
+                      class="form-control" 
+                      id="pwdReg" 
+                      style="width:460px;" 
+                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                      title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required
+                    >
                     <label for="cnfpwd">Confirm Password</label>
                     <input type="password" class="form-control" id="cnfpwd" style="width:460px;">
                   </div>
                   <button type="submit" class="btn" style="width:460px; background-color: red; color: white">Sign Up</button>
-                  </form>
+                </form>
           </div>
         </div>
     </div>
