@@ -54,3 +54,13 @@ input:checked[id="heart"]:after {
   background-color: #fe0f42;
 }
 
+
+/* Blue */
+.fav {
+  color: dodgerblue;
+}
+
+.fav:hover {
+  background: #2196F3;
+  color: white;
+}
