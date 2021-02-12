@@ -116,7 +116,7 @@
                       <br>
                       <br>
                       <label for="expmonth">Exp Date:</label>
-                      <input type="text" id="expdate" name="expdate" placeholder="09/24">
+                      <input type="date" id="expdate" name="expdate" placeholder="yy-mm-dd">
                       <label for="cvv">CVV:</label>
                       <input type="text" id="cvv" name="cvv" placeholder="123">
                     </div>
@@ -134,16 +134,23 @@
             <div class="col-6">
               <div class="container">
                 <h4 style=" text-align:center;">Your Order Summary<h4>
-                  <span class="price" style="color:black">
-                    <i class="hopping-cart"></i>
-                  </span>
-                </h4>
-                <p>Pizza 1<span class="price">$15</span></p>
-                <p>Pizza 2<span class="price">$5</span></p>
-                <p>Pizza 3<span class="price">$8</span></p>
-                <p>Pizza 4<span class="price">$2</span></p>
-                <hr>
-                <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                  <div class="panel-group">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" href="#collapse1">To See All your order</a>
+                        </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse">
+                        <ul class="list-group">
+                          <li class="list-group-item">Pizza 1 : 15$</li>
+                          <li class="list-group-item">Pizza 2 : 15$</li>
+                          <li class="list-group-item">Pizza 3 : 15$</li>
+                        </ul>
+                        <div class="panel-footer">Total: 45$</div>
+                      </div>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>

@@ -41,9 +41,6 @@ function totalCalculation() {
     });
     console.log(thirdIngredientInput.length)
     total += thirdIngredientInput.length * 5
-
-
-
     document.getElementById("subTotal").innerHTML = "Current Total: $" + total
 }
 
@@ -127,7 +124,6 @@ function order() {
     for(i = 0; i < thirdIngredientInput.length; i++) {
         console.log(thirdIngredientInput[i]);
     }
-
     // getContent()
 
     // 인풋 전부 다 정리 후, sql 데타 베이스에 넣기

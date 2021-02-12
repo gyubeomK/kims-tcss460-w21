@@ -11,8 +11,46 @@
 .your-class input{
     float:left;
   }
-
   #subTotal{
-    font-size:large;
-    font-style: oblique;
-  }
+  font-size:large;
+  font-style: oblique;
+}
+
+input[id="heart"] {
+  height: 20px;
+  width: 20px;
+  background-color: grey;
+  position: relative;
+  outline: none;
+  transform: rotate(45deg);
+  -webkit-appearance: none;
+}
+
+input[id="heart"]:before {
+  position: absolute;
+  content: "";
+  background-color: grey;
+  height: 60%;
+  width: 100%;
+  top:-56%;
+  border-radius: 10px 10px 0 0;
+}
+
+input[id="heart"]:after {
+  position: absolute;
+  content: "";
+  background-color: grey;
+  height: 60%;
+  width: 100%;
+  transform: rotate(-90deg);
+  border-radius: 10px 10px 0 0;
+  top: 20%;
+  right: 77%;
+}
+
+input[id="heart"]:checked,
+input:checked[id="heart"]:before,
+input:checked[id="heart"]:after {
+  background-color: #fe0f42;
+}
+
