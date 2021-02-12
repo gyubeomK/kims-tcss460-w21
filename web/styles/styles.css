@@ -17,8 +17,8 @@
 }
 
 input[id="heart"] {
-  height: 50px;
-  width: 50px;
+  height: 20px;
+  width: 20px;
   background-color: grey;
   position: relative;
   outline: none;
@@ -32,8 +32,8 @@ input[id="heart"]:before {
   background-color: grey;
   height: 60%;
   width: 100%;
-  top:-59%;
-  border-radius: 25px 25px 0 0;
+  top:-56%;
+  border-radius: 10px 10px 0 0;
 }
 
 input[id="heart"]:after {
@@ -43,9 +43,9 @@ input[id="heart"]:after {
   height: 60%;
   width: 100%;
   transform: rotate(-90deg);
-  border-radius: 25px 25px 0 0;
+  border-radius: 10px 10px 0 0;
   top: 20%;
-  right: 79%;
+  right: 77%;
 }
 
 input[id="heart"]:checked,
