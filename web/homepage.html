@@ -18,7 +18,24 @@
   <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
 
   <script src="./scripts/login_reg.js"></script>
-
+  
+  <script>
+    // Initialize and add the map
+    function initMap() {
+      // The location of Uluru
+      const uluru = { lat: -25.344, lng: 131.036 };
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: uluru,
+      });
+      // The marker, positioned at Uluru
+      const marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+      });
+    }
+  </script>
 </head>
 
 <body>
@@ -210,7 +227,12 @@
             </div>
             <div class="col-sm-4" style="background-color:;">
               <p id="heading">FIND US HERE!</p>
-              1515 Tacoma Ave S. Map will go here
+              1515 Tacoma Ave S.
+              <div id="map"></div>
+              <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+              <script async
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMeyey6BiloqCmp_LsvlkYUsnFnRNvY8U&callback=initMap">
+              </script>
             </div>
           </div>
 
