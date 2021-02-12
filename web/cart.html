@@ -143,10 +143,6 @@
             <div class="col-6">
               <div class="container">
                 <h4 style=" text-align:left;">Your Order Summary<h4>
-                <button class="btn fav" id="favBtn" onclick="addFavOrder()">Add this order to your favorite list?</button>
-                
-                
-
 
                   <div class="panel-group">
                     <div class="panel panel-default">
@@ -166,6 +162,12 @@
                     </div>
                   </div>
                   
+                  <div class="input-group">
+                    <input class="form-control width100" placeholder="Name your favorite order!">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" id="favBtn" onclick="addFavOrder()">Add</button>
+                    </span>
+                </div>
               </div>
             </div>
           </div>
