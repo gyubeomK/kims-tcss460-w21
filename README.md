@@ -9,6 +9,6 @@
     * Map is added at the bottom of homepage (used iframe, can use +/- to zoom in/out, the mark is placed in specific place)
     * Payment section is added after clicking checkout
 * GitHub Link
-    * https://github.com/gyubeomK/kims-tcss460-w21/blob/master/README.md
+    * https://github.com/gyubeomK/kims-tcss460-w21
 * Website Link
     * https://kims-tcss460-w21.herokuapp.com/homepage.html
