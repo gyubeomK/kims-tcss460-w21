@@ -1,9 +1,9 @@
-#Name all students who this submission is for
-Hyeonsuk Kim and Gyubeom Kim
-#Write about what you have or haven’t implemented.
-
-#If you implemented an extra feature, make a note of it here
-
-#Add a link to your Github repository - add cfb3 as a collaborator
-
-#Add a link to the home page of your website
+# Kim's Pizzeria
+* Gyubeom Kim and Hyeongsuk Kim
+    * This is for one of our academic courses, TCSS 460. We built Oline Pizza Order Website
+* Have Note Implemented
+    * Edit Item is not yet added
+    * Cart to Order Page is not working; therefore We hard coded it (Menu to Cart is working only for first pizza)
+    * Most of functionalties in order is not yet added
+* Website Link
+    * https://kims-tcss460-a1.herokuapp.com/homepage.html
