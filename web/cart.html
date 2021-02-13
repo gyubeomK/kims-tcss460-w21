@@ -18,9 +18,31 @@
   <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
 
   <script src="./scripts/order.js"></script>
+
+  <script>
+    function initialLoad() {
+      console.log("total from cart: " + localStorage.getItem("total"));
+      console.log("Size from cart: " + localStorage.getItem("size"));
+      console.log("Crust from cart: " + localStorage.getItem("crust"));
+      console.log("Cheese from cart: " + localStorage.getItem("cheese"));
+      console.log("sauce from cart: " + localStorage.getItem("sauce"));
+      console.log("secIng from cart: " + localStorage.getItem("secIng"));
+      console.log("thirdIng from cart: " + localStorage.getItem("thirdIng"));
+      
+
+      document.getElementById("total").innerHTML = "Price: $" + localStorage.getItem("total")
+      document.getElementById("size").innerHTML = "Size: " + localStorage.getItem("size") + " inch"
+      document.getElementById("crust").innerHTML = "Crust: " + localStorage.getItem("crust")
+      document.getElementById("cheese").innerHTML = "Cheese: " + localStorage.getItem("cheese")
+      document.getElementById("sauce").innerHTML = "Sauce: " + localStorage.getItem("sauce")
+      document.getElementById("2ndTopping").innerHTML = "Toppings: " + localStorage.getItem("secIng")
+      document.getElementById("3rdTopping").innerHTML = "Extra Toppings: " + localStorage.getItem("thirdIng")
+
+    }
+  </script>
 </head>
 
-<body>
+<body onload="initialLoad()">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <div class="container">
@@ -159,13 +181,13 @@
             <div class="media">
                 <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
                 <div class="media-body">
-                    <h6 class="mt-0">Price: $ 35</h6>  
-                    <h6 class="mt-0">Size: 10 inch</h6>
-                    <h6 class="mt-0">Crust: Thin</h6>
-                    <h6 class="mt-0">Cheese: Parmesan</h6>
-                    <h6 class="mt-0">Sauce: Marinara</h6>
-                    <h6 class="mt-0">Toppings: Pepperoni, Extra Cheese</h6>
-                    <h6 class="mt-0">Special Toppings: Ham</h6>
+                    <h6 class="mt-0" id="total">Price: $ 35</h6>  
+                    <h6 class="mt-0 " id="size">Size: 10 inch</h6>
+                    <h6 class="mt-0 " id="crust">Crust: Thin</h6>
+                    <h6 class="mt-0 " id="cheese">Cheese: Parmesan</h6>
+                    <h6 class="mt-0 " id="sauce">Sauce: Marinara</h6>
+                    <h6 class="mt-0 " id="2ndTopping">Toppings: Pepperoni, Extra Cheese</h6>
+                    <h6 class="mt-0 " id="3rdTopping">Special Toppings: Ham</h6>
                   <!-- Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. -->
                 </div>
                 <button type="button" class="btn" style="background-color: red; color: white" onclick="window.location.href = 'order.html'">Proceed to checkout</button>
@@ -177,7 +199,7 @@
                 <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
                 <div class="media-body">
                     <h6 class="mt-0">Price: $ 35</h6>  
-                    <h6 class="mt-0">Size: 10 inch</h6>
+                    <h6 class="mt-0">Size: 10 inch</h6>                    
                     <h6 class="mt-0">Crust: Thin</h6>
                     <h6 class="mt-0">Cheese: Parmesan</h6>
                     <h6 class="mt-0">Sauce: Marinara</h6>

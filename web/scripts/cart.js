@@ -5,4 +5,10 @@ function addFavOrder() {
         $("#buttonAlert").addClass('show') //Shows Bootstrap alert
     })
 
+    $("#btn").click(function(){
+        console.log("Size from cart: " + localStorage.getItem("size"));
+    })
+    
+
 }
+

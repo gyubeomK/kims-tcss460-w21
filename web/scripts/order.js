@@ -42,6 +42,14 @@ function totalCalculation() {
     console.log(thirdIngredientInput.length)
     total += thirdIngredientInput.length * 5
     document.getElementById("subTotal").innerHTML = "Current Total: $" + total
+
+    localStorage.setItem("size", sizeInput);
+    localStorage.setItem("crust", crustInput);
+    localStorage.setItem("cheese", cheeseInput);
+    localStorage.setItem("sauce", sauceInput);
+    localStorage.setItem("secIng", secIngredientInput)
+    localStorage.setItem("thirdIng", thirdIngredientInput)
+    localStorage.setItem("total", total)
 }
 
 function sizePrice(sizeInput) {
@@ -127,7 +135,9 @@ function order() {
     // getContent()
 
     // 인풋 전부 다 정리 후, sql 데타 베이스에 넣기
-    
+
+
+
 }
 
 
