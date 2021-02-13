@@ -16,8 +16,7 @@
   <link rel="stylesheet" href="./styles/styles.css" media="screen">
 
   <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
-
-  <script src="./scripts/order.js"></script>
+  <script src="./scripts/cart.js"></script>
 </head>
 
 <body>
@@ -48,16 +47,16 @@
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="order.html">Order</a>
-          </li>
-
-          <li class="nav-item active">
             <a class="nav-link" href="cart.html">Cart</a>
           </li>
 
           <li class="nav-item active">
+            <a class="nav-link" href="order.html">Order</a>
+          </li>
+
+          <li class="nav-item active">
             <button type="button" class="btn" data-toggle="modal" data-target="#mySignInModal" style="background-color: red; color: white">Sign In</button>
-          </li> 
+          </li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -66,55 +65,185 @@
   </nav>
   <!-- End of navbar -->
 
-  <div class="two-toned-footer-color"></div>
+  <!-- Sign in Modal-->
+  <div id="mySignInModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Kim's Pizzeria</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+              <div class="modal-body">
+                <form onsubmit="return checkSignForm(this);">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="emailSign" style="width:460px;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                  </div>
+                  <div class="form-group">
+                    <p> 
+                    <label for="pwd">Password<a href="register.html" style="margin-left: 16.0em; color: grey;"> Forgot Password?</a></label>
+                    </p>
+                      <input 
+                        type="password" 
+                        class="form-control" 
+                        id="pwdSign" 
+                        style="width:460px;" 
+                      >
+                  </div>
+                  <div class="checkbox">
+                    <p> 
+                      New to Kim's Pizzeria?<a data-toggle="modal" href="#mySignUpModal"> Sign Up</a>
+                      <label style="margin-left: 6.0em;"><input type="checkbox"> Remember me</label>
+                    </p>
+                  </div>
+                  <button type="submit" class="btn" style="width:460px; background-color: red; color: white">Sign In</button>
+              </form>
+          </div>
+        </div>
+    </div>
+  </div>
 
-  <!-- Start of container -->
-  <main class="container">
-    <section class="row">
-      <div class="col-md-12">
-        <article class="block">
+  <!-- Sign up Modal-->
+  <div id="mySignUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Welcome To Kim's Pizzeria</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+              <div class="modal-body">
+                <form onsubmit="return checkRegForm(this);">
+                  <div class="form-group">
+                    <label for="firstName">First Name <label for="lastName" style="margin-left: 9.4em;">Last Name</label></label>
+                    <table>
+                      <tr>
+                        <td><input type="firstName" class="form-control" id="firstName" style="width:230px;" pattern=".{1,}$" required></td>
+                        <td><input type="lastName" class="form-control" id="lastName" style="width:230px;" pattern=".{1,}$" required></td>
+                      </tr>
+                    </table>
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="emailReg" style="width:460px;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input 
+                      type="password" 
+                      class="form-control" 
+                      id="pwdReg" 
+                      style="width:460px;" 
+                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                      title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required
+                    >
+                    <label for="cnfpwd">Confirm Password</label>
+                    <input type="password" class="form-control" id="cnfpwd" style="width:460px;">
+                  </div>
+                  <button type="submit" class="btn" style="width:460px; background-color: red; color: white">Sign Up</button>
+                </form>
+          </div>
+        </div>
+    </div>
+  </div>
 
-          <!-- --------------------------------------------------------------------------------------------------------------- -->
-            <h2>Favorite Order</h2>
-            <hr />
-            <div class="media">
-                <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
-                <div class="media-body">
-                    <h6 class="mt-0">Price: $ 35</h6>  
-                    <h6 class="mt-0">Size: 10 inch</h6>
-                    <h6 class="mt-0">Crust: Thin</h6>
-                    <h6 class="mt-0">Cheese: Parmesan</h6>
-                    <h6 class="mt-0">Sauce: Marinara</h6>
-                    <h6 class="mt-0">Toppings: Pepperoni, Extra Cheese</h6>
-                    <h6 class="mt-0">Special Toppings: Ham</h6>
-                  <!-- Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. -->
-                </div>
+    <!-- Payment Modal-->
+    <div id="myPaymentModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Payment Details</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
-            
-            <h2>Previous Order</h2>
-            <hr />
-            <div class="media">
-                <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
-                <div class="media-body">
-                    <h6 class="mt-0">Date: 2021-02-11</h6>  
-                    <h6 class="mt-0">Price: $ 35</h6>  
-                    <h6 class="mt-0">Size: 10 inch</h6>
-                    <h6 class="mt-0">Crust: Thin</h6>
-                    <h6 class="mt-0">Cheese: Parmesan</h6>
-                    <h6 class="mt-0">Sauce: Marinara</h6>
-                    <h6 class="mt-0">Toppings: Pepperoni, Extra Cheese</h6>
-                    <h6 class="mt-0">Special Toppings: Ham</h6>
-                  <!-- Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. -->
-                </div>
-              </div>
-          <!-- --------------------------------------------------------------------------------------------------------------- -->
-        </article>
-        
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <h3 style="margin-left: 0.5em;">Billing Address</h3>
+                      <label for="fname" style="margin-left: 1em;">Full Name:</label>
+                      <input type="text" id="fname" name="firstname" placeholder="Name">
+                      <br>
+                      <br>
+                      <label for="email" style="margin-left: 1em;">Email:</label>
+                      <input type="text" id="email" name="email" placeholder="user@example.com">
+                      <br>
+                      <br>
+                      <label for="adr" style="margin-left: 1em;">Address:</label>
+                      <input type="text" id="adr" name="address" placeholder="1515 Tacoma Yakima Ave" style="width:460px; margin-left: 1em;">
+                      <br>
+                      <br>
+                      <label for="city" style="margin-left: 1em;"></i>City:</label>
+                      <input type="text" id="city" name="city" placeholder="Tacoma">
+                      <label for="state">State:</label>
+                      <input type="text" id="state" name="state" placeholder="WA">
+          
+                      <div class="row">
+                        <div class="col-6">
+                          <br>
+                          <label for="zip" style="margin-left: 1em;">Zip:</label>
+                          <input type="text" id="zip" name="zip" placeholder="10001" style="margin-left: 1em;">
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                    </div>
+                    <br>
+                      <h3>Payment</h3>
+                      <label for="fname">
+                          Accepted Cards 
+                          <img src="./images/cards.png" id="card">
+                      </label>
+                      <br>
+                      <label for="cname">Name on Card:</label>
+                      <input type="text" id="cname" name="cardname" placeholder="Name">
+                      <br>
+                      <br>
+                      <label for="ccnum">Credit card number:</label>
+                      <br>
+                      <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"  style="width:467px;">
+                      <br>
+                      <br>
+                      <label for="expmonth">Exp Date:</label>
+                      <input type="date" id="expdate" name="expdate" placeholder="yy-mm-dd">
+                      <label for="cvv">CVV:</label>
+                      <input type="text" id="cvv" name="cvv" placeholder="123">
+                    </div>
+                    <button type="submit" class="btn" style="width:460px; margin-left: 1em; margin-bottom: 1em; background-color: red; color: white">Check Out</button>
+                  </form>
+            </div>
+          </div>
       </div>
-    </section>
-  </main>
-  <!-- End of container -->
+    </div>
+        <!-- --------------------------------------------------------------------------------------------------------------- -->
+              
+          <section id="main">
+          <div id="big-box">
+                <h4 style=" text-align:left;">Your Order Summary<h4>
+                  <div class="panel-group">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" href="#collapse1">To See All Your Order</a>
+                        </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse">
+                      <section class="container content-section">
+                          <div class="cart-row">
+                              <span class="cart-item cart-header cart-column">ITEM</span>
+                              <span class="cart-price cart-header cart-column">PRICE</span>
+                              <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                          </div>
+                          <div class="cart-items">
+                          </div>
+                          <div class="cart-total">
+                              <strong class="cart-total-title">Total</strong>
+                              <span class="cart-total-price">$0</span>
+                          </div>
+                          <button class="btn btn-primary btn-purchase" data-toggle="modal" data-target="#myPaymentModal" type="button">PURCHASE</button>
+                      </section>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </section>
 
+        <!-- --------------------------------------------------------------------------------------------------------------- -->
   <!-- Start of footer -->
   <footer class="footer">
     <div class="two-toned-footer-color"></div>

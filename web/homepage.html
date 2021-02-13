@@ -18,24 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
 
   <script src="./scripts/login_reg.js"></script>
-  
-  <script>
-    // Initialize and add the map
-    function initMap() {
-      // The location of Uluru
-      const uluru = { lat: -25.344, lng: 131.036 };
-      // The map, centered at Uluru
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
-        center: uluru,
-      });
-      // The marker, positioned at Uluru
-      const marker = new google.maps.Marker({
-        position: uluru,
-        map: map,
-      });
-    }
-  </script>
+
 </head>
 
 <body>
@@ -66,11 +49,11 @@
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="order.html">Order</a>
+            <a class="nav-link" href="cart.html">Cart</a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="cart.html">Cart</a>
+            <a class="nav-link" href="order.html">Order</a>
           </li>
 
           <li class="nav-item active">
@@ -227,12 +210,7 @@
             </div>
             <div class="col-sm-4" style="background-color:;">
               <p id="heading">FIND US HERE!</p>
-              1515 Tacoma Ave S.
-              <div id="map"></div>
-              <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-              <script async
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMeyey6BiloqCmp_LsvlkYUsnFnRNvY8U&callback=initMap">
-              </script>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2708.40222149019!2d-122.4450377844811!3d47.24783762068538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54905573861aba2b%3A0xbf5b912f8d7aeca4!2s1515%20Tacoma%20Ave%20S%2C%20Tacoma%2C%20WA%2098402!5e0!3m2!1sen!2sus!4v1613174502868!5m2!1sen!2sus" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
           </div>
 
