@@ -22,6 +22,7 @@ CREATE TABLE PizzaOrder (OrderID SERIAL PRIMARY KEY,
                     Crust VARCHAR(255) NOT NULL,
                     Cheese VARCHAR(255) NOT NULL,
                     Sauce VARCHAR(255) NOT NULL,
-                    Topping1 VARCHAR(255) NOT NULL,
-                    Topping2 VARCHAR(255) NOT NULL
+                    SecIng VARCHAR(255) NOT NULL,
+                    ThirdIng VARCHAR(255) NOT NULL,
+                    Total INT
 );
