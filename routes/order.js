@@ -182,16 +182,17 @@ router.post('/', (request, response) => {
     const secIng = request.body.secIng
     const thirdIng = request.body.thirdIng
     const total = request.body.total
-
+    
 
     const theQuery = 
-        "INSERT INTO Order(Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total) VALUES ($1, $2, $3, $4, $5, $6, $7)"
+        "INSERT INTO PizzaOrder(Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total) VALUES ($1, $2, $3, $4, $5, $6, $7)"
     let values = [size, crust, cheese, sauce, secIng, thirdIng, total]
 
+    console.log(values)
+    console.log(request.body)
 
-
-    
-    if(isProvided(size) && isProvided(crust) && isProvided(cheese) && isProvided(sauce) && isProvided(total)) {
+    // if(isProvided(size) && isProvided(crust) && isProvided(cheese) && isProvided(sauce) ) {
+    if(isProvided(size) && isProvided(crust) && isProvided(cheese) && isProvided(sauce) && (total > 0)) {
     
         if(isSizeValid(size) && isCrustValid(crust) && isCheeseValid(cheese) && isSauceValid(sauce)) {
             pool.query(theQuery, values).then(result => {
