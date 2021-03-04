@@ -109,11 +109,15 @@ async function submit_order() {
     let thirdIng = localStorage.getItem("thirdIng")
     let total = localStorage.getItem("total")
 
+    console.log(typeof size)
 
     console.log(size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
 
     let response = await fetch("/order", {
         method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
         body: JSON.stringify({
             "size": size,
             "crust": crust,
