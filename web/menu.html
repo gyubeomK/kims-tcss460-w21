@@ -19,6 +19,22 @@
 
   <script src="./scripts/menu.js"></script>
   <script src="./scripts/login_reg.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+        // Open modal on page load
+        $("#myModal").modal('show');
+ 
+        // Close modal on button click
+        $("#sorderSubmitBtn").click(function(){
+            $("#myModal").modal('hide');
+        });
+    });
+</script>
+
+    
+
+  </script>
 </head>
 
 <body>
@@ -452,7 +468,7 @@
               </div>
               <div class="modal-footer">
                 <input id="heart" type="checkbox" style="margin-right: 22em;">
-                <button type="submit" class="btn btn-primary" onclick="submit_order()">Submit</button>
+                <button id="orderSubmitBtn" type="submit" class="btn btn-primary" onclick="submit_order()">Submit</button>
                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
               </div>
               

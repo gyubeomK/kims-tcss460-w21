@@ -57,11 +57,29 @@ function checkRegForm(form) {
     console.log("checkRegForm triggered!")
 
     var isSame = false;
+
+
+    //getting all the inputs
+    var firstName = $("#firstName").val();
+    var lastName = $("#lastName").val();
+    var email = $("#emailReg").val();
     var pwd = $("#pwdReg").val();
     var cnfpwd = $("#cnfpwd").val();
 
+
+    console.log("firstName: " + firstName)
+    console.log("lastName: " + lastName)
+    console.log("emailReg: " + email)
+    console.log("pwd: " + pwd)
+    console.log("cnfpwd: " + cnfpwd)
+
+
     if (pwd===cnfpwd) {
+        //initiaite register http requst
+        register(firstName, lastName, email, pwd)
+
         alert("Registered! Welcome to Kim's Pizzeria!");
+
         isSame = true;
     } else {
         alert("Confirm Password Does not Match With Your Password!");
@@ -76,4 +94,30 @@ function checkRegForm(form) {
         )
     }
     return isSame;
+}
+
+async function register(first, last, email, pwd) {
+    console.log("register triggered")
+
+    let response = await fetch("/auth", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "first": first,
+            "last": last,
+            "email": email,
+            "password": pwd
+        })
+    })
+    
+    if(response.ok) {
+        let json = await response.json()
+        location.reload()
+    } else {
+        alert("HTTP-Error: " + response.status)
+    }
+   
+
 }

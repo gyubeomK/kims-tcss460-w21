@@ -98,6 +98,7 @@ function saucePrice(sauceInput) {
 }
 
 
+
 async function submit_order() {
     console.log("submit_order triggered")
 
@@ -131,15 +132,15 @@ async function submit_order() {
 
     if(response.ok) {
         let json = await response.json()
+        location.reload()
     } else {
         alert("HTTP-Error: " + response.status)
     }
 
-    
-    
+    // window.location.reload
 
-    
-    
+    // window.location.href = window.location.href;
+ 
     
 
 

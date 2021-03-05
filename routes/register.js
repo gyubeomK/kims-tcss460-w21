@@ -52,12 +52,19 @@ router.post('/', (req, res) => {
     //Retrieve data from query params
     var first = req.body.first
     var last = req.body.last
-    var username = req.body.email //username not required for lab. Use email
+    //var username = req.body.email //username not required for lab. Use email
     var email = req.body.email
     var password = req.body.password
+    
+    
+    
+    
     //Verify that the caller supplied all the parameters
     //In js, empty strings or null values evaluate to false
-    if(isProvided(first) && isProvided(last) && isProvided(username) && isProvided(email) && isProvided(password)) {
+
+
+    // if(isProvided(first) && isProvided(last) && isProvided(username) && isProvided(email) && isProvided(password)) {
+    if(isProvided(first) && isProvided(last) && isProvided(email) && isProvided(password)) {    
         //We're storing salted hashes to make our application more secure
         //If you're interested as to what that is, and why we should use it
         //watch this youtube video: https://www.youtube.com/watch?v=8ZtInClXe1Q
@@ -66,8 +73,8 @@ router.post('/', (req, res) => {
         
         //We're using placeholders ($1, $2, $3) in the SQL query string to avoid SQL Injection
         //If you want to read more: https://stackoverflow.com/a/8265319
-        let theQuery = "INSERT INTO MEMBERS(FirstName, LastName, Username, Email, Password, Salt) VALUES ($1, $2, $3, $4, $5, $6) RETURNING Email"
-        let values = [first, last, username, email, salted_hash, salt]
+        let theQuery = "INSERT INTO MEMBERS(FirstName, LastName, Email, Password, Salt) VALUES ($1, $2, $3, $4, $5) RETURNING Email"
+        let values = [first, last, email, salted_hash, salt]
         pool.query(theQuery, values)
             .then(result => {
                 //We successfully added the user!
