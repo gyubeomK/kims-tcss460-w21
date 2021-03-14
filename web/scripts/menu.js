@@ -1,4 +1,5 @@
 function initialTotal() {
+
     console.log("initial total triggered")
 
     totalCalculation()
@@ -206,7 +207,20 @@ function deleteLocalStorage() {
 
 function initialLoad() {
     console.log("initialLoad() Triggered");
+    if (document.cookie.indexOf('authorized') == -1 ) {
+        console.log("authorized cookie does not exists"); //not logged-in
+        var temp = document.getElementById("navSignInBtn");
+        temp.style.display = 'block'
+        
 
+    } else {
+        console.log("authorized cookie does exists"); //logged-in
+        //$("#navSignInBtn").remove()
+        $("#navUsername").html("Welcome! " + localStorage.getItem("email"))    
+
+
+
+    }
 
     getFavOrders()
     getPrevOrders()
