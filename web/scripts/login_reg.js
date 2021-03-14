@@ -1,4 +1,3 @@
-window
 //GLOBAL
 function initialLoad() {
     
