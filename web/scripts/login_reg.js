@@ -1,6 +1,4 @@
 //GLOBAL
-let username = null;
-
 function initialLoad() {
     
     //-----Put this into else()
@@ -12,7 +10,7 @@ function initialLoad() {
     } else {
         console.log("authorized cookie does exists"); //logged-in
         $("#navSignInBtn").remove()
-        $("#navUsername").html("Welcome! " + username)    
+        $("#navUsername").html("Welcome! ")    
 
 
 
@@ -75,8 +73,10 @@ async function sign_in(email, password) {
             console.log(json.token)
             console.log(document.cookie)
             
+            localStorage.setItem("email", email);
+            
         }
-        username = email
+        
     } else {
         alert("HTTP-Error: " + response.status)
         console.log(response.status)
