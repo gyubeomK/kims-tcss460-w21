@@ -1,11 +1,23 @@
+//GLOBAL
+let username = null
+
 function initialLoad() {
-    // == -1 / does not exist
+    
+    //-----Put this into else()
+    
+    
     
     if (document.cookie.indexOf('authorized') == -1 ) {
-        console.log("authorized cookie does not exists");
+        console.log("authorized cookie does not exists"); //not logged-in
     } else {
-        console.log("authorized cookie does exists");
+        console.log("authorized cookie does exists"); //logged-in
+        $("#navSignInBtn").remove()
+        $("#navUsername").html("Welcome!" + username)    
+
+
+
     }
+
 
 }
 
@@ -62,6 +74,7 @@ async function sign_in(email, password) {
             
             console.log(json.token)
             console.log(document.cookie)
+            username = email
         }
     } else {
         alert("HTTP-Error: " + response.status)
