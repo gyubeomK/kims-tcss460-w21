@@ -1,3 +1,4 @@
+window
 //GLOBAL
 function initialLoad() {
     
@@ -7,9 +8,13 @@ function initialLoad() {
     
     if (document.cookie.indexOf('authorized') == -1 ) {
         console.log("authorized cookie does not exists"); //not logged-in
+        var temp = document.getElementById("navSignInBtn");
+        temp.style.display = 'block'
+        
+
     } else {
         console.log("authorized cookie does exists"); //logged-in
-        $("#navSignInBtn").remove()
+        //$("#navSignInBtn").remove()
         $("#navUsername").html("Welcome! " + localStorage.getItem("email"))    
 
 
