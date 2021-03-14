@@ -10,7 +10,7 @@ function initialLoad() {
     } else {
         console.log("authorized cookie does exists"); //logged-in
         $("#navSignInBtn").remove()
-        $("#navUsername").html("Welcome! ")    
+        $("#navUsername").html("Welcome! " + localStorage.getItem("email"))    
 
 
 
