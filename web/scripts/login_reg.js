@@ -160,3 +160,6 @@ async function register(first, last, email, pwd) {
    
 
 }
+async function signOut() {
+    console.log("signOut() triggered")
+}

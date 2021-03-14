@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
 
   <script src="./scripts/menu.js"></script>
+  <script src="./scripts/login_reg.js"></script>
 </head>
 
 <body onload="initialLoad()">
@@ -63,7 +64,7 @@
           </li>
 
           <li class="nav-item active">
-            <button id="navSignOutBtn" type="button" class="btn" data-toggle="modal" data-target="#mySignInModal" style="background-color: red; color: white; display:none">Sign Out</button>
+            <button onclick="signOut()" id="navSignOutBtn" type="button" class="btn" data-toggle="modal" data-target="#mySignInModal" style="background-color: red; color: white; display:none">Sign Out</button>
           </li>
 
           
