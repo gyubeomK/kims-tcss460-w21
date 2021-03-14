@@ -1,10 +1,10 @@
 function initialLoad() {
     // == -1 / does not exist
-    console.log(document.cookie)
-    if (document.cookie.indexOf('access_token') == -1 ) {
-        console.log("access_token cookie does not exists");
+    
+    if (document.cookie.indexOf('authorized') == -1 ) {
+        console.log("authorized cookie does not exists");
     } else {
-        console.log("access_token cookie does exists");
+        console.log("authorized cookie does exists");
     }
 
 }
