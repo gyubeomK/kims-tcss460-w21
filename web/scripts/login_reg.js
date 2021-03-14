@@ -180,4 +180,9 @@ async function signOut() {
         console.log(json)
     }
 
+    $("#navUsername").html("")    
+    var temp = document.getElementById("navSignOutBtn");
+    temp.style.display = 'none'
+    temp = document.getElementById("navSignInBtn");
+    temp.style.display = 'block'
 }
