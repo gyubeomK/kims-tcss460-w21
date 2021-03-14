@@ -58,6 +58,7 @@ router.get('/', (request, response, next) => {
             "password" : password
         }
         next()
+        
     } else {
         response.status(400).send({
             message: "Malformed Authorization Header"
@@ -66,14 +67,20 @@ router.get('/', (request, response, next) => {
 }, (request, response) => {
     const theQuery = "SELECT Password, Salt, MemberId FROM Members WHERE Email=$1"
     const values = [request.auth.email]
+    
+
+    //This pool.query does not work
     pool.query(theQuery, values)
         .then(result => { 
+            //console.log(result)
+
             if (result.rowCount == 0) {
                 response.status(404).send({
                     message: 'User not found' 
                 })
                 return
             }
+            
             let salt = result.rows[0].salt
             //Retrieve our copy of the password
             let ourSaltedHash = result.rows[0].password 
@@ -83,6 +90,7 @@ router.get('/', (request, response, next) => {
 
             //Did our salted hash match their salted hash?
             if (ourSaltedHash === theirSaltedHash ) {
+
                 //credentials match. get a new JWT
                 let token = jwt.sign(
                     {
@@ -94,6 +102,12 @@ router.get('/', (request, response, next) => {
                         expiresIn: '14 days' // expires in 14 days
                     }
                 )
+                
+                //console.log("token: " + token)
+
+
+
+
 
                 response.cookie('access_token', 'Bearer ' + token,
                     {
@@ -101,6 +115,10 @@ router.get('/', (request, response, next) => {
                         httpOnly: true
                         
                     })
+
+
+
+
                 //use this cookie client side to know if a user is signed in    
                 response.cookie('authorized', true,
                     {
@@ -115,11 +133,13 @@ router.get('/', (request, response, next) => {
                     message: 'Authentication successful!',
                     token: token
                 })
+                console.log("cookie should be created") //to be deleted
             } else {
                 //credentials dod not match
                 response.status(400).send({
                     message: 'Credentials did not match' 
                 })
+                console.log("cookie should not be created") //to be deleted
             }
         })
         .catch((err) => {
@@ -129,6 +149,7 @@ router.get('/', (request, response, next) => {
                 message: err.detail
             })
         })
+    
 })
 
 module.exports = router
