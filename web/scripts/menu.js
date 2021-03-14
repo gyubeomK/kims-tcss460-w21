@@ -207,25 +207,9 @@ function deleteLocalStorage() {
 function initialLoad() {
     console.log("initialLoad() Triggered");
 
-    // console.log("total from cart: " + localStorage.getItem("total"));
-    // console.log("Size from cart: " + localStorage.getItem("size"));
-    // console.log("Crust from cart: " + localStorage.getItem("crust"));
-    // console.log("Cheese from cart: " + localStorage.getItem("cheese"));
-    // console.log("sauce from cart: " + localStorage.getItem("sauce"));
-    // console.log("secIng from cart: " + localStorage.getItem("secIng"));
-    // console.log("thirdIng from cart: " + localStorage.getItem("thirdIng"));
-    
-
-    // document.getElementById("total").innerHTML = "Price: $" + localStorage.getItem("total")
-    // document.getElementById("size").innerHTML = "Size: " + localStorage.getItem("size") + " inch"
-    // document.getElementById("crust").innerHTML = "Crust: " + localStorage.getItem("crust")
-    // document.getElementById("cheese").innerHTML = "Cheese: " + localStorage.getItem("cheese")
-    // document.getElementById("sauce").innerHTML = "Sauce: " + localStorage.getItem("sauce")
-    // document.getElementById("2ndTopping").innerHTML = "Toppings: " + localStorage.getItem("secIng")
-    // document.getElementById("3rdTopping").innerHTML = "Extra Toppings: " + localStorage.getItem("thirdIng")
 
     getFavOrders()
-    //getPrevOrders()
+    getPrevOrders()
 }
 async function getFavOrders() {
 
@@ -250,6 +234,23 @@ async function getFavOrders() {
 
 
 }
-// async function getPrevOrders() {
+async function getPrevOrders() {
+    let response = await fetch("/order",  {
+        method: 'GET',
+        headers: {
+            "Content-Type" : "application/json;charset=utf-8"
+        }
+    })
+    if (response.ok) { 
+        let json = await response.json()
+        console.log(json)
+        
 
-// }
+
+    } else {
+        alert("HTTP-Error: " + response.status)
+        console.log(response.status)
+        let json = await response.json()
+        console.log(json)
+    }
+}
