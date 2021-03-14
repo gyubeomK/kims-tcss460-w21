@@ -1,5 +1,9 @@
 function initialTotal() {
     console.log("initial total triggered")
+
+    totalCalculation()
+
+
     document.getElementById("subTotal").innerHTML = "Current Total: $20"
 }
 
@@ -110,7 +114,7 @@ async function submit_order() {
     let thirdIng = localStorage.getItem("thirdIng")
     let total = localStorage.getItem("total")
 
-    console.log(typeof size)
+    // console.log(typeof size)
 
     console.log(size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
 
@@ -148,39 +152,55 @@ async function submit_order() {
 }
 
 
+async function addFavData() {
 
-//dealing with async function
-// async function getContent() {
+    console.log("addFavData() Triggered")
+
+    let size = localStorage.getItem("size")
+    let crust = localStorage.getItem("crust")
+    let cheese = localStorage.getItem("cheese")
+    let sauce = localStorage.getItem("sauce")
+    let secIng = localStorage.getItem("secIng")
+    let thirdIng = localStorage.getItem("thirdIng")
+    let total = localStorage.getItem("total")
+    console.log(size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
+
+    let response = await fetch("/favOrder", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "size": size,
+            "crust": crust,
+            "cheese": cheese,
+            "sauce": sauce,
+            "secIng": secIng,
+            "thirdIng": thirdIng,
+            "total": total
+        })
+    })
+
+    if(response.ok) {
+        let json = await response.json()
+        
+        alert("You pizza has been successfully added in your fav list! Yay")    
+
+
+
+
+    } else {
+        alert("HTTP-Error: " + response.status)
+    }
+
     
-//     let endPoint = "http://localhost:5000/order"; //need to be changed later
+    
+
+}
+
+function deleteLocalStorage() {
+    console.log("deleteLocalStorage() triggered!")
+    localStorage.clear()
+}
 
 
-//     console.log("end point URL: " + endPoint);
-//     let response = await fetch(endPoint,  {
-//         method: 'GET',
-//         // headers: {
-//         //     'Content-Type': 'application/json;charset=utf-8'
-//         // }//,
-//         // body: JSON.stringify({'phrase':palinInput,
-//         //                       'strict':strictInput})
-//     })
-//     if (response.ok) { // if HTTP-status is 200-299
-//         // get the response body (the method explained below)
-//         let json = await response.json()
-        
-//         console.log(json.isPalindrome)
-
-//         //here use if/else to change the color of the input box
-//         if(json.isPalindrome) {
-//             $("#palinInput").css("color", "white")
-//             $("#palinInput").css("background-color", "green")
-//         } else {
-//             $("#palinInput").css("color", "white")
-//             $("#palinInput").css("background-color", "red")
-//         }
-
-        
-//     } else {
-//         alert("HTTP-Error: " + response.status)
-//     }
-// }

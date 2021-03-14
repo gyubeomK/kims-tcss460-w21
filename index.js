@@ -46,6 +46,8 @@ app.use('/reverse', require('./routes/lab4.js'))
 
 app.use('/order', require('./routes/order.js'))
 
+app.use('/favOrder', require('./routes/favOrder.js'))
+
 /*
  * When clients connect to the base URL, hosts html and other static files found 
  * in the web directory.

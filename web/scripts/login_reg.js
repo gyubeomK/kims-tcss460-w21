@@ -1,4 +1,5 @@
 function checkSignForm(form) {
+
     console.log("checkSignForm triggered!")
 
     
@@ -22,17 +23,19 @@ function checkSignForm(form) {
     return isSame;
 }
 
-async function sign_in() {
+async function sign_in(email, password) {
+    console.log("sign_in triggered")
 
-    let encoded = window.btoa($("#uname").val() + ':' + $("#pwd").val())
+    // let encoded = window.btoa($("#uname").val() + ':' + $("#pwd").val())
+    let encoded = window.btoa(email + ':' + password)
 
-    console.log($("#uname").val() + ':' + $("#pwd").val())
+    // console.log($("#uname").val() + ':' + $("#pwd").val())
     console.log(encoded)
 
     let response = await fetch("/auth",  {
-        method: 'GET',
+        method: "GET",
         headers: {
-            'Authorization': 'Basic ' + encoded
+            "Authorization": "Basic " + encoded
         }
     })
     if (response.ok) { // if HTTP-status is 200-299

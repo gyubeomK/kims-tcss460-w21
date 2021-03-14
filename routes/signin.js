@@ -37,6 +37,7 @@ const config = {
  */ 
 router.get('/', (request, response, next) => {
     if (isProvided(request.headers.authorization) || request.headers.authorization.startsWith('Basic ')) {
+    // if (isProvided(request.headers.authorization)) {
         next()
     } else {
         response.status(401).json({ message: 'Missing Authorization Header' })
@@ -46,6 +47,10 @@ router.get('/', (request, response, next) => {
     const base64Credentials =  request.headers.authorization.split(' ')[1]
     const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii')
     const [email, password] = credentials.split(':')
+
+    console.log("credentials: " + credentials)
+    console.log("email: " + email)
+    console.log("password: " + password)
 
     if (isProvided(email) && isProvided(password)) {
         request.auth = { 
