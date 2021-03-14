@@ -1,5 +1,6 @@
 function initialLoad() {
     // == -1 / does not exist
+    console.log(document.cookie)
     if (document.cookie.indexOf('access_token') == -1 ) {
         console.log("access_token cookie does not exists");
     } else {
