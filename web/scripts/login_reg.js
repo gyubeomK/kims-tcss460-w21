@@ -1,9 +1,9 @@
 function initialLoad() {
     // == -1 / does not exist
     if (document.cookie.indexOf('access_token') == -1 ) {
-        alert("access_token cookie does not exists");
+        console.log("access_token cookie does not exists");
     } else {
-        alert("access_token cookie does exists");
+        console.log("access_token cookie does exists");
     }
 
 }
