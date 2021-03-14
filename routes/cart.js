@@ -185,7 +185,7 @@ router.post('/', (request, response) => {
     // console.log("size: " + size)
 
     const theQuery = 
-        "INSERT INTO FavPizza(Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total) VALUES ($1, $2, $3, $4, $5, $6, $7)"
+        "INSERT INTO Cart(Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total) VALUES ($1, $2, $3, $4, $5, $6, $7)"
     let values = [size, crust, cheese, sauce, secIng, thirdIng, total]
 
     console.log("Here is the JSON")

@@ -48,6 +48,8 @@ app.use('/order', require('./routes/order.js'))
 
 app.use('/favOrder', require('./routes/favOrder.js'))
 
+app.use('/cart', require('./routes/cart.js'))
+
 /*
  * When clients connect to the base URL, hosts html and other static files found 
  * in the web directory.

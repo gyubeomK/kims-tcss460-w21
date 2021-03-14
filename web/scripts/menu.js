@@ -118,7 +118,7 @@ async function submit_order() {
 
     console.log(size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
 
-    let response = await fetch("/order", {
+    let response = await fetch("/cart", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
