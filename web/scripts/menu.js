@@ -217,6 +217,8 @@ function initialLoad() {
         console.log("authorized cookie does exists"); //logged-in
         //$("#navSignInBtn").remove()
         $("#navUsername").html("Welcome! " + localStorage.getItem("email"))    
+        var temp = document.getElementById("navSignOutBtn");
+        temp.style.display = 'block'
 
 
 
