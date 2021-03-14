@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Kim's Pizzeria</title>	
+  <title>Kim's Pizzeria</title> 
 
   <!-- Boostrap Stylesheet -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -16,33 +16,10 @@
   <link rel="stylesheet" href="./styles/styles.css" media="screen">
 
   <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
-
-  <script src="./scripts/order.js"></script>
-
-  <script>
-    function initialLoad() {
-      console.log("total from cart: " + localStorage.getItem("total"));
-      console.log("Size from cart: " + localStorage.getItem("size"));
-      console.log("Crust from cart: " + localStorage.getItem("crust"));
-      console.log("Cheese from cart: " + localStorage.getItem("cheese"));
-      console.log("sauce from cart: " + localStorage.getItem("sauce"));
-      console.log("secIng from cart: " + localStorage.getItem("secIng"));
-      console.log("thirdIng from cart: " + localStorage.getItem("thirdIng"));
-      
-
-      document.getElementById("total").innerHTML = "Price: $" + localStorage.getItem("total")
-      document.getElementById("size").innerHTML = "Size: " + localStorage.getItem("size") + " inch"
-      document.getElementById("crust").innerHTML = "Crust: " + localStorage.getItem("crust")
-      document.getElementById("cheese").innerHTML = "Cheese: " + localStorage.getItem("cheese")
-      document.getElementById("sauce").innerHTML = "Sauce: " + localStorage.getItem("sauce")
-      document.getElementById("2ndTopping").innerHTML = "Toppings: " + localStorage.getItem("secIng")
-      document.getElementById("3rdTopping").innerHTML = "Extra Toppings: " + localStorage.getItem("thirdIng")
-
-    }
-  </script>
+  <script src="./scripts/cart.js"></script>
 </head>
 
-<body onload="initialLoad()">
+<body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <div class="container">
@@ -79,7 +56,7 @@
 
           <li class="nav-item active">
             <button type="button" class="btn" data-toggle="modal" data-target="#mySignInModal" style="background-color: red; color: white">Sign In</button>
-          </li> 
+          </li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -166,73 +143,122 @@
         </div>
     </div>
   </div>
-  
-  <div class="two-toned-footer-color"></div>
 
-  <!-- Start of container -->
-  <main class="container">
-    <section class="row">
-      <div class="col-md-12">
-        <article class="block">
-
-          <!-- --------------------------------------------------------------------------------------------------------------- -->
-            <h2>Pizza Cart</h2>
-            <hr />
-            <div class="media">
-                <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
-                <div class="media-body">
-                    <h6 class="mt-0" id="total">Price: $ 35</h6>  
-                    <h6 class="mt-0 " id="size">Size: 10 inch</h6>
-                    <h6 class="mt-0 " id="crust">Crust: Thin</h6>
-                    <h6 class="mt-0 " id="cheese">Cheese: Parmesan</h6>
-                    <h6 class="mt-0 " id="sauce">Sauce: Marinara</h6>
-                    <h6 class="mt-0 " id="2ndTopping">Toppings: Pepperoni, Extra Cheese</h6>
-                    <h6 class="mt-0 " id="3rdTopping">Special Toppings: Ham</h6>
-                  <!-- Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. -->
-                </div>
-                <button type="button" class="btn" style="background-color: red; color: white" onclick="window.location.href = 'order.html'">Proceed to checkout</button>
+    <!-- Payment Modal-->
+    <div id="myPaymentModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Payment Details</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <h3 style="margin-left: 0.5em;">Billing Address</h3>
+                      <label for="fname" style="margin-left: 1em;">Full Name:</label>
+                      <input type="text" id="fname" name="firstname" placeholder="Name">
+                      <br>
+                      <br>
+                      <label for="email" style="margin-left: 1em;">Email:</label>
+                      <input type="text" id="email" name="email" placeholder="user@example.com">
+                      <br>
+                      <br>
+                      <label for="adr" style="margin-left: 1em;">Address:</label>
+                      <input type="text" id="adr" name="address" placeholder="1515 Tacoma Yakima Ave" style="width:460px; margin-left: 1em;">
+                      <br>
+                      <br>
+                      <label for="city" style="margin-left: 1em;"></i>City:</label>
+                      <input type="text" id="city" name="city" placeholder="Tacoma">
+                      <label for="state">State:</label>
+                      <input type="text" id="state" name="state" placeholder="WA">
+          
+                      <div class="row">
+                        <div class="col-6">
+                          <br>
+                          <label for="zip" style="margin-left: 1em;">Zip:</label>
+                          <input type="text" id="zip" name="zip" placeholder="10001" style="margin-left: 1em;">
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                    </div>
+                    <br>
+                      <h3>Payment</h3>
+                      <label for="fname">
+                          Accepted Cards 
+                          <img src="./images/cards.png" id="card">
+                      </label>
+                      <br>
+                      <label for="cname">Name on Card:</label>
+                      <input type="text" id="cname" name="cardname" placeholder="Name">
+                      <br>
+                      <br>
+                      <label for="ccnum">Credit card number:</label>
+                      <br>
+                      <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"  style="width:467px;">
+                      <br>
+                      <br>
+                      <label for="expmonth">Exp Date:</label>
+                      <input type="date" id="expdate" name="expdate" placeholder="yy-mm-dd">
+                      <label for="cvv">CVV:</label>
+                      <input type="text" id="cvv" name="cvv" placeholder="123">
+                    </div>
+                    <button type="submit" class="btn" style="width:460px; margin-left: 1em; margin-bottom: 1em; background-color: red; color: white">Check Out</button>
+                  </form>
             </div>
-            
-            <h2>Favorite Pizza</h2>
-            <hr />
-            <div class="media">
-                <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
-                <div class="media-body">
-                    <h6 class="mt-0">Price: $ 35</h6>  
-                    <h6 class="mt-0">Size: 10 inch</h6>                    
-                    <h6 class="mt-0">Crust: Thin</h6>
-                    <h6 class="mt-0">Cheese: Parmesan</h6>
-                    <h6 class="mt-0">Sauce: Marinara</h6>
-                    <h6 class="mt-0">Toppings: Pepperoni, Extra Cheese</h6>
-                    <h6 class="mt-0">Special Toppings: Ham</h6>
-                  <!-- Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. -->
-                </div>
-              </div>
-            
-            <h2>Previous Ordered Item</h2>
-            <hr />
-            <div class="media">
-                <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
-                <div class="media-body">
-                    <h6 class="mt-0">Date: 2021-02-11</h6>  
-                    <h6 class="mt-0">Price: $ 35</h6>  
-                    <h6 class="mt-0">Size: 10 inch</h6>
-                    <h6 class="mt-0">Crust: Thin</h6>
-                    <h6 class="mt-0">Cheese: Parmesan</h6>
-                    <h6 class="mt-0">Sauce: Marinara</h6>
-                    <h6 class="mt-0">Toppings: Pepperoni, Extra Cheese</h6>
-                    <h6 class="mt-0">Special Toppings: Ham</h6>
-                  <!-- Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. -->
-                </div>
-              </div>
-          <!-- --------------------------------------------------------------------------------------------------------------- -->
-        </article>
-        
+          </div>
       </div>
-    </section>
-  </main>
-  <!-- End of container -->
+    </div>
+        <!-- --------------------------------------------------------------------------------------------------------------- -->
+              
+          <section id="main">
+          <div id="big-box">
+                <h4 style=" text-align:left;">Your Order Summary<h4>
+                  <div class="panel-group">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" href="#collapse1">To See All Your Order</a>
+                        </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse show">
+                      <section class="container content-section">
+                          <div class="cart-row">
+                              <span class="cart-item cart-header cart-column">ITEM</span>
+                              <span class="cart-price cart-header cart-column">PRICE</span>
+                              <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                          </div>
+                          <div class="cart-items">
+                            <div class="cart-item cart-column">
+                              <img class="cart-item-image" src="./images/seafood-pizza.jpg" width="100" height="100">
+                              <span class="cart-item-title">
+                                Pizza
+                                <p id="cartSpecific"></p>
 
+
+
+                              </span>
+                              
+                              
+                              <span class="cart-price cart-column" style="margin-left: 8em;" id="price"></span>
+                              <input class="cart-quantity-input" type="number" value="1" style="margin-left: 2em;">
+                              <button class="btn btn-danger" type="button">REMOVE</button>
+                              
+                          </div>
+                          <div class="cart-total">
+                              <strong class="cart-total-title">Total</strong>
+                              <span class="cart-total-price" id="totalPrice"></span>
+                          </div>
+                          <button class="btn btn-primary btn-purchase" data-toggle="modal" data-target="#myPaymentModal" type="button">PURCHASE</button>
+                      </section>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </section>
+
+        <!-- --------------------------------------------------------------------------------------------------------------- -->
   <!-- Start of footer -->
   <footer class="footer">
     <div class="two-toned-footer-color"></div>
@@ -251,3 +277,4 @@
 </body>
 
 </html>
+

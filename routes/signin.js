@@ -51,7 +51,7 @@ router.get('/', (request, response, next) => {
     console.log("credentials: " + credentials)
     console.log("email: " + email)
     console.log("password: " + password)
-
+    
     if (isProvided(email) && isProvided(password)) {
         request.auth = { 
             "email" : email,
@@ -94,6 +94,21 @@ router.get('/', (request, response, next) => {
                         expiresIn: '14 days' // expires in 14 days
                     }
                 )
+
+                response.cookie('access_token', 'Bearer ' + token,
+                    {
+                        expires: new Date(Date.now() + 14 * 24 * 60 * 60000),
+                        httpOnly: true
+                        
+                    })
+                //use this cookie client side to know if a user is signed in    
+                response.cookie('authorized', true,
+                    {
+                        expires: new Date(Date.now() + 14 * 24 * 60 * 60000),
+                        //note this cookie is NOT httpOnly                   
+                        httpOnly: false     
+                    })                
+
                 //package and send the results
                 response.json({
                     success: true,

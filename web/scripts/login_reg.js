@@ -1,13 +1,14 @@
 function checkSignForm(form) {
 
     console.log("checkSignForm triggered!")
-
+    
     
     var isSame = false;
     var email = $("#emailSign").val();
     var password = $("#pwdSign").val();
     console.log(email);
     console.log(password);
+    
     if (password==="") {
         alert("Please Type Password!");
         isSame = false;
@@ -38,6 +39,7 @@ async function sign_in(email, password) {
             "Authorization": "Basic " + encoded
         }
     })
+    
     if (response.ok) { // if HTTP-status is 200-299
         // get the response body (the method explained below)
         let json = await response.json()
@@ -45,6 +47,7 @@ async function sign_in(email, password) {
 
         if (json.success) {
             
+            console.log(json.token)
             console.log(document.cookie)
         }
     } else {

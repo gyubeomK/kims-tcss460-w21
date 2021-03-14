@@ -22,6 +22,11 @@ let middleware = require('./middleware')
 app.use(require("body-parser").json())
 
 /*
+ * This middleware function parses any HTTP Request cookies into JSON
+ */
+app.use(require('cookie-parser')())
+
+/*
  * This middleware function will respond to improperly formed JSON in found in 
  * an HTTP Request BODY.
  */
@@ -49,6 +54,7 @@ app.use('/order', require('./routes/order.js'))
 app.use('/favOrder', require('./routes/favOrder.js'))
 
 app.use('/cart', require('./routes/cart.js'))
+
 
 /*
  * When clients connect to the base URL, hosts html and other static files found 
