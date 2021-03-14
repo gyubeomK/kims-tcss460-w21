@@ -152,4 +152,24 @@ router.get('/', (request, response, next) => {
     
 })
 
+
+router.delete("/", (request, response) => { 
+
+    response.cookie('access_token',  '',
+    {
+        // signed: true,
+        expires: new Date(Date.now()),
+        httpOnly: true
+        
+    }).cookie('authorized',  false,
+    {
+        // signed: true,
+        expires: new Date(Date.now()),
+        httpOnly: false
+    }).send({ 'deleted' :true})
+})
+
+
+
+
 module.exports = router
