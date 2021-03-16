@@ -53,7 +53,7 @@ app.use('/order', require('./routes/order.js'))
 
 app.use('/favOrder', middleware.checkTokenCookies, require('./routes/favOrder.js'))
 
-app.use('/cart', require('./routes/cart.js'))
+app.use('/cart', middleware.checkTokenCookies, require('./routes/cart.js'))
 
 
 /*
