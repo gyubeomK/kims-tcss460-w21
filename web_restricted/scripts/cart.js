@@ -75,7 +75,7 @@ async function getCartItem() {
                                             .append($("<span class='cart-price cart-column' style='margin-left: 11em;display: inline-grid;' id='price'>$" + json.orders[i].total + "</span>"))
                                             //.append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
                                             
-                                            .append($("<button class='btn btn-danger' onclick='editCartItem("+json.orders[i].cartid+")' type='button'>Edit Cart</button>"))
+                                            .append($("<button class='btn btn-danger' onclick='editCartItem("+json.orders[i].cartid+")' type='button'>Edit Item</button>"))
                                             .append($("<button class='btn btn-danger' onclick='removeCartItem("+json.orders[i].cartid+")' type='button'>REMOVE</button>")))
                                 
                 
@@ -102,6 +102,10 @@ async function getCartItem() {
 
 function editCartItem(cartID) {
     console.log("editCartItem(cartID) -> " + cartID)
+    
+    //1. Launch modal -> Get values from user
+    //2. delete old Item
+    //3. Add new item 
 
 }
 
