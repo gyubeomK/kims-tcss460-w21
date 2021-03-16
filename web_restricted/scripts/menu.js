@@ -420,8 +420,9 @@ async function removePrevItem(prevID) {
 async function addfavCartItem(favID) {
     //should remove that item from fav table
     console.log("addfavCartItem(favID) -> " + favID)
-    console.log(favMap.get(favID))
     
+    var splits = favMap.get(favID).split(["-"])
+    console.log(splits)
 
 /*
     let response = await fetch("/cart", {
