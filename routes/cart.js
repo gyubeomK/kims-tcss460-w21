@@ -255,12 +255,7 @@ router.get("/", (request, response) => {
 })
 
 router.delete("/", (request, response) => { 
-
-    
- 
-
-
-
+    console.log("request.body.cartID" + request.body.cartID)
     if (isProvided(request.body.cartID)) {
         const theQuery = `DELETE FROM Cart WHERE CartID = $1 RETURNING *`    
         const values = [request.body.cartID]
@@ -290,8 +285,6 @@ router.delete("/", (request, response) => {
             message: "Missing required information"
         })
     }     
-    
-
 })
 
 
