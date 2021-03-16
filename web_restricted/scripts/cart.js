@@ -140,7 +140,7 @@ async function addPizzaOrder(size, crust, cheese, sauce, secIng, thirdIng, total
         alert("Order Submitted!")
         
 
-        window.location.href = "./r_order.html";
+        
 
 
     } else {
