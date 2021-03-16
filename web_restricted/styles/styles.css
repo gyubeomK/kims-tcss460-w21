@@ -123,6 +123,17 @@ input:checked[id="heart"]:after {
   background-color: #CC4C4C;
 }
 
+.btn-addItem {
+  color: white;
+  background-color: #18dbc5;
+  border: none;
+  border-radius: .3em;
+  font-weight: bold;
+}
+.btn-addItem:hover {
+  background-color: #28bfae;
+}
+
 .cart-quantity-input {
   height: 34px;
   width: 50px;
