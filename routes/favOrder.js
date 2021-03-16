@@ -56,7 +56,7 @@ router.get("/", (request, response) => {
     //      WHERE MemberID=$1`
 
     const theQuery = 
-        `SELECT Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
+        `SELECT FavPizzaID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
          FROM FavPizza`
     //let values = [request.decoded.memberid]
 
