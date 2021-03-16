@@ -257,21 +257,21 @@ router.get("/", (request, response) => {
 router.delete("/", (request, response) => { 
     console.log("request.body.cartID" + request.body.cartID)
     if (request.body.cartID != null) {
-        console.log("this is triggered1")
+        
         const theQuery = `DELETE FROM Cart WHERE CartID = $1 RETURNING *`    
         const values = [request.body.cartID]
 
         pool.query(theQuery, values)
             .then(result => {
-                console.log("this is triggered2")
+                
                 if (result.rowCount == 1) {
-                    console.log("this is triggered3")
+                    
                     response.send({
                         success: true,
                         message: "Deleted: " + result.rows[0].name
                     })
                 } else {
-                    console.log("this is triggered4")
+                    
                     response.status(404).send({
                         message: "Name not found"
                     })

@@ -165,7 +165,7 @@ async function removeCartItem(cartID) {
         // get the response body (the method explained below)
         let json = await response.json()
         console.log(json)
-        window.location.href = "./r_homepage.html";
+        window.location.href = "./r_cart.html";
 
     } else {
         alert("HTTP-Error: " + response.status)
