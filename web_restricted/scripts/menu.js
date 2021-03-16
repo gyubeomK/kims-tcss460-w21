@@ -236,9 +236,9 @@ async function getFavOrders() {
 
     let response = await fetch("/favOrder",  {
         method: 'GET',
-        headers: {
-            "Content-Type" : "application/json;charset=utf-8"
-        }
+        // headers: {
+        //     "Content-Type" : "application/json;charset=utf-8"
+        // }
     })
     if (response.ok) { 
         let json = await response.json()
