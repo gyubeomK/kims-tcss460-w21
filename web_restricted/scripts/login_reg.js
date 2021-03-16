@@ -186,7 +186,7 @@ async function signOut() {
     temp = document.getElementById("navSignInBtn");
     temp.style.display = 'block'
 
-    window.location.href = "../../web/homepage.html";
+    window.location.href = "../../homepage.html";
     
 }
 
