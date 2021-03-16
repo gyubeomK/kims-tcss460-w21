@@ -185,6 +185,9 @@ async function signOut() {
     temp.style.display = 'none'
     temp = document.getElementById("navSignInBtn");
     temp.style.display = 'block'
+
+    window.location.href = "../../web/homepage.html";
+    
 }
 
 function cartNavFunction() {

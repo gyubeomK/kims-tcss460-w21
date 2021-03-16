@@ -42,12 +42,13 @@ CREATE TABLE FavPizza (FavPizzaID SERIAL PRIMARY KEY,
 
 DROP TABLE IF EXISTS Cart;
 CREATE TABLE Cart (CartID SERIAL PRIMARY KEY,
-                    -- PizzaName VARCHAR(255) NOT NULL,
+                    MemberID INT,
                     Size VARCHAR(255) NOT NULL,
                     Crust VARCHAR(255) NOT NULL,
                     Cheese VARCHAR(255) NOT NULL,
                     Sauce VARCHAR(255) NOT NULL,
                     SecIng VARCHAR(255) NOT NULL,
                     ThirdIng VARCHAR(255) NOT NULL,
-                    Total INT
+                    Total INT,
+                    FOREIGN KEY(MemberID) REFERENCES Members(MemberID)
 );
