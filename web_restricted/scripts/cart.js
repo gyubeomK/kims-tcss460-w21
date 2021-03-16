@@ -149,7 +149,7 @@ async function orderSubmit() {
     
     
 }
-async function removeCartItem(var cartID) {
+async function removeCartItem(cartID) {
     console.log("removeCartItem() triggered by -> " + cartID)
     
     
