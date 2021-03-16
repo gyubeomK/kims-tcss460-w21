@@ -102,12 +102,8 @@ async function getCartItem() {
         }                
     }
 }
-async function orderSubmit() {
-    console.log("orderSubmit() triggered")
-
-
-
-
+function orderSubmit() {
+    
     for(let i = 0; i < sizeList.length; i++) {
         let size = sizeList[i]
         let crust = crustList[i]
@@ -116,39 +112,45 @@ async function orderSubmit() {
         let secIng = secIngList[i]
         let thirdIng = thirdIngList[i]
         let total = totalList[i]
+        addPizzaOrder(size, crust, cheese, sauce, secIng, thirdIng, total)
 
-        let response = await fetch("/order", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({
-                "size": size,
-                "crust": crust,
-                "cheese": cheese,
-                "sauce": sauce,
-                "secIng": secIng,
-                "thirdIng": thirdIng,
-                "total": total
-            })
-        })
-    
-        if(response.ok) {
-            let json = await response.json()
-            
-            
-    
-    
-    
-    
-        } else {
-            alert("HTTP-Error: " + response.status)
-        }        
     }
 
     
     
 }
+
+async function addPizzaOrder(size, crust, cheese, sauce, secIng, thirdIng, total) {
+    let response = await fetch("/order", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "size": size,
+            "crust": crust,
+            "cheese": cheese,
+            "sauce": sauce,
+            "secIng": secIng,
+            "thirdIng": thirdIng,
+            "total": total
+        })
+    })
+
+    if(response.ok) {
+        let json = await response.json()
+        
+        
+
+
+
+
+    } else {
+        alert("HTTP-Error: " + response.status)
+    }        
+}
+
+
 async function removeCartItem(cartID) {
     console.log("removeCartItem() triggered by -> " + cartID)
 
