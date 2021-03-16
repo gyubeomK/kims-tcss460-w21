@@ -49,7 +49,7 @@ app.use('/', require('./routes/demo_eps.js'))
 
 app.use('/reverse', require('./routes/lab4.js'))
 
-app.use('/order', require('./routes/order.js'))
+app.use('/order', middleware.checkTokenCookies, require('./routes/order.js'))
 
 app.use('/favOrder', middleware.checkTokenCookies, require('./routes/favOrder.js'))
 
