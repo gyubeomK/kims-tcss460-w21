@@ -72,7 +72,7 @@ async function getCartItem() {
                 // $("#cartSpecific").append($("<li style='font-size:20px'>").text(output))
                 // $("#cartSpecific").append($("<li style='font-size:14px'>").text(price))
                 
-
+                $("#cartSpecific").append($("<span class='cart-item-title'>").text("Pizza " + (i + 1) + ":"))
                 $("#cartSpecific").append($("<li style='font-size:14px'>").text(size))
                 $("#cartSpecific").append($("<li style='font-size:14px'>").text(crust))
                 $("#cartSpecific").append($("<li style='font-size:14px'>").text(cheese))
