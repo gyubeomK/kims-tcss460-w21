@@ -206,6 +206,7 @@ function deleteLocalStorage() {
 
 
 function getOrderItems() {
+    
     console.log("initialLoad() Triggered");
     if (document.cookie.indexOf('authorized') == -1 ) {
         console.log("authorized cookie does not exists"); //not logged-in

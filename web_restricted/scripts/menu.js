@@ -236,6 +236,7 @@ function getOrderItems() {
 }
 async function getFavOrders() {
 
+    console.log("restricted getFavOrder() Triggered")
     let response = await fetch("/favOrder",  {
         method: 'GET',
         headers: {
