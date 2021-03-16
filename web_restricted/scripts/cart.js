@@ -80,7 +80,7 @@ async function getCartItem() {
                                             
                 
 
-                data-toggle="modal" data-target="#myModal"
+
                 
                 
             }
