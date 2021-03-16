@@ -426,9 +426,11 @@ async function removePrevItem(prevID) {
 
 }
 async function addfavCartItem(favID) {
-
+    //should remove that item from fav table
+    console.log("addfavCartItem(favID) -> " + favID)
 }
 
 async function addprevCartItem(prevID) {
-
+    //should remove that item from pizzaOrder table
+    console.log("addprevCartItem(prevID) -> " + prevID)
 }
