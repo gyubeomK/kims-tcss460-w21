@@ -39,6 +39,7 @@ async function getCartItem() {
             let json = await response.json()
             console.log(json)
             
+            let runningTotal = 0;
             for(let i = 0; i < json.orders.length; i++) {
                 totalList.push(json.orders[i].total)
                 sizeList.push(json.orders[i].size)
@@ -47,7 +48,7 @@ async function getCartItem() {
                 sauceList.push(json.orders[i].sauce)
                 secIngList.push(json.orders[i].secing)
                 thirdIngList.push(json.orders[i].thirding)
-                
+                runningTotal += json.orders[i].total
                 
                 
 
@@ -119,7 +120,7 @@ async function getCartItem() {
                 
                 
             }
-            
+            $("#totalPrice").text("$" + runningTotal)
 
 
         } else {
