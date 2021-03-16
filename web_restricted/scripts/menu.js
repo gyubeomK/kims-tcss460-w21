@@ -137,7 +137,7 @@ async function submit_order() {
 
     if(response.ok) {
         let json = await response.json()
-        location.reload()
+        window.location.href = "./r_cart.html";
     } else {
         alert("HTTP-Error: " + response.status)
     }
@@ -178,6 +178,7 @@ async function addFavData() {
         let json = await response.json()
         
         alert("You pizza has been successfully added in your fav list! Yay")    
+        window.location.href = "./r_order.html";
 
 
 
