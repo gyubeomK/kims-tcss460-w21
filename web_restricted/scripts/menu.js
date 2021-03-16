@@ -291,6 +291,29 @@ async function getPrevOrders() {
     if (response.ok) { 
         let json = await response.json()
         console.log(json)
+
+        for(let i = 0; i < json.orders.length; i++) {
+            let size = "Size: " + json.orders[i].size 
+            let crust = "Crust: " + json.orders[i].crust
+            let cheese = "Cheese: " + json.orders[i].cheese
+            let sauce = "Sauce: " + json.orders[i].sauce
+            let toppings = "Toppings: " + json.orders[i].secing
+            let sToppings = "Special Toppings: " + json.orders[i].thirding
+
+            $(".prevSpecific").append($("<div class='cart-items'>")
+            .append($("<span class='cart-item-title'>").text("Pizza " + (i + 1) + ":"))
+            .append($("<ol>")
+            .append($("<li style='font-size:14px'>").text(size))
+            .append($("<li style='font-size:14px'>").text(crust))
+            .append($("<li style='font-size:14px'>").text(cheese))
+            .append($("<li style='font-size:14px'>").text(sauce))
+            .append($("<li style='font-size:14px'>").text(toppings))
+            .append($("<li style='font-size:14px'>").text(sToppings)))
+            .append($("<span class='cart-price cart-column' style='margin-left: 11em;display: inline-grid;' id='price'>$" + json.orders[i].total + "</span>"))
+            .append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
+            // .append($("<button class='btn btn-danger' onclick='removeCartItem()' type='button' value=" + json.orders[i].cartid + ">REMOVE</button>")))
+            .append($("<button class='btn btn-danger' onclick='removePrevItem("+json.orders[i].orderid+")' type='button'>REMOVE</button>")))            
+        }
         
 
 
@@ -311,6 +334,32 @@ async function removeFavItem(favID) {
         },
         body: JSON.stringify({
             "favID": favID
+        })
+    })
+    if (response.ok) { // if HTTP-status is 200-299
+        // get the response body (the method explained below)
+        let json = await response.json()
+        console.log(json)
+        window.location.href = "./r_order.html";
+
+    } else {
+        alert("HTTP-Error: " + response.status)
+        console.log(response.status)
+        let json = await response.json()
+        console.log(json)
+    }
+
+}
+async function removePrevItem(prevID) {
+    console.log("removePrevItem() triggered by -> " + prevID)
+
+    let response = await fetch("/order",  {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "prevID": prevID
         })
     })
     if (response.ok) { // if HTTP-status is 200-299

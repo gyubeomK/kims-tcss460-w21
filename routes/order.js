@@ -157,4 +157,37 @@ router.post('/', (request, response) => {
     }
 })
 
+router.delete("/", (request, response) => { 
+    console.log("request.body.prevID " + request.body.prevID)
+    if (request.body.favID != null) {
+        const theQuery = `DELETE FROM PizzaOrder WHERE OrderID = $1 RETURNING *`    
+        const values = [request.body.prevID]
+
+        pool.query(theQuery, values)
+            .then(result => {
+                if (result.rowCount == 1) {
+                    response.send({
+                        success: true,
+                        message: "Deleted: " + result.rows[0].name
+                    })
+                } else {
+                    response.status(404).send({
+                        message: "Name not found"
+                    })
+                }
+            })
+            .catch(err => {
+                //log the error
+                // console.log(err)
+                response.status(400).send({
+                    message: err.detail
+                })
+            }) 
+    } else {
+        response.status(400).send({
+            message: "Missing required information"
+        })
+    }     
+})
+
 module.exports = router
