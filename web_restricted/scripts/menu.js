@@ -418,13 +418,20 @@ async function removePrevItem(prevID) {
 
 }
 async function addfavCartItem(favID) {
-    //should remove that item from fav table
+
     console.log("addfavCartItem(favID) -> " + favID)
     
     var splits = favMap.get(favID).split(["-"])
     console.log(splits)
 
-/*
+    let size = splits[0]
+    let crust = splits[1]
+    let cheese = splits[2]
+    let sauce = splits[3]
+    let secIng = splits[4]
+    let thirdIng = splits[5]
+    let total = splits[6]
+
     let response = await fetch("/cart", {
         method: "POST",
         headers: {
@@ -443,12 +450,13 @@ async function addfavCartItem(favID) {
 
     if(response.ok) {
         let json = await response.json()
+        removeFavItem(favID)
         location.reload()
     } else {
         alert("HTTP-Error: " + response.status)
     }
-*/
 
+    //should remove that item from fav table
 
 }
 
