@@ -80,7 +80,8 @@ async function getCartItem() {
                                             .append($("<li style='font-size:14px'>").text(sToppings)))
                                             .append($("<span class='cart-price cart-column' style='margin-left: 11em;display: inline-grid;' id='price'>$" + json.orders[i].total + "</span>"))
                                             .append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
-                                            .append($("<button class='btn btn-danger' onclick='removeCartItem()' type='button' value=" + json.orders[i].cartid + ">REMOVE</button>")))
+                                            // .append($("<button class='btn btn-danger' onclick='removeCartItem()' type='button' value=" + json.orders[i].cartid + ">REMOVE</button>")))
+                                            .append($("<button class='btn btn-danger' onclick='removeCartItem("+json.orders[i].cartid+")' type='button'>REMOVE</button>")))
                                 
                 
 
@@ -148,8 +149,10 @@ async function orderSubmit() {
     
     
 }
-async function removeCartItem() {
-    console.log("removeCartItem() triggered")
+async function removeCartItem(var cartID) {
+    console.log("removeCartItem() triggered by -> " + cartID)
+    
+    
 }
 
 // function addFavOrder() {
