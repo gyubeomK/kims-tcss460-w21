@@ -79,6 +79,9 @@ async function sign_in(email, password) {
             console.log(document.cookie)
             
             localStorage.setItem("email", email);
+
+            window.location.href = "../../r/homepage.html";
+
             
         }
         
