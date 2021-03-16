@@ -167,7 +167,7 @@ router.delete("/", (request, response) => {
     console.log("request.body.favID" + request.body.favID)
     if (request.body.favID != null) {
         console.log("this is triggered1")
-        const theQuery = `DELETE FROM FavPizza WHERE favID = $1 RETURNING *`    
+        const theQuery = `DELETE FROM FavPizza WHERE FavPizzaID = $1 RETURNING *`    
         const values = [request.body.favID]
 
         pool.query(theQuery, values)
