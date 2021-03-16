@@ -9,8 +9,14 @@ let thirdIngList = []
 
 window.onload = function() {
     console.log("Triggered on reload()")
-
-    getCartItem()
+    if (document.cookie.indexOf('authorized') == -1 ) {
+        $("#cartPanel").remove()
+        
+        alert("You need to be signed in to use cart feature")
+    } else {
+        getCartItem()
+    }
+    
 
 }
 
