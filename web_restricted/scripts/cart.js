@@ -96,7 +96,7 @@ async function getCartItem() {
 
         } else {
             // alert("HTTP-Error: " + response.status)
-            alert("Cart Item does not exist.")
+            alert("No items have been added in the cart yet.")
             
             console.log(response.status)
             let json = await response.json()
