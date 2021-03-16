@@ -159,7 +159,7 @@ router.post('/', (request, response) => {
 
 router.delete("/", (request, response) => { 
     console.log("request.body.prevID " + request.body.prevID)
-    if (request.body.favID != null) {
+    if (request.body.prevID != null) {
         const theQuery = `DELETE FROM PizzaOrder WHERE OrderID = $1 RETURNING *`    
         const values = [request.body.prevID]
 
