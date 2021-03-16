@@ -74,8 +74,8 @@ async function getCartItem() {
                                             .append($("<li style='font-size:14px'>").text(sToppings)))
                                             .append($("<span class='cart-price cart-column' style='margin-left: 11em;display: inline-grid;' id='price'>$" + json.orders[i].total + "</span>"))
                                             //.append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
-                                            
-                                            .append($("<button class='btn btn-danger' data-toggle='modal' data-target='#myCartModal' onclick='editCartItem("+json.orders[i].cartid+")' type='button'>Edit Item</button>"))
+                                            //.append($("<button class='btn btn-danger' data-toggle='modal' data-target='#myCartModal' onclick='editCartItem("+json.orders[i].cartid+")' type='button'>Edit Item</button>"))
+                                            .append($("<button class='btn btn-danger' data-toggle='modal' data-target='#myCartModal' type='button'>Edit Item</button>"))
                                             .append($("<button class='btn btn-danger' onclick='removeCartItem("+json.orders[i].cartid+")' type='button'>REMOVE</button>")))
                                             
                 
@@ -100,12 +100,56 @@ async function getCartItem() {
     }
 }
 
-function editCartItem(cartID) {
-    console.log("editCartItem(cartID) -> " + cartID)
+function editCartItem() {
+    console.log("editCartItem() triggered" )
     
     //1. Launch modal -> Get values from user
     //$('#myCartModal').modal('toggle');
-    
+
+/**
+ * 
+
+    //console.log("total calculation triggered")
+    let total = 0
+
+    let sizeInput = document.querySelector('input[name = "size"]:checked').value;
+    let sizeCost = sizePrice(sizeInput)
+    // console.log("Size Cost: " + sizeCost)
+    total += sizeCost
+
+    let crustInput = document.querySelector('input[name = "crust"]:checked').value;
+    let crustCost = crustPrice(crustInput)
+    // console.log("Crust Cost: " + crustCost)
+    total += crustCost
+
+    let cheeseInput = document.querySelector('input[name = "cheese"]:checked').value;
+    let cheeseCost = cheesePrice(cheeseInput)
+    // console.log("Cheese Cost: " + cheeseCost)
+    total += cheeseCost
+
+    let sauceInput = document.querySelector('input[name = "sauce"]:checked').value;
+    let sauceCost = saucePrice(sauceInput)
+    // console.log("Sauce Cost: " + sauceCost)
+    total += sauceCost
+
+    var secIngredientInput = [];
+    $("input:checkbox[name=secIng]:checked").each(function(){
+        secIngredientInput.push($(this).val());
+    });
+    total += secIngredientInput.length * 5
+
+    //console.log(secIngredientInput.length)
+
+    var thirdIngredientInput = [];
+    $("input:checkbox[name=thirdIng]:checked").each(function(){
+        thirdIngredientInput.push($(this).val());
+    });
+    console.log(thirdIngredientInput.length)
+    total += thirdIngredientInput.length * 5
+    document.getElementById("subTotal").innerHTML = "Current Total: $" + total
+
+ * 
+ *  */    
 
     //2. delete old Item
     //3. Add new item 
