@@ -72,8 +72,8 @@ async function getCartItem() {
                 // $("#cartSpecific").append($("<li style='font-size:20px'>").text(output))
                 // $("#cartSpecific").append($("<li style='font-size:14px'>").text(price))
                 
-                $(".cartSpecific").append($("<div class='cart-items'>"))
-                                .append($("<div class='cart-item cart-column;>"))
+                $(".cartSpecific").append($("<div class='cart-items'>").append($("<div class='cart-item cart-column;>")))
+                                
                                 //.append($("<img class='cart-item-image' src='../images/seafood-pizza.jpg' width='100' height='100'>))
                                 .append($("<span class='cart-item-title'>").text("Pizza " + (i + 1) + ":")).append($("<li style='font-size:14px'>").text(size)).append($("<li style='font-size:14px'>").text(crust)).append($("<li style='font-size:14px'>").text(cheese)).append($("<li style='font-size:14px'>").text(sauce)).append($("<li style='font-size:14px'>").text(toppings)).append($("<li style='font-size:14px'>").text(sToppings))
                                 .append($("<span class='cart-price cart-column' style='margin-left: 8em;' id='price'>" + json.orders[i].price + "</span>"))
