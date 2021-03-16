@@ -121,36 +121,33 @@ function editCartItem() {
     total += crustCost
 
 
-/**
- * 
-    let cheeseInput = document.querySelector('input[name = "cheese"]:checked').value;
+
+    let cheeseInput = document.querySelector('input[name = "cheeseCart"]:checked').value;
     let cheeseCost = cheesePrice(cheeseInput)
-    // console.log("Cheese Cost: " + cheeseCost)
+    console.log("Cheese Cost: " + cheeseCost)
     total += cheeseCost
 
-    let sauceInput = document.querySelector('input[name = "sauce"]:checked').value;
+    let sauceInput = document.querySelector('input[name = "sauceCart"]:checked').value;
     let sauceCost = saucePrice(sauceInput)
-    // console.log("Sauce Cost: " + sauceCost)
+    console.log("Sauce Cost: " + sauceCost)
     total += sauceCost
 
     var secIngredientInput = [];
-    $("input:checkbox[name=secIng]:checked").each(function(){
+    $("input:checkbox[name=secIngCart]:checked").each(function(){
         secIngredientInput.push($(this).val());
     });
     total += secIngredientInput.length * 5
 
-    //console.log(secIngredientInput.length)
+    console.log(secIngredientInput)
 
     var thirdIngredientInput = [];
-    $("input:checkbox[name=thirdIng]:checked").each(function(){
+    $("input:checkbox[name=thirdIngCart]:checked").each(function(){
         thirdIngredientInput.push($(this).val());
     });
     console.log(thirdIngredientInput.length)
     total += thirdIngredientInput.length * 5
     document.getElementById("subTotal").innerHTML = "Current Total: $" + total
 
- * 
- *  */    
 
     //2. delete old Item
     //3. Add new item 
