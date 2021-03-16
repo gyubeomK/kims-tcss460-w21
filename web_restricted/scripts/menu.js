@@ -272,10 +272,12 @@ async function getFavOrders() {
 
 
     } else {
-        alert("No Orders yet stored in your fav list!")
+        //alert("No Orders yet stored in your fav list!")
         console.log(response.status)
         let json = await response.json()
         console.log(json)
+        $(".favSpecific").append($("<h3>No Orders yet stored in your fav list!</h3>")
+
     }
 
 
