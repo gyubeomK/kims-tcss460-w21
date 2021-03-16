@@ -78,7 +78,7 @@ async function getCartItem() {
                                             .append($("<li style='font-size:14px'>").text(sauce))
                                             .append($("<li style='font-size:14px'>").text(toppings))
                                             .append($("<li style='font-size:14px'>").text(sToppings)))
-                                            .append($("<span class='cart-price cart-column' style='margin-left: 11em;display: inline-grid;' id='price'>" + json.orders[i].total + "</span>"))
+                                            .append($("<span class='cart-price cart-column' style='margin-left: 11em;display: inline-grid;' id='price'>$" + json.orders[i].total + "</span>"))
                                             .append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
                                             .append($("<button class='btn btn-danger' type='button'>REMOVE</button>")))
                                 
