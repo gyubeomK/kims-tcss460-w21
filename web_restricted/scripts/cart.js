@@ -112,7 +112,6 @@ function orderSubmit() {
         removeCartItem(cartIDList[i])
     }
 
-    window.location.href = "./r_order.html";
     
     
 }
