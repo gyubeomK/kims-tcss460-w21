@@ -151,6 +151,29 @@ async function orderSubmit() {
 }
 async function removeCartItem(cartID) {
     console.log("removeCartItem() triggered by -> " + cartID)
+
+    let response = await fetch("/cart",  {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "cartID": cartID
+        })
+    })
+    if (response.ok) { // if HTTP-status is 200-299
+        // get the response body (the method explained below)
+        let json = await response.json()
+        console.log(json)
+
+
+    } else {
+        alert("HTTP-Error: " + response.status)
+        console.log(response.status)
+        let json = await response.json()
+        console.log(json)
+    }
+
     
     
 }

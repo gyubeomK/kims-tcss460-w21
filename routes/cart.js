@@ -254,6 +254,45 @@ router.get("/", (request, response) => {
         })
 })
 
+router.delete("/", (request, response) => { 
+
+    
+ 
+
+
+
+    if (isProvided(request.body.cartID)) {
+        const theQuery = `DELETE FROM Cart WHERE CartID = $1 RETURNING *`    
+        const values = [request.body.cartID]
+
+        pool.query(theQuery, values)
+            .then(result => {
+                if (result.rowCount == 1) {
+                    response.send({
+                        success: true,
+                        message: "Deleted: " + result.rows[0].name
+                    })
+                } else {
+                    response.status(404).send({
+                        message: "Name not found"
+                    })
+                }
+            })
+            .catch(err => {
+                //log the error
+                // console.log(err)
+                response.status(400).send({
+                    message: err.detail
+                })
+            }) 
+    } else {
+        response.status(400).send({
+            message: "Missing required information"
+        })
+    }     
+    
+
+})
 
 
 
