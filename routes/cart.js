@@ -223,22 +223,22 @@ router.post('/', (request, response) => {
 
 
 router.get("/", (request, response) => {
-    // const theQuery = 
-    //     `SELECT My_Size, My_Color, Option1, Option2, Option3 
-    //      FROM Cart
-    //      WHERE MemberID=$1`
-
     const theQuery = 
         `SELECT Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
-         FROM Cart`
-    //let values = [request.decoded.memberid]
+        FROM Cart
+        WHERE MemberID=$1`
+
+    // const theQuery = 
+    //     `SELECT Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
+    //      FROM Cart`
+    let values = [request.decoded.memberid]
 
     // const theQuery = 
     //     `SELECT * 
     //      FROM Orders`
 
-    // pool.query(theQuery, values)
-    pool.query(theQuery)
+    pool.query(theQuery, values)
+    //pool.query(theQuery)
         .then(result => {
             if (result.rowCount > 0) {
 
