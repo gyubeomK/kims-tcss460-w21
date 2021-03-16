@@ -52,10 +52,11 @@ const config = {
 router.get("/", (request, response) => {
 
     const theQuery = 
-        `SELECT Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
-         FROM PizzaOrder`
-        
-    pool.query(theQuery)
+        `SELECT OrderID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
+         FROM PizzaOrder
+         WHERE MemberID=$1`
+    let values = [request.decoded.memberid]    
+    pool.query(theQuery, values)
         .then(result => {
             if (result.rowCount > 0) {
 

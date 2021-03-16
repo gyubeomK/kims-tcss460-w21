@@ -224,7 +224,7 @@ router.post('/', (request, response) => {
 
 router.get("/", (request, response) => {
     const theQuery = 
-        `SELECT Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
+        `SELECT CartID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
         FROM Cart
         WHERE MemberID=$1`
     let values = [request.decoded.memberid]
