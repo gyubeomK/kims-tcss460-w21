@@ -186,3 +186,20 @@ async function signOut() {
     temp = document.getElementById("navSignInBtn");
     temp.style.display = 'block'
 }
+
+function cartNavFunction() {
+    
+    //not logged in
+    if (document.cookie.indexOf('authorized') == -1 ) {
+        console.log("not Logged in -> cart.html")
+        window.location.href = "../cart.html";
+        
+    //logged in
+    } else {
+        console.log("Logged in -> r_cart.html")
+        window.location.href = "../../web_restricted/r_cart.html";
+
+
+    }
+
+}
