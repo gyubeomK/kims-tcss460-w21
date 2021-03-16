@@ -88,8 +88,8 @@ async function getCartItem() {
                 $("#cartSpecific").append($("<li style='font-size:14px'>").text(toppings))
                 $("#cartSpecific").append($("<li style='font-size:14px'>").text(sToppings))
 
-                document.getElementById("price").innerHTML = "$" + json.orders[i].total
-                document.getElementById("totalPrice").innerHTML = "$" + json.orders[i].total
+                //document.getElementById("price").innerHTML = "$" + json.orders[i].total
+                //document.getElementById("totalPrice").innerHTML = "$" + json.orders[i].total
                 
 
                 
