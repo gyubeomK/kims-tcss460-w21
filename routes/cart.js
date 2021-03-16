@@ -174,7 +174,7 @@ const config = {
 router.post('/', (request, response) => {
 
 
-    //const memberid = request.decoded.memberid
+    const memberid = request.decoded.memberid
     const size = request.body.size
     const crust = request.body.crust
     const cheese = request.body.cheese
@@ -185,8 +185,8 @@ router.post('/', (request, response) => {
     // console.log("size: " + size)
 
     const theQuery = 
-        "INSERT INTO Cart(Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total) VALUES ($1, $2, $3, $4, $5, $6, $7)"
-    let values = [size, crust, cheese, sauce, secIng, thirdIng, total]
+        "INSERT INTO Cart(MemberID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)"
+    let values = [memberid, size, crust, cheese, sauce, secIng, thirdIng, total]
 
     console.log("Here is the JSON")
     console.log("request.body.size: " + request.body.size)
