@@ -10,22 +10,14 @@ let thirdIngList = []
 window.onload = function() {
     console.log("Triggered on reload()")
     getCartItem()
-    // if (document.cookie.indexOf('authorized') == -1 ) {
-    //     $("#cartPanel").remove()
-        
-    //     alert("You need to be signed in to use cart feature")
-    // } else {
-        
-    // }
-    
-
 }
 
 async function getCartItem() {
     console.log("getCartItem() triggered")
-    if(document.cookie.indexOf('authorized') == -1 ) {
+    if(document.cookie.indexOf('authorized') ==  -1) {
         alert("You need to be signed in to use cart feature")
-        //$("#cartPanel").remove()
+        window.location.href = "./homepage.html";
+        
                 
         
     } else {
@@ -49,28 +41,12 @@ async function getCartItem() {
                 thirdIngList.push(json.orders[i].thirding)
                 
                 
-                
-
-                // let output = "Price: " + json.orders[i].total
-                //             + ", Size: " + json.orders[i].size 
-                //             + ", Crust: " + json.orders[i].crust
-                //             + ", Cheese: " + json.orders[i].cheese
-                //             + ", Sauce: " + json.orders[i].sauce
-                //             + ", Toppings: " + json.orders[i].secing
-                //             + ", Special Toppings: " + json.orders[i].thirding
-
-                
                 let size = "Size: " + json.orders[i].size 
                 let crust = "Crust: " + json.orders[i].crust
                 let cheese = "Cheese: " + json.orders[i].cheese
                 let sauce = "Sauce: " + json.orders[i].sauce
                 let toppings = "Toppings: " + json.orders[i].secing
                 let sToppings = "Special Toppings: " + json.orders[i].thirding
-
-
-                
-                // $("#cartSpecific").append($("<li style='font-size:20px'>").text(output))
-                // $("#cartSpecific").append($("<li style='font-size:14px'>").text(price))
                 
 
                 $("#cartSpecific").append($("<li style='font-size:14px'>").text(size))
@@ -146,18 +122,3 @@ async function orderSubmit() {
     
     
 }
-
-
-// function addFavOrder() {
-//     console.log("add fav triggered")
-
-//     $("#favBtn").click(function(){
-//         $("#buttonAlert").addClass('show') //Shows Bootstrap alert
-//     })
-
-//     $("#btn").click(function(){
-//         console.log("Size from cart: " + localStorage.getItem("size"));
-//     })
-    
-
-// }
