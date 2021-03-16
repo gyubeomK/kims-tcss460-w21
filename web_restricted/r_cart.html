@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
   <script src="./scripts/cart.js"></script>
   <script src="./scripts/login_reg.js"></script>
+  <script src="./scripts/menu.js"></script>
 </head>
 
 <body onload="initialLoad(), getCartItem()">
@@ -248,218 +249,218 @@
 
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="myCartModal" role="dialog" style="display: none;">
-          <div class="modal-dialog">
-          
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Customize Your Pizza!</h4>
-                <button type="button" class="close" data-dismiss="modal" onclick="deleteLocalStorage()">&times;</button>
-              </div>
-              <div class="modal-body">
-                
-                <!-- HERE COMES PIZZA CUSTOMIZATION OPTION -->
-                
-                
-                
+                          <!-- Modal -->
+                          <div class="modal fade" id="myCartModal" role="dialog" >
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Customize Your Pizza!</h4>
+                                  <button type="button" class="close" data-dismiss="modal" onclick="deleteLocalStorage()">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                  
+                                  <!-- HERE COMES PIZZA CUSTOMIZATION OPTION -->
+                                  
+                                  
+                                  
 
-                <form>
+                                  <form>
 
-                  <!-- Size: 10, 12, 14 -->
-                  <fieldset class="form-group">
-                    <div class="row">
-                      <legend class="col-form-label col-sm-2 pt-0">Size</legend>
-                      <div class="col-sm-10">
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="size" id="gridRadios1" value="10" onclick="totalCalculation()" checked>
-                          <label class="form-check-label" for="gridRadios1">
-                            10 Inch (+ $15)
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="size" id="gridRadios2" value="12" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios2">
-                            12 Inch (+ $20)
-                          </label>
-                        </div>
-                        <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="size" id="gridRadios3" value="14" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios3">
-                            14 Inch (+ $25)
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
+                                    <!-- Size: 10, 12, 14 -->
+                                    <fieldset class="form-group">
+                                      <div class="row">
+                                        <legend class="col-form-label col-sm-2 pt-0">Size</legend>
+                                        <div class="col-sm-10">
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="size" id="gridRadios1" value="10" onclick="totalCalculation()" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                              10 Inch (+ $15)
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="size" id="gridRadios2" value="12" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios2">
+                                              12 Inch (+ $20)
+                                            </label>
+                                          </div>
+                                          <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="size" id="gridRadios3" value="14" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios3">
+                                              14 Inch (+ $25)
+                                            </label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </fieldset>
 
-                  <!-- Container (Crust): Thin, Regular, Bacon and Cheese Stuffed -->
-                  <fieldset class="form-group">
-                    <div class="row">
-                      <legend class="col-form-label col-sm-2 pt-0">Crust</legend>
-                      <div class="col-sm-10">
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="crust" id="gridRadios4" value="Thin" onclick="totalCalculation()" checked>
-                          <label class="form-check-label" for="gridRadios4">
-                            Thin (+ $3)
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="crust" id="gridRadios5" value="Regular" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios5">
-                            Regular (+ $0)
-                          </label>
-                        </div>
-                        <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="crust" id="gridRadios6" value="Cheese" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios6">
-                            Cheese Stuffed (+ $5)
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
+                                    <!-- Container (Crust): Thin, Regular, Bacon and Cheese Stuffed -->
+                                    <fieldset class="form-group">
+                                      <div class="row">
+                                        <legend class="col-form-label col-sm-2 pt-0">Crust</legend>
+                                        <div class="col-sm-10">
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="crust" id="gridRadios4" value="Thin" onclick="totalCalculation()" checked>
+                                            <label class="form-check-label" for="gridRadios4">
+                                              Thin (+ $3)
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="crust" id="gridRadios5" value="Regular" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios5">
+                                              Regular (+ $0)
+                                            </label>
+                                          </div>
+                                          <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="crust" id="gridRadios6" value="Cheese" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios6">
+                                              Cheese Stuffed (+ $5)
+                                            </label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </fieldset>
 
-                  <!-- Primary Ingredient Category: Cheese  -->
-                  <fieldset class="form-group">
-                    <div class="row">
-                      <legend class="col-form-label col-sm-2 pt-0">Cheese</legend>
-                      <div class="col-sm-10">
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios7" value="Parmesan" onclick="totalCalculation()" checked>
-                          <label class="form-check-label" for="gridRadios7">
-                            Parmesan (+ $2)
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios8" value="Mozzarella" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios8">
-                            Mozzarella (+ $2)
-                          </label>
-                        </div>
-                        <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios9" value="Cheddar" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios9">
-                            Cheddar (+ $2)
-                          </label>
-                        </div>
-                        <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="cheese" id="gridRadios10" value="Gouda" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios10">
-                            Gouda (+ $4)
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
+                                    <!-- Primary Ingredient Category: Cheese  -->
+                                    <fieldset class="form-group">
+                                      <div class="row">
+                                        <legend class="col-form-label col-sm-2 pt-0">Cheese</legend>
+                                        <div class="col-sm-10">
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="cheese" id="gridRadios7" value="Parmesan" onclick="totalCalculation()" checked>
+                                            <label class="form-check-label" for="gridRadios7">
+                                              Parmesan (+ $2)
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="cheese" id="gridRadios8" value="Mozzarella" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios8">
+                                              Mozzarella (+ $2)
+                                            </label>
+                                          </div>
+                                          <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="cheese" id="gridRadios9" value="Cheddar" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios9">
+                                              Cheddar (+ $2)
+                                            </label>
+                                          </div>
+                                          <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="cheese" id="gridRadios10" value="Gouda" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios10">
+                                              Gouda (+ $4)
+                                            </label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </fieldset>
 
-                  <!-- Primary Ingredient Category: Sauce  -->
-                  <fieldset class="form-group">
-                    <div class="row">
-                      <legend class="col-form-label col-sm-2 pt-0">Sauce</legend>
-                      <div class="col-sm-10">
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios11" value="Marinara" onclick="totalCalculation()" checked>
-                          <label class="form-check-label" for="gridRadios11">
-                            Marinara (+ $0)
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios12" value="Buffalo" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios12">
-                            Buffalo (+ $0)
-                          </label>
-                        </div>
-                        <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios13" value="Pesto" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios13">
-                            Pesto (+ $2)
-                          </label>
-                        </div>
-                        <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="sauce" id="gridRadios14" value="Garlic" onclick="totalCalculation()">
-                          <label class="form-check-label" for="gridRadios14">
-                            White Garlic Sauce (+ $3)
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                  
-                  <!-- Secondary Ingredient Category: Toppings  -->
-                  <fieldset class="form-group">
-                    <div class="row">
-                      <legend class="col-form-label col-sm-2 pt-0">Topppings</legend>
-                      <div class="col-sm-10">
+                                    <!-- Primary Ingredient Category: Sauce  -->
+                                    <fieldset class="form-group">
+                                      <div class="row">
+                                        <legend class="col-form-label col-sm-2 pt-0">Sauce</legend>
+                                        <div class="col-sm-10">
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="sauce" id="gridRadios11" value="Marinara" onclick="totalCalculation()" checked>
+                                            <label class="form-check-label" for="gridRadios11">
+                                              Marinara (+ $0)
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="sauce" id="gridRadios12" value="Buffalo" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios12">
+                                              Buffalo (+ $0)
+                                            </label>
+                                          </div>
+                                          <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="sauce" id="gridRadios13" value="Pesto" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios13">
+                                              Pesto (+ $2)
+                                            </label>
+                                          </div>
+                                          <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="sauce" id="gridRadios14" value="Garlic" onclick="totalCalculation()">
+                                            <label class="form-check-label" for="gridRadios14">
+                                              White Garlic Sauce (+ $3)
+                                            </label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </fieldset>
+                                    
+                                    <!-- Secondary Ingredient Category: Toppings  -->
+                                    <fieldset class="form-group">
+                                      <div class="row">
+                                        <legend class="col-form-label col-sm-2 pt-0">Topppings</legend>
+                                        <div class="col-sm-10">
 
-                        <input type="checkbox" id="topping1" name="secIng" value="pepperoni" onclick="totalCalculation()">
-                        <label for="topping1"> Pepperoni (+ $5)</label><br>
-                        
-                        <input type="checkbox" id="topping2" name="secIng" value="mushrooms" onclick="totalCalculation()">
-                        <label for="topping2"> Mushrooms (+ $5)</label><br>
-                        
-                        <input type="checkbox" id="topping3" name="secIng" value="onions" onclick="totalCalculation()">
-                        <label for="topping3"> Onions (+ $5)</label><br>
+                                          <input type="checkbox" id="topping1" name="secIng" value="pepperoni" onclick="totalCalculation()">
+                                          <label for="topping1"> Pepperoni (+ $5)</label><br>
+                                          
+                                          <input type="checkbox" id="topping2" name="secIng" value="mushrooms" onclick="totalCalculation()">
+                                          <label for="topping2"> Mushrooms (+ $5)</label><br>
+                                          
+                                          <input type="checkbox" id="topping3" name="secIng" value="onions" onclick="totalCalculation()">
+                                          <label for="topping3"> Onions (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping4" name="secIng" value="sausage" onclick="totalCalculation()">
-                        <label for="topping4"> Sausage (+ $5)</label><br>
+                                          <input type="checkbox" id="topping4" name="secIng" value="sausage" onclick="totalCalculation()">
+                                          <label for="topping4"> Sausage (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping5" name="secIng" value="extraCheese" onclick="totalCalculation()">
-                        <label for="topping5"> Extra cheese (+ $5)</label><br>
+                                          <input type="checkbox" id="topping5" name="secIng" value="extraCheese" onclick="totalCalculation()">
+                                          <label for="topping5"> Extra cheese (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping6" name="secIng" value="olives" onclick="totalCalculation()">
-                        <label for="topping6"> Black olives (+ $5)</label><br>
+                                          <input type="checkbox" id="topping6" name="secIng" value="olives" onclick="totalCalculation()">
+                                          <label for="topping6"> Black olives (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping7" name="secIng" value="pineapple" onclick="totalCalculation()">
-                        <label for="topping7"> Pineapple (+ $5)</label><br>
+                                          <input type="checkbox" id="topping7" name="secIng" value="pineapple" onclick="totalCalculation()">
+                                          <label for="topping7"> Pineapple (+ $5)</label><br>
 
-                        <input type="checkbox" id="topping8" name="secIng" value="spinach" onclick="totalCalculation()">
-                        <label for="topping8"> Spinach (+ $5)</label><br>
+                                          <input type="checkbox" id="topping8" name="secIng" value="spinach" onclick="totalCalculation()">
+                                          <label for="topping8"> Spinach (+ $5)</label><br>
 
-                      </div>
-                    </div>
-                  </fieldset>
-                  <!-- Tertiary Ingredient Category: Special Toppings  -->
-                  <fieldset class="form-group">
-                    <div class="row">
-                      <legend class="col-form-label col-sm-2 pt-0">Special Topppings</legend>
-                      <div class="col-sm-10">
+                                        </div>
+                                      </div>
+                                    </fieldset>
+                                    <!-- Tertiary Ingredient Category: Special Toppings  -->
+                                    <fieldset class="form-group">
+                                      <div class="row">
+                                        <legend class="col-form-label col-sm-2 pt-0">Special Topppings</legend>
+                                        <div class="col-sm-10">
 
-                        <input type="checkbox" id="sptopping1" name="thirdIng" value="anchovy" onclick="totalCalculation()">
-                        <label for="sptopping1"> Anchovy (+ $5)</label><br>
-                        
-                        <input type="checkbox" id="sptopping2" name="thirdIng" value="chicken" onclick="totalCalculation()">
-                        <label for="sptopping2"> Chicken (+ $5)</label><br>
+                                          <input type="checkbox" id="sptopping1" name="thirdIng" value="anchovy" onclick="totalCalculation()">
+                                          <label for="sptopping1"> Anchovy (+ $5)</label><br>
+                                          
+                                          <input type="checkbox" id="sptopping2" name="thirdIng" value="chicken" onclick="totalCalculation()">
+                                          <label for="sptopping2"> Chicken (+ $5)</label><br>
 
-                        <input type="checkbox" id="sptopping3" name="thirdIng" value="steak" onclick="totalCalculation()">
-                        <label for="sptopping3"> Philly Steak (+ $5)</label><br>
+                                          <input type="checkbox" id="sptopping3" name="thirdIng" value="steak" onclick="totalCalculation()">
+                                          <label for="sptopping3"> Philly Steak (+ $5)</label><br>
 
-                        <input type="checkbox" id="sptopping4" name="thirdIng" value="ham" onclick="totalCalculation()">
-                        <label for="sptopping4"> Ham (+ $5)</label><br>
-                      </div>
-                    </div>
-                    <br>
-                    <p id="subTotal">Current Total: </p>
-                  </fieldset>
-                </form>
-
-
+                                          <input type="checkbox" id="sptopping4" name="thirdIng" value="ham" onclick="totalCalculation()">
+                                          <label for="sptopping4"> Ham (+ $5)</label><br>
+                                        </div>
+                                      </div>
+                                      <br>
+                                      <p id="subTotal">Current Total: </p>
+                                    </fieldset>
+                                  </form>
 
 
-              </div>
-              <div class="modal-footer">
 
-                <input id="heart" type="checkbox" style="margin-right: 22em;" onclick="addFavData()">
 
-                <button id="orderSubmitBtn" type="submit" class="btn btn-primary" onclick="submit_order()">Submit</button>
-                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-              </div>
-              
-            </div>
-            
-          </div>
-        </div>
+                                </div>
+                                <div class="modal-footer">
+
+                                  <input id="heart" type="checkbox" style="margin-right: 22em;" onclick="addFavData()">
+
+                                  <button id="orderSubmitBtn" type="submit" class="btn btn-primary" onclick="submit_order()">Submit</button>
+                                  <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                                </div>
+                                
+                              </div>
+                              
+                            </div>
+                          </div>
 
                           
 

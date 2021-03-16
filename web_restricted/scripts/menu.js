@@ -193,14 +193,12 @@ async function addFavData() {
 }
 
 function deleteLocalStorage() {
-    console.log("deleteLocalStorage() triggered!")
     localStorage.clear()
 }
 
 
 function getOrderItems() {
     
-    console.log("initialLoad() Triggered");
     if (document.cookie.indexOf('authorized') == -1 ) {
         console.log("authorized cookie does not exists"); //not logged-in
         var temp = document.getElementById("navSignInBtn");
