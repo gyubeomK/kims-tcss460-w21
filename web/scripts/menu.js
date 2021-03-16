@@ -239,7 +239,8 @@ function getOrderItems() {
     }
 
     if(document.cookie.indexOf('authorized') == -1 ) {
-        alert("You need to be signed in to see your favorite and previous orders.")
+        alert("You need to sign in to see your favorite and previous orders.")
+        window.location.href = "./homepage.html";
     } else {
         getFavOrders()
         getPrevOrders()
