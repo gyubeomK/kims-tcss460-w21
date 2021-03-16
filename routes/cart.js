@@ -227,24 +227,11 @@ router.get("/", (request, response) => {
         `SELECT Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
         FROM Cart
         WHERE MemberID=$1`
-
-    // const theQuery = 
-    //     `SELECT Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
-    //      FROM Cart`
     let values = [request.decoded.memberid]
 
-    // const theQuery = 
-    //     `SELECT * 
-    //      FROM Orders`
-
     pool.query(theQuery, values)
-    //pool.query(theQuery)
         .then(result => {
             if (result.rowCount > 0) {
-
-
-                
-
                     response.send({
                         
                         orders: result.rows,
@@ -252,13 +239,6 @@ router.get("/", (request, response) => {
 
                         message: "/cart GET successful!"
                     })                    
-
-                    
-                
-                
-
-
-
             } else {
                 response.status(404).send({
                     message: "No Orders"
