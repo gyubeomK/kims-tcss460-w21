@@ -231,3 +231,17 @@ function menuNavFunction() {
 
     }    
 }
+
+function homeNavFunction() {
+    //not logged in
+    if (document.cookie.indexOf('authorized') == -1 ) {        
+        window.location.href = "../homepage.html";
+        
+    //logged in
+    } else {
+        console.log("Logged in -> r_cart.html")
+        window.location.href = "../../r/r_homepage.html";
+
+
+    }    
+}
