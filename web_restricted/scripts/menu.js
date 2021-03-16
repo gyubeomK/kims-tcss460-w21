@@ -276,7 +276,7 @@ async function getFavOrders() {
         console.log(response.status)
         let json = await response.json()
         console.log(json)
-        $(".favSpecific").append($("<h3>No Orders yet stored in your fav list!</h3>")
+        $(".favSpecific").append($("<h3>No Orders yet stored in your fav list!</h3>"))
 
     }
 
