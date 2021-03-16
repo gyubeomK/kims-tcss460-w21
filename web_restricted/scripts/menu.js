@@ -276,7 +276,7 @@ async function getFavOrders() {
         console.log(response.status)
         let json = await response.json()
         console.log(json)
-        $(".favSpecific").append($("<h3>No favorite orders yet!</h3>"))
+        $(".favSpecific").append($("<h3 style='text-align: center;'>No favorite orders yet!</h3>"))
 
     }
 
@@ -365,7 +365,7 @@ async function getPrevOrders() {
         console.log(response.status)
         let json = await response.json()
         console.log(json)
-        $(".prevSpecific").append($("<h3>No previous orders yet!</h3>"))
+        $(".prevSpecific").append($("<h3 style='text-align: center;'>No previous orders yet!</h3>"))
     }
 }
 async function removeFavItem(favID) {

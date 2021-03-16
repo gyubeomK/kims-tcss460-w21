@@ -93,7 +93,7 @@ async function getCartItem() {
             //console.log(response.status)
             //let json = await response.json()
             //console.log(json)
-            $(".cartSpecific").append($("<h3>No items have been added in the cart yet.</h3>"))
+            $(".cartSpecific").append($("<h3 style='text-align: center;'>No items have been added in the cart yet.</h3>"))
 
         }                
     }
