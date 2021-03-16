@@ -104,6 +104,8 @@ function editCartItem(cartID) {
     console.log("editCartItem(cartID) -> " + cartID)
     
     //1. Launch modal -> Get values from user
+
+    
     //2. delete old Item
     //3. Add new item 
 
