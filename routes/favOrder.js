@@ -50,22 +50,14 @@ const config = {
  * @apiUse JSONError
  */ 
 router.get("/", (request, response) => {
-    // const theQuery = 
-    //     `SELECT My_Size, My_Color, Option1, Option2, Option3 
-    //      FROM Cart
-    //      WHERE MemberID=$1`
-
     const theQuery = 
-        `SELECT FavPizzaID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
-         FROM FavPizza`
-    //let values = [request.decoded.memberid]
+    `SELECT FavPizzaID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
+     FROM FavPizza
+     WHERE MemberID=$1`
+    let values = [request.decoded.memberid]    
 
-    // const theQuery = 
-    //     `SELECT * 
-    //      FROM Orders`
 
-    // pool.query(theQuery, values)
-    pool.query(theQuery)
+    pool.query(theQuery, values)
         .then(result => {
             if (result.rowCount > 0) {
 
