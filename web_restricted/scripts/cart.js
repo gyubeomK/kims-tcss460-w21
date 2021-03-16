@@ -6,6 +6,7 @@ let cheeseList = []
 let sauceList = []
 let secIngList = []
 let thirdIngList = []
+let cartIDList = []
 
 window.onload = function() {
     console.log("Triggered on reload()")
@@ -48,6 +49,7 @@ async function getCartItem() {
                 sauceList.push(json.orders[i].sauce)
                 secIngList.push(json.orders[i].secing)
                 thirdIngList.push(json.orders[i].thirding)
+                cartIDList.push(json.orders[i].cartid)
                 runningTotal += json.orders[i].total
                 
                 
@@ -113,7 +115,7 @@ function orderSubmit() {
         let thirdIng = thirdIngList[i]
         let total = totalList[i]
         addPizzaOrder(size, crust, cheese, sauce, secIng, thirdIng, total)
-
+        removeCartItem(cartIDList[i])
     }
 
     
