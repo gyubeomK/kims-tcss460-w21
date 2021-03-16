@@ -110,6 +110,7 @@ function orderSubmit() {
         removeCartItem(cartIDList[i])
     }
 
+    window.location.href = "./r_order.html";
     
     
 }
@@ -135,7 +136,7 @@ async function addPizzaOrder(size, crust, cheese, sauce, secIng, thirdIng, total
         let json = await response.json()
         
         alert("Order Submitted!")
-        window.location.href = "./r_homepage.html";
+        
 
 
 
