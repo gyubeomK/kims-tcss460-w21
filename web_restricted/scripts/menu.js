@@ -276,7 +276,7 @@ async function getFavOrders() {
         console.log(response.status)
         let json = await response.json()
         console.log(json)
-        $(".favSpecific").append($("<h3>No Orders yet stored in your fav list!</h3>"))
+        $(".favSpecific").append($("<h3>No favorite orders yet!</h3>"))
 
     }
 
@@ -361,10 +361,11 @@ async function getPrevOrders() {
 
 
     } else {
-        alert("HTTP-Error: " + response.status)
+        //alert("HTTP-Error: " + response.status)
         console.log(response.status)
         let json = await response.json()
         console.log(json)
+        $(".prevSpecific").append($("<h3>No previous orders yet!</h3>"))
     }
 }
 async function removeFavItem(favID) {
