@@ -464,4 +464,39 @@ async function addprevCartItem(prevID) {
     //should remove that item from pizzaOrder table
     console.log("addprevCartItem(prevID) -> " + prevID)
     console.log(prevMap.get(prevID))
+
+    var splits = prevMap.get(prevID).split(["-"])
+    console.log(splits)
+
+    let size = splits[0]
+    let crust = splits[1]
+    let cheese = splits[2]
+    let sauce = splits[3]
+    let secIng = splits[4]
+    let thirdIng = splits[5]
+    let total = splits[6]
+
+    let response = await fetch("/cart", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "size": size,
+            "crust": crust,
+            "cheese": cheese,
+            "sauce": sauce,
+            "secIng": secIng,
+            "thirdIng": thirdIng,
+            "total": total
+        })
+    })
+
+    if(response.ok) {
+        let json = await response.json()
+        removePrevItem(prevID)
+        location.reload()
+    } else {
+        alert("HTTP-Error: " + response.status)
+    }    
 }
