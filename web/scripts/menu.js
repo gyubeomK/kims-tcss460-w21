@@ -107,45 +107,52 @@ function saucePrice(sauceInput) {
 async function submit_order() {
     console.log("submit_order triggered")
 
-    let size = localStorage.getItem("size")
-    let crust = localStorage.getItem("crust")
-    let cheese = localStorage.getItem("cheese")
-    let sauce = localStorage.getItem("sauce")
-    let secIng = localStorage.getItem("secIng")
-    let thirdIng = localStorage.getItem("thirdIng")
-    let total = localStorage.getItem("total")
+    if (document.cookie.indexOf('authorized') == -1 ) {
+        alert("You need to sign in to add this item into the cart")
 
-    // console.log(typeof size)
-
-    console.log(size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
-
-    let response = await fetch("/cart", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            "size": size,
-            "crust": crust,
-            "cheese": cheese,
-            "sauce": sauce,
-            "secIng": secIng,
-            "thirdIng": thirdIng,
-            "total": total
-        })
-    })
-
-    if(response.ok) {
-        let json = await response.json()
-        location.reload()
     } else {
-        alert("HTTP-Error: " + response.status)
+        let size = localStorage.getItem("size")
+        let crust = localStorage.getItem("crust")
+        let cheese = localStorage.getItem("cheese")
+        let sauce = localStorage.getItem("sauce")
+        let secIng = localStorage.getItem("secIng")
+        let thirdIng = localStorage.getItem("thirdIng")
+        let total = localStorage.getItem("total")
+    
+        // console.log(typeof size)
+    
+        console.log(size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
+    
+        let response = await fetch("/cart", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                "size": size,
+                "crust": crust,
+                "cheese": cheese,
+                "sauce": sauce,
+                "secIng": secIng,
+                "thirdIng": thirdIng,
+                "total": total
+            })
+        })
+    
+        if(response.ok) {
+            let json = await response.json()
+            location.reload()
+        } else {
+            alert("HTTP-Error: " + response.status)
+        }
+    
+        // window.location.reload
+    
+        // window.location.href = window.location.href;
+     
+    
     }
 
-    // window.location.reload
-
-    // window.location.href = window.location.href;
- 
     
 
 
@@ -157,42 +164,48 @@ async function addFavData() {
 
     console.log("addFavData() Triggered")
 
-    let size = localStorage.getItem("size")
-    let crust = localStorage.getItem("crust")
-    let cheese = localStorage.getItem("cheese")
-    let sauce = localStorage.getItem("sauce")
-    let secIng = localStorage.getItem("secIng")
-    let thirdIng = localStorage.getItem("thirdIng")
-    let total = localStorage.getItem("total")
-    console.log(size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
-
-    let response = await fetch("/favOrder", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            "size": size,
-            "crust": crust,
-            "cheese": cheese,
-            "sauce": sauce,
-            "secIng": secIng,
-            "thirdIng": thirdIng,
-            "total": total
-        })
-    })
-
-    if(response.ok) {
-        let json = await response.json()
-        
-        alert("You pizza has been successfully added in your fav list! Yay")    
-
-
-
-
+    if (document.cookie.indexOf('authorized') == -1 ) {
+        alert("You need to sign in to add this item into the favorite list.")
     } else {
-        alert("HTTP-Error: " + response.status)
+        let size = localStorage.getItem("size")
+        let crust = localStorage.getItem("crust")
+        let cheese = localStorage.getItem("cheese")
+        let sauce = localStorage.getItem("sauce")
+        let secIng = localStorage.getItem("secIng")
+        let thirdIng = localStorage.getItem("thirdIng")
+        let total = localStorage.getItem("total")
+        console.log(size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
+    
+        let response = await fetch("/favOrder", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                "size": size,
+                "crust": crust,
+                "cheese": cheese,
+                "sauce": sauce,
+                "secIng": secIng,
+                "thirdIng": thirdIng,
+                "total": total
+            })
+        })
+    
+        if(response.ok) {
+            let json = await response.json()
+            
+            alert("You pizza has been successfully added in your fav list! Yay")    
+    
+    
+    
+    
+        } else {
+            alert("HTTP-Error: " + response.status)
+        }
+    
     }
+
 
     
     
