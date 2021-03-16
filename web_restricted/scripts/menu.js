@@ -226,15 +226,10 @@ function getOrderItems() {
 
 
     }
-
-    // if(document.cookie.indexOf('authorized') == -1 ) {
-    //     alert("You need to be signed in to see your favorite and previous orders.")
-    // } else {
-    //     getFavOrders()
-    //     getPrevOrders()
-    // }
-    
 }
+
+let favMap = new Map()
+let prevMap = new Map()
 async function getFavOrders() {
 
     console.log("restricted getFavOrder() Triggered")
@@ -249,12 +244,23 @@ async function getFavOrders() {
         console.log(json)
 
         for(let i = 0; i < json.orders.length; i++) {
+            let resultString = json.orders[i].size + "-" 
+                            + json.orders[i].crust + "-" 
+                            + json.orders[i].cheese + "-" 
+                            + json.orders[i].sauce + "-" 
+                            + json.orders[i].secing + "-" 
+                            + json.orders[i].thirding + "-" 
+                            + json.orders[i].total
+            favMap.set(json.orders[i].favpizzaid, resultString)
+
             let size = "Size: " + json.orders[i].size 
             let crust = "Crust: " + json.orders[i].crust
             let cheese = "Cheese: " + json.orders[i].cheese
             let sauce = "Sauce: " + json.orders[i].sauce
             let toppings = "Toppings: " + json.orders[i].secing
             let sToppings = "Special Toppings: " + json.orders[i].thirding
+            
+            
 
             $(".favSpecific").append($("<div class='cart-items'>")
             .append($("<span class='cart-item-title'>").text("Pizza " + (i + 1) + ":"))
@@ -269,7 +275,7 @@ async function getFavOrders() {
             //.append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
             // .append($("<button class='btn btn-danger' onclick='removeCartItem()' type='button' value=" + json.orders[i].cartid + ">REMOVE</button>")))
             .append($("<button class='btn btn-danger' onclick='removeFavItem("+json.orders[i].favpizzaid+")' type='button'>REMOVE</button>"))  
-            .append($("<button class='btn btn-addItem' style='margin-left: 5em;' onclick='addCartItem("+json.orders[i].favpizzaid+")' type='button'>Add to Cart</button>")))            
+            .append($("<button class='btn btn-addItem' style='margin-left: 5em;' onclick='addfavCartItem("+json.orders[i].favpizzaid+")' type='button'>Add to Cart</button>")))            
         }
 
 
@@ -282,6 +288,38 @@ async function getFavOrders() {
 
 
 }
+
+async function addCartItem(itemID) {
+    
+    let response = await fetch("/order", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "size": size,
+            "crust": crust,
+            "cheese": cheese,
+            "sauce": sauce,
+            "secIng": secIng,
+            "thirdIng": thirdIng,
+            "total": total
+        })
+    })
+
+    if(response.ok) {
+        let json = await response.json()
+        
+        
+
+
+
+
+    } else {
+        alert("HTTP-Error: " + response.status)
+    }        
+}
+
 async function getPrevOrders() {
     let response = await fetch("/order",  {
         method: 'GET',
@@ -294,6 +332,15 @@ async function getPrevOrders() {
         console.log(json)
 
         for(let i = 0; i < json.orders.length; i++) {
+            let resultString = json.orders[i].size + "-" 
+            + json.orders[i].crust + "-" 
+            + json.orders[i].cheese + "-" 
+            + json.orders[i].sauce + "-" 
+            + json.orders[i].secing + "-" 
+            + json.orders[i].thirding + "-" 
+            + json.orders[i].total
+            prevMap.set(json.orders[i].orderid, resultString)
+
             let size = "Size: " + json.orders[i].size 
             let crust = "Crust: " + json.orders[i].crust
             let cheese = "Cheese: " + json.orders[i].cheese
@@ -314,7 +361,7 @@ async function getPrevOrders() {
             //.append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
             // .append($("<button class='btn btn-danger' onclick='removeCartItem()' type='button' value=" + json.orders[i].cartid + ">REMOVE</button>")))
             .append($("<button class='btn btn-danger' onclick='removePrevItem("+json.orders[i].orderid+")' type='button'>REMOVE</button>"))            
-            .append($("<button class='btn btn-addItem' style='margin-left: 5em;' onclick='addCartItem("+json.orders[i].orderid+")' type='button'>Add to Cart</button>")))            
+            .append($("<button class='btn btn-addItem' style='margin-left: 5em;' onclick='addprevCartItem("+json.orders[i].orderid+")' type='button'>Add to Cart</button>")))            
         }
         
 
@@ -378,33 +425,10 @@ async function removePrevItem(prevID) {
     }
 
 }
-/*
-async function removeCartItem(cartID) {
-    console.log("removeCartItem() triggered by -> " + cartID)
+async function addfavCartItem(favID) {
 
-    let response = await fetch("/cart",  {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            "cartID": cartID
-        })
-    })
-    if (response.ok) { // if HTTP-status is 200-299
-        // get the response body (the method explained below)
-        let json = await response.json()
-        console.log(json)
-        window.location.href = "./r_cart.html";
-
-    } else {
-        alert("HTTP-Error: " + response.status)
-        console.log(response.status)
-        let json = await response.json()
-        console.log(json)
-    }
-
-    
-    
 }
-*/
+
+async function addprevCartItem(prevID) {
+
+}
