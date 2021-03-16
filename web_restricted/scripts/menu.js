@@ -268,7 +268,7 @@ async function getFavOrders() {
             .append($("<span class='cart-price cart-column' style='margin-left: 11em;display: inline-grid;' id='price'>$" + json.orders[i].total + "</span>"))
             .append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
             // .append($("<button class='btn btn-danger' onclick='removeCartItem()' type='button' value=" + json.orders[i].cartid + ">REMOVE</button>")))
-            .append($("<button class='btn btn-danger' onclick='removeCartItem("+json.orders[i].favpizzaid+")' type='button'>REMOVE</button>")))            
+            .append($("<button class='btn btn-danger' onclick='removeFavItem("+json.orders[i].favpizzaid+")' type='button'>REMOVE</button>")))            
         }
 
 
@@ -301,3 +301,59 @@ async function getPrevOrders() {
         console.log(json)
     }
 }
+async function removeFavItem(favID) {
+    console.log("removeFavItem() triggered by -> " + favID)
+
+    let response = await fetch("/favOrder",  {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "favID": favID
+        })
+    })
+    if (response.ok) { // if HTTP-status is 200-299
+        // get the response body (the method explained below)
+        let json = await response.json()
+        console.log(json)
+        window.location.href = "./r_order.html";
+
+    } else {
+        alert("HTTP-Error: " + response.status)
+        console.log(response.status)
+        let json = await response.json()
+        console.log(json)
+    }
+
+}
+/*
+async function removeCartItem(cartID) {
+    console.log("removeCartItem() triggered by -> " + cartID)
+
+    let response = await fetch("/cart",  {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "cartID": cartID
+        })
+    })
+    if (response.ok) { // if HTTP-status is 200-299
+        // get the response body (the method explained below)
+        let json = await response.json()
+        console.log(json)
+        window.location.href = "./r_cart.html";
+
+    } else {
+        alert("HTTP-Error: " + response.status)
+        console.log(response.status)
+        let json = await response.json()
+        console.log(json)
+    }
+
+    
+    
+}
+*/
