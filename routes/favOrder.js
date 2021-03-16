@@ -80,7 +80,7 @@ router.get("/", (request, response) => {
 
             } else {
                 response.status(404).send({
-                    message: "No Orders"
+                    message: "No Orders yet stored in your fav list!"
                 })
             }
         })
