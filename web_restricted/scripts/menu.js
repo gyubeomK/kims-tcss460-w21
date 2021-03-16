@@ -211,7 +211,7 @@ function getOrderItems() {
         console.log("authorized cookie does not exists"); //not logged-in
         var temp = document.getElementById("navSignInBtn");
         temp.style.display = 'block'
-        
+        alert("You need to be signed in to see your favorite and previous orders.")
 
     } else {
         console.log("authorized cookie does exists"); //logged-in
@@ -220,25 +220,27 @@ function getOrderItems() {
         var temp = document.getElementById("navSignOutBtn");
         temp.style.display = 'block'
 
-
-
-    }
-
-    if(document.cookie.indexOf('authorized') == -1 ) {
-        alert("You need to be signed in to see your favorite and previous orders.")
-    } else {
         getFavOrders()
         getPrevOrders()
+
+
     }
+
+    // if(document.cookie.indexOf('authorized') == -1 ) {
+    //     alert("You need to be signed in to see your favorite and previous orders.")
+    // } else {
+    //     getFavOrders()
+    //     getPrevOrders()
+    // }
     
 }
 async function getFavOrders() {
 
     let response = await fetch("/favOrder",  {
         method: 'GET',
-        // headers: {
-        //     "Content-Type" : "application/json;charset=utf-8"
-        // }
+        headers: {
+            "Content-Type" : "application/json;charset=utf-8"
+        }
     })
     if (response.ok) { 
         let json = await response.json()
