@@ -205,7 +205,7 @@ function deleteLocalStorage() {
 }
 
 
-function initialLoad() {
+function getOrderItems() {
     console.log("initialLoad() Triggered");
     if (document.cookie.indexOf('authorized') == -1 ) {
         console.log("authorized cookie does not exists"); //not logged-in
@@ -224,8 +224,13 @@ function initialLoad() {
 
     }
 
-    getFavOrders()
-    getPrevOrders()
+    if(document.cookie.indexOf('authorized') == -1 ) {
+        alert("You need to be signed in to see your favorite and previous orders.")
+    } else {
+        getFavOrders()
+        getPrevOrders()
+    }
+    
 }
 async function getFavOrders() {
 
