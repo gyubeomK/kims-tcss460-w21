@@ -256,7 +256,7 @@ router.get("/", (request, response) => {
 
 router.delete("/", (request, response) => { 
     console.log("request.body.cartID" + request.body.cartID)
-    if (isProvided(request.body.cartID)) {
+    if (request.body.cartID != null) {
         console.log("this is triggered1")
         const theQuery = `DELETE FROM Cart WHERE CartID = $1 RETURNING *`    
         const values = [request.body.cartID]
