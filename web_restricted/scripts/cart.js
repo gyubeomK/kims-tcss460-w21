@@ -74,7 +74,7 @@ async function getCartItem() {
                 
                 $("#cartSpecific").append($("<div class='cart-items'>"))
                                 .append($("<div class='cart-item cart-column;>"))
-                                .append($("<img class='cart-item-image' src='../images/seafood-pizza.jpg' width='100' height='100'>))
+                                //.append($("<img class='cart-item-image' src='../images/seafood-pizza.jpg' width='100' height='100'>))
                                 .append($("<span class='cart-item-title'>"))
                                 .append($("<span class='cart-price cart-column' style='margin-left: 8em;' id='price'></span>"))
                                 .append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
