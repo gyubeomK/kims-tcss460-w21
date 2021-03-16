@@ -197,7 +197,7 @@ function cartNavFunction() {
     //logged in
     } else {
         console.log("Logged in -> r_cart.html")
-        window.location.href = "../../web_restricted/r_cart.html";
+        window.location.href = "../../r/r_cart.html";
 
 
     }
