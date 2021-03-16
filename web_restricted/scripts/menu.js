@@ -273,7 +273,7 @@ async function getFavOrders() {
 
 
     } else {
-        alert("HTTP-Error: " + response.status)
+        alert("No Orders yet stored in your fav list!")
         console.log(response.status)
         let json = await response.json()
         console.log(json)
