@@ -88,11 +88,13 @@ async function getCartItem() {
 
         } else {
             // alert("HTTP-Error: " + response.status)
-            alert("No items have been added in the cart yet.")
+            //alert("No items have been added in the cart yet.")
             
-            console.log(response.status)
-            let json = await response.json()
-            console.log(json)
+            //console.log(response.status)
+            //let json = await response.json()
+            //console.log(json)
+            $(".cartSpecific").append($("<h3>No items have been added in the cart yet.</h3>"))
+
         }                
     }
 }
