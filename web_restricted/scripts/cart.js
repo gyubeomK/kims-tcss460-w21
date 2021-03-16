@@ -103,25 +103,26 @@ async function getCartItem() {
 function editCartItem() {
     console.log("editCartItem() triggered" )
     
-    //1. Launch modal -> Get values from user
-    //$('#myCartModal').modal('toggle');
+
+
+
+
+    
+    let total = 0
+
+    let sizeInput = document.querySelector('input[name = "sizeCart"]:checked').value;
+    let sizeCost = sizePrice(sizeInput)
+     console.log("Size Cost: " + sizeCost)
+    total += sizeCost
+
+    let crustInput = document.querySelector('input[name = "crustCart"]:checked').value;
+    let crustCost = crustPrice(crustInput)
+     console.log("Crust Cost: " + crustCost)
+    total += crustCost
+
 
 /**
  * 
-
-    //console.log("total calculation triggered")
-    let total = 0
-
-    let sizeInput = document.querySelector('input[name = "size"]:checked').value;
-    let sizeCost = sizePrice(sizeInput)
-    // console.log("Size Cost: " + sizeCost)
-    total += sizeCost
-
-    let crustInput = document.querySelector('input[name = "crust"]:checked').value;
-    let crustCost = crustPrice(crustInput)
-    // console.log("Crust Cost: " + crustCost)
-    total += crustCost
-
     let cheeseInput = document.querySelector('input[name = "cheese"]:checked').value;
     let cheeseCost = cheesePrice(cheeseInput)
     // console.log("Cheese Cost: " + cheeseCost)
