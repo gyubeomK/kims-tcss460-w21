@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Kim's Pizzeria</title>	
+
+  <!-- Boostrap Stylesheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- CSS stylesheet -->
+  <link rel="stylesheet" href="./styles/styles.css" media="screen">
+
+  <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
+
+  <script src="./scripts/menu.js"></script>
+  <script src="./scripts/login_reg.js"></script>
+</head>
+
+<body onload="initialLoad()">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      
+      <a href="homepage.html">
+        <img src="./images/logo.png" id="logo">
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          
+          <li class="nav-item active">
+            <a class="nav-link" href="homepage.html">Home</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="menu.html">Menu</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="cart.html">Cart</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="order.html">Order</a>
+          </li>
+
+          <li class="nav-item active">
+            <!-- <button type="button" class="btn" data-toggle="modal" data-target="#mySignInModal" style="background-color: red; color: white">Sign In</button> -->
+            <button id="navSignInBtn" type="button" class="btn" data-toggle="modal" data-target="#mySignInModal" style="background-color: red; color: white; display:none">Sign In</button>
+            <a class="nav-link" id="navUsername" style="font-weight: bold"></a>
+            
+          </li>
+
+          <li class="nav-item active">
+            <button onclick="signOut()" id="navSignOutBtn" type="button" class="btn" style="background-color: red; color: white; display:none">Sign Out</button>
+          </li>
+
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+  <!-- End of navbar -->
+
+  <!-- Sign in Modal-->
+  <div id="mySignInModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Kim's Pizzeria</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+              <div class="modal-body">
+                <form onsubmit="return checkSignForm(this);">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="emailSign" value="test1@test.com" style="width:460px;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                  </div>
+                  <div class="form-group">
+                    <p> 
+                    <label for="pwd">Password<a href="register.html" style="margin-left: 16.0em; color: grey;"> Forgot Password?</a></label>
+                    </p>
+                      <input 
+                        type="password" 
+                        class="form-control" 
+                        id="pwdSign" 
+                        style="width:460px;" 
+                        value="Test12345!"
+                      >
+                  </div>
+                  <div class="checkbox">
+                    <p> 
+                      New to Kim's Pizzeria?<a data-toggle="modal" href="#mySignUpModal"> Sign Up</a>
+                      <label style="margin-left: 6.0em;"><input type="checkbox"> Remember me</label>
+                    </p>
+                  </div>
+                  <button type="submit" class="btn" style="width:460px; background-color: red; color: white">Sign In</button>
+              </form>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Sign up Modal-->
+  <div id="mySignUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Welcome To Kim's Pizzeria</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+              <div class="modal-body">
+                <form onsubmit="return checkRegForm(this);">
+                  <div class="form-group">
+                    <label for="firstName">First Name <label for="lastName" style="margin-left: 9.4em;">Last Name</label></label>
+                    <table>
+                      <tr>
+                        <td><input type="firstName" class="form-control" id="firstName" style="width:230px;" pattern=".{1,}$" required></td>
+                        <td><input type="lastName" class="form-control" id="lastName" style="width:230px;" pattern=".{1,}$" required></td>
+                      </tr>
+                    </table>
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="emailReg" style="width:460px;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input 
+                      type="password" 
+                      class="form-control" 
+                      id="pwdReg" 
+                      style="width:460px;" 
+                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                      title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required
+                    >
+                    <label for="cnfpwd">Confirm Password</label>
+                    <input type="password" class="form-control" id="cnfpwd" style="width:460px;">
+                  </div>
+                  <button type="submit" class="btn" style="width:460px; background-color: red; color: white">Sign Up</button>
+                </form>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="two-toned-footer-color"></div>
+
+  <!-- Start of container -->
+  <main class="container">
+    <section class="row">
+      <div class="col-md-12">
+        <article class="block">
+
+          <!-- --------------------------------------------------------------------------------------------------------------- -->
+            <!-- <h2>Pizza Cart</h2>
+            <hr />
+            <div class="media">
+                <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
+                <div class="media-body">
+                    <h6 class="mt-0" id="total">Price: $ 35</h6>  
+                    <h6 class="mt-0 " id="size">Size: 10 inch</h6>
+                    <h6 class="mt-0 " id="crust">Crust: Thin</h6>
+                    <h6 class="mt-0 " id="cheese">Cheese: Parmesan</h6>
+                    <h6 class="mt-0 " id="sauce">Sauce: Marinara</h6>
+                    <h6 class="mt-0 " id="2ndTopping">Toppings: Pepperoni, Extra Cheese</h6>
+                    <h6 class="mt-0 " id="3rdTopping">Special Toppings: Ham</h6>
+                </div>
+                <button type="button" class="btn" style="background-color: red; color: white" onclick="window.location.href = 'order.html'">Proceed to checkout</button>
+            </div> -->
+            
+            <h2>Favorite Pizza (Get Request for both of these implemented, see console)</h2>
+            <hr />
+            <div class="media">
+                <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
+                <div class="media-body">
+                    <h6 class="mt-0">Price: $ 35</h6>  
+                    <h6 class="mt-0">Size: 10 inch</h6>                    
+                    <h6 class="mt-0">Crust: Thin</h6>
+                    <h6 class="mt-0">Cheese: Parmesan</h6>
+                    <h6 class="mt-0">Sauce: Marinara</h6>
+                    <h6 class="mt-0">Toppings: Pepperoni, Extra Cheese</h6>
+                    <h6 class="mt-0">Special Toppings: Ham</h6>
+                </div>
+              </div>
+            
+            <h2>Previous Ordered Item</h2>
+            <hr />
+            <div class="media">
+                <img class="mr-3" src="./images/Hawaiian-Pizza.jpg" alt="Generic placeholder image" width="150px" height="120px">
+                <div class="media-body">
+                    <h6 class="mt-0">Date: 2021-02-11</h6>  
+                    <h6 class="mt-0">Price: $ 35</h6>  
+                    <h6 class="mt-0">Size: 10 inch</h6>
+                    <h6 class="mt-0">Crust: Thin</h6>
+                    <h6 class="mt-0">Cheese: Parmesan</h6>
+                    <h6 class="mt-0">Sauce: Marinara</h6>
+                    <h6 class="mt-0">Toppings: Pepperoni, Extra Cheese</h6>
+                    <h6 class="mt-0">Special Toppings: Ham</h6>
+                  <!-- Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. -->
+                </div>
+              </div>
+          <!-- --------------------------------------------------------------------------------------------------------------- -->
+        </article>
+        
+      </div>
+    </section>
+  </main>
+  <!-- End of container -->
+
+  <!-- Start of footer -->
+  <footer class="footer">
+    <div class="two-toned-footer-color"></div>
+    <p class="text-muted text-muted-footer text-center">
+      &copy; <strong>Hyeong Suk Kim, Gyu Beom Kim</strong> - © Copyright 2021. All Rights Reserved.
+    </p>
+  </footer>
+  <!-- End of footer -->
+
+  <!-- jQuery CDN -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Bootstrap CDN -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
