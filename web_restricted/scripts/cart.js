@@ -10,16 +10,18 @@ let cartIDList = []
 
 window.onload = function() {
     console.log("Triggered on reload()")
-    getCartItem()
-    // if (document.cookie.indexOf('authorized') == -1 ) {
-    //     $("#cartPanel").remove()
-        
-    //     alert("You need to be signed in to use cart feature")
-    // } else {
-        
-    // }
     
+    
+    totalList = []
+    sizeList = []
+    crustList = []
+    cheeseList = []
+    sauceList = []
+    secIngList = []
+    thirdIngList = []
+    cartIDList = []
 
+    getCartItem()
 }
 
 async function getCartItem() {
@@ -132,7 +134,8 @@ async function addPizzaOrder(size, crust, cheese, sauce, secIng, thirdIng, total
     if(response.ok) {
         let json = await response.json()
         
-        
+        alert("Order Submitted!")
+        window.location.href = "./r_homepage.html";
 
 
 
