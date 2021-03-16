@@ -280,13 +280,11 @@ router.delete("/", (request, response) => {
             .catch(err => {
                 //log the error
                 // console.log(err)
-                console.log("this is triggered5")
                 response.status(400).send({
                     message: err.detail
                 })
             }) 
     } else {
-        console.log("this is triggered6")
         response.status(400).send({
             message: "Missing required information"
         })

@@ -166,27 +166,28 @@ router.post('/', (request, response) => {
 router.delete("/", (request, response) => { 
     console.log("request.body.favID" + request.body.favID)
     if (request.body.favID != null) {
-        
+        console.log("this is triggered1")
         const theQuery = `DELETE FROM FavPizza WHERE favID = $1 RETURNING *`    
         const values = [request.body.favID]
 
         pool.query(theQuery, values)
             .then(result => {
-                
+                console.log("this is triggered2")
                 if (result.rowCount == 1) {
-                    
+                    console.log("this is triggered3")
                     response.send({
                         success: true,
                         message: "Deleted: " + result.rows[0].name
                     })
                 } else {
-                    
+                    console.log("this is triggered4")
                     response.status(404).send({
                         message: "Name not found"
                     })
                 }
             })
             .catch(err => {
+                console.log("this is triggered5")
                 //log the error
                 // console.log(err)
                 response.status(400).send({
@@ -194,6 +195,7 @@ router.delete("/", (request, response) => {
                 })
             }) 
     } else {
+        console.log("this is triggered6")
         response.status(400).send({
             message: "Missing required information"
         })
