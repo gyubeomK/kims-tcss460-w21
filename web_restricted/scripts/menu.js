@@ -371,7 +371,7 @@ async function removePrevItem(prevID) {
     } else {
         alert("HTTP-Error: " + response.status)
         console.log(response.status)
-        let json = await response.json()
+        let json = await response.json() 
         console.log(json)
     }
 
