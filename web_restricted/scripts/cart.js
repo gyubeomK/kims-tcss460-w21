@@ -53,16 +53,6 @@ async function getCartItem() {
                 runningTotal += json.orders[i].total
                 
                 
-
-                // let output = "Price: " + json.orders[i].total
-                //             + ", Size: " + json.orders[i].size 
-                //             + ", Crust: " + json.orders[i].crust
-                //             + ", Cheese: " + json.orders[i].cheese
-                //             + ", Sauce: " + json.orders[i].sauce
-                //             + ", Toppings: " + json.orders[i].secing
-                //             + ", Special Toppings: " + json.orders[i].thirding
-
-                
                 let size = "Size: " + json.orders[i].size 
                 let crust = "Crust: " + json.orders[i].crust
                 let cheese = "Cheese: " + json.orders[i].cheese
