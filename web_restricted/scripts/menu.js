@@ -1,6 +1,8 @@
-function initialTotal() {
+function initialTotal(pizzaType) {
 
-    console.log("initial total triggered")
+    console.log("initial total triggered -> " + pizzaType)
+
+    localStorage.setItem("pizzaType", pizzaType)
 
     totalCalculation()
 
