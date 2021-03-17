@@ -201,117 +201,29 @@ define({ "api": [
     "groupTitle": "Auth"
   },
   {
-    "type": "delete",
-    "url": "/demosql/:name",
-    "title": "Request to remove entry in the DB for name",
-    "name": "DeleteDemoSql",
-    "group": "DemoSql",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>the name entry  to delete</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Query-Example:",
-          "content": "https://cfb3-tcss460-w21b.herokuapp.com/demosql/charles",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>true when the name is delete</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>the name of the deleted entry</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "404: Name Not Found": [
-          {
-            "group": "404: Name Not Found",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Name not found&quot;</p>"
-          }
-        ],
-        "400: Missing Parameters": [
-          {
-            "group": "400: Missing Parameters",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Missing required information&quot;</p>"
-          }
-        ],
-        "400: SQL Error": [
-          {
-            "group": "400: SQL Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>the reported SQL error details</p>"
-          }
-        ],
-        "400: JSON Error": [
-          {
-            "group": "400: JSON Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/demosql.js",
-    "groupTitle": "DemoSql"
-  },
-  {
     "type": "get",
-    "url": "/demosql/:name?",
-    "title": "Request to get all (or specific) demo entries in the DB",
-    "name": "GetDemoSql",
-    "group": "DemoSql",
-    "parameter": {
+    "url": "/orders",
+    "title": "Request to get all Order entries in the DB",
+    "name": "GetOrders",
+    "group": "Orders",
+    "header": {
       "fields": {
-        "Parameter": [
+        "Header": [
           {
-            "group": "Parameter",
+            "group": "Header",
             "type": "String",
-            "optional": true,
-            "field": "name",
-            "description": "<p>the name to look up. If no name provided, all names are returned</p>"
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
           }
         ]
-      },
+      }
+    },
+    "parameter": {
       "examples": [
         {
           "title": "Request-Query-Example:",
-          "content": "https://cfb3-tcss460-w21b.herokuapp.com/demosql/charles",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
           "type": "json"
         }
       ]
@@ -319,55 +231,25 @@ define({ "api": [
     "success": {
       "fields": {
         "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>true when the name is inserted</p>"
-          },
           {
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "names",
-            "description": "<p>List of names in the Demo DB</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "names.name",
-            "description": "<p>The name</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "names.message",
-            "description": "<p>The message associated with the name</p>"
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
           }
         ]
       }
     },
     "error": {
       "fields": {
-        "404: Name Not Found": [
+        "404: No Orders Found": [
           {
-            "group": "404: Name Not Found",
+            "group": "404: No Orders Found",
             "type": "String",
             "optional": false,
             "field": "message",
-            "description": "<p>&quot;Name not found&quot;</p>"
-          }
-        ],
-        "400: SQL Error": [
-          {
-            "group": "400: SQL Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>the reported SQL error details</p>"
+            "description": "<p>&quot;No Orders&quot;</p>"
           }
         ],
         "400: JSON Error": [
@@ -378,75 +260,251 @@ define({ "api": [
             "field": "message",
             "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
           }
+        ],
+        "403: JSON Error": [
+          {
+            "group": "403: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Token is not valid&quot; when a JWT is provided but it is expired or otherwise not valid</p>"
+          }
+        ],
+        "401: JSON Error": [
+          {
+            "group": "401: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Auth token is not supplied&quot; when a JWT is not provided or it is provided in an incorrect format</p>"
+          }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "routes/demosql.js",
-    "groupTitle": "DemoSql"
+    "filename": "routes/cart.js",
+    "groupTitle": "Orders"
   },
   {
-    "type": "post",
-    "url": "/demosql",
-    "title": "Request to add someone's name to the DB",
-    "name": "PostDemoSql",
-    "group": "DemoSql",
-    "parameter": {
+    "type": "get",
+    "url": "/favOrders",
+    "title": "Request to get all Order entries in the DB",
+    "name": "GetOrders",
+    "group": "Orders",
+    "header": {
       "fields": {
-        "Parameter": [
+        "Header": [
           {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "name",
-            "description": "<p>someone's name</p>"
-          },
-          {
-            "group": "Parameter",
+            "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "message",
-            "description": "<p>a message to store with the name</p>"
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
           }
         ]
-      },
+      }
+    },
+    "parameter": {
       "examples": [
         {
-          "title": "Request-Body-Example:",
-          "content": "{\n  \"name\": \"Charles\",\n  \"message\": \"Hello World\"\n}",
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
           "type": "json"
         }
       ]
     },
     "success": {
       "fields": {
-        "Success 201": [
+        "Success 200": [
           {
-            "group": "Success 201",
-            "type": "boolean",
+            "group": "Success 200",
+            "type": "Object[]",
             "optional": false,
-            "field": "success",
-            "description": "<p>true when the name is inserted</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>the inserted name</p>"
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
           }
         ]
       }
     },
     "error": {
       "fields": {
-        "400: Name exists": [
+        "404: No Orders Found": [
           {
-            "group": "400: Name exists",
+            "group": "404: No Orders Found",
             "type": "String",
             "optional": false,
             "field": "message",
-            "description": "<p>&quot;Name exists&quot;</p>"
+            "description": "<p>&quot;No Orders&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ],
+        "403: JSON Error": [
+          {
+            "group": "403: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Token is not valid&quot; when a JWT is provided but it is expired or otherwise not valid</p>"
+          }
+        ],
+        "401: JSON Error": [
+          {
+            "group": "401: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Auth token is not supplied&quot; when a JWT is not provided or it is provided in an incorrect format</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/favOrder.js",
+    "groupTitle": "Orders"
+  },
+  {
+    "type": "get",
+    "url": "/orders",
+    "title": "Request to get all Order entries in the DB",
+    "name": "GetOrders",
+    "group": "Orders",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "404: No Orders Found": [
+          {
+            "group": "404: No Orders Found",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;No Orders&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ],
+        "403: JSON Error": [
+          {
+            "group": "403: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Token is not valid&quot; when a JWT is provided but it is expired or otherwise not valid</p>"
+          }
+        ],
+        "401: JSON Error": [
+          {
+            "group": "401: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Auth token is not supplied&quot; when a JWT is not provided or it is provided in an incorrect format</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/order.js",
+    "groupTitle": "Orders"
+  },
+  {
+    "type": "post",
+    "url": "/favOrders",
+    "title": "Request to Post all Order entries in the DB",
+    "name": "PostOrders",
+    "group": "Orders",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
           }
         ],
         "400: Missing Parameters": [
@@ -455,16 +513,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "message",
-            "description": "<p>&quot;Missing required information&quot;</p>"
-          }
-        ],
-        "400: SQL Error": [
-          {
-            "group": "400: SQL Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>the reported SQL error details</p>"
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
           }
         ],
         "400: JSON Error": [
@@ -479,71 +528,59 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "routes/demosql.js",
-    "groupTitle": "DemoSql"
+    "filename": "routes/cart.js",
+    "groupTitle": "Orders"
   },
   {
-    "type": "put",
-    "url": "/demosql",
-    "title": "Request to replace the message entry in the DB for name",
-    "name": "PutDemoSql",
-    "group": "DemoSql",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Body-Example:",
-          "content": "{\n  \"name\": \"Charles\",\n  \"message\": \"Hello World UPDATED!\"\n}",
-          "type": "json"
-        }
-      ],
+    "type": "post",
+    "url": "/favOrders",
+    "title": "Request to Post all Order entries in the DB",
+    "name": "PostOrders",
+    "group": "Orders",
+    "header": {
       "fields": {
-        "Parameter": [
+        "Header": [
           {
-            "group": "Parameter",
+            "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "name",
-            "description": "<p>the name entry</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>a message to replace with the associated name</p>"
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
           }
         ]
       }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "boolean",
+            "type": "Object[]",
             "optional": false,
-            "field": "success",
-            "description": "<p>true when the name is inserted</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>the name of the updated message</p>"
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
           }
         ]
       }
     },
     "error": {
       "fields": {
-        "404: Name Not Found": [
+        "400: Input Error": [
           {
-            "group": "404: Name Not Found",
+            "group": "400: Input Error",
             "type": "String",
             "optional": false,
             "field": "message",
-            "description": "<p>&quot;Name not found&quot;</p>"
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
           }
         ],
         "400: Missing Parameters": [
@@ -552,16 +589,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "message",
-            "description": "<p>&quot;Missing required information&quot;</p>"
-          }
-        ],
-        "400: SQL Error": [
-          {
-            "group": "400: SQL Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>the reported SQL error details</p>"
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
           }
         ],
         "400: JSON Error": [
@@ -576,158 +604,83 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "routes/demosql.js",
-    "groupTitle": "DemoSql"
-  },
-  {
-    "type": "get",
-    "url": "/hello",
-    "title": "Request a Hello World message",
-    "name": "GetHello",
-    "group": "Hello",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>Hello World message</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/demo_eps.js",
-    "groupTitle": "Hello"
+    "filename": "routes/favOrder.js",
+    "groupTitle": "Orders"
   },
   {
     "type": "post",
-    "url": "/hello",
-    "title": "Request a Hello World message",
-    "name": "PostHello",
-    "group": "Hello",
-    "success": {
+    "url": "/orders",
+    "title": "Request to Post all Order entries in the DB",
+    "name": "PostOrders",
+    "group": "Orders",
+    "header": {
       "fields": {
-        "Success 200": [
+        "Header": [
           {
-            "group": "Success 200",
+            "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "message",
-            "description": "<p>Hello World message</p>"
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
           }
         ]
       }
     },
-    "version": "0.0.0",
-    "filename": "routes/demo_eps.js",
-    "groupTitle": "Hello"
-  },
-  {
-    "type": "get",
-    "url": "/params",
-    "title": "Request an message echo with a parameter",
-    "name": "GetParams",
-    "group": "Params",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>someone's name</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>Hello World message with echo of name</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "400: Missing Parameters": [
-          {
-            "group": "400: Missing Parameters",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Missing required information&quot;</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/demo_eps.js",
-    "groupTitle": "Params"
-  },
-  {
-    "type": "post",
-    "url": "/params",
-    "title": "Request an message echo with a parameter",
-    "name": "PostParams",
-    "group": "Params",
     "parameter": {
       "examples": [
         {
-          "title": "Request-Body-Example:",
-          "content": "{\n  \"name\": \"Charles\"\n}",
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
           "type": "json"
         }
-      ],
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>someone's name</p>"
-          }
-        ]
-      }
+      ]
     },
     "success": {
       "fields": {
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Object[]",
             "optional": false,
-            "field": "message",
-            "description": "<p>Hello World message with echo of name</p>"
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
           }
         ]
       }
     },
     "error": {
       "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
         "400: Missing Parameters": [
           {
             "group": "400: Missing Parameters",
             "type": "String",
             "optional": false,
             "field": "message",
-            "description": "<p>&quot;Missing required information&quot;</p>"
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "routes/demo_eps.js",
-    "groupTitle": "Params"
+    "filename": "routes/order.js",
+    "groupTitle": "Orders"
   }
 ] });

@@ -1,7 +1,7 @@
 {
-  "name": "TCSS 460 API Documentation",
+  "name": "Kims Pizzeria API Documentation",
   "version": "0.1.0",
-  "description": "TCSS 460 API Documentation",
-  "title": "TCSS 460 API Documentation",
-  "url" : "https://cfb3-tcss460-w21b.herokuapp.com"
+  "description": "Kims Pizzeria API Documentation",
+  "title": "Kims Pizzeria API Documentation",
+  "url" : "https://kims-tcss460-w21.herokuapp.com"
 }
