@@ -15,7 +15,7 @@ window.onload = function() {
 async function getCartItem() {
     console.log("getCartItem() triggered")
     if(document.cookie.indexOf('authorized') ==  -1) {
-        alert("You need to sign in to use cart feature.")
+        alert("You need to sign in to use cart feature")
         window.location.href = "./homepage.html";
         
                 

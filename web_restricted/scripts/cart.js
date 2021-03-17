@@ -7,6 +7,7 @@ let sauceList = []
 let secIngList = []
 let thirdIngList = []
 let cartIDList = []
+let pizzaTypeList = []
 
 window.onload = function() {
     console.log("Triggered on reload()")
@@ -52,6 +53,7 @@ async function getCartItem() {
                 secIngList.push(json.orders[i].secing)
                 thirdIngList.push(json.orders[i].thirding)
                 cartIDList.push(json.orders[i].cartid)
+                pizzaTypeList.push(json.orders[i].pizzatype)
                 runningTotal += json.orders[i].total
                 
                 
@@ -64,7 +66,7 @@ async function getCartItem() {
 
 
                 $(".cartSpecific").append($("<div class='cart-items'>")
-                                            .append($("<span class='cart-item-title'>").text("Pizza " + (i + 1) + ":"))
+                                            .append($("<span class='cart-item-title'>").text(json.orders[i].pizzatype))
                                             .append($("<ol>")
                                             .append($("<li style='font-size:14px'>").text(size))
                                             .append($("<li style='font-size:14px'>").text(crust))
