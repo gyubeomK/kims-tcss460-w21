@@ -76,12 +76,12 @@ async function getCartItem() {
                                             //.append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
                                             //.append($("<button class='btn btn-danger' data-toggle='modal' data-target='#myCartModal' onclick='editCartItem("+json.orders[i].cartid+")' type='button'>Edit Item</button>"))
                                             .append($("<button class='btn btn-addItem' data-toggle='modal' data-target='#myCartModal' onclick='setCartID("+json.orders[i].cartid+")' type='button'>Edit Item</button>"))
-                                            .append($("<button class='btn btn-danger' onclick='removeCartItem("+json.orders[i].cartid+")' type='button'>REMOVE</button>")))
+                                            .append($("<button class='btn btn-danger' style='margin-left: 3em;' onclick='removeCartItem("+json.orders[i].cartid+")' type='button'>REMOVE</button>")))
                                             
                 
 
 
-                
+                margin-left: 3em;
                 
             }
             $("#totalPrice").text("$" + runningTotal)
