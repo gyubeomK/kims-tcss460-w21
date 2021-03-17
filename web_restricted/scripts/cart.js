@@ -77,7 +77,7 @@ async function getCartItem() {
                                             .append($("<span class='cart-price cart-column' style='margin-left: 11em;display: inline-grid;' id='price'>$" + json.orders[i].total + "</span>"))
                                             //.append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
                                             //.append($("<button class='btn btn-danger' data-toggle='modal' data-target='#myCartModal' onclick='editCartItem("+json.orders[i].cartid+")' type='button'>Edit Item</button>"))
-                                            .append($("<button class='btn btn-addItem' data-toggle='modal' data-target='#myCartModal' onclick='setCartID("+json.orders[i].cartid+")' type='button'>Edit Item</button>"))
+                                            .append($("<button class='btn btn-addItem' data-toggle='modal' data-target='#myCartModal' onclick='setCartID("+json.orders[i].cartid + ", " + json.orders[i].pizzatype + ")' type='button'>Edit Item</button>"))
                                             .append($("<button class='btn btn-danger' style='margin-left: 3em;' onclick='removeCartItem("+json.orders[i].cartid+")' type='button'>REMOVE</button>")))
                                             
                 
@@ -101,8 +101,9 @@ async function getCartItem() {
     }
 }
 
-function setCartID(cartID) {
+function setCartID(cartID, pizzaType) {
     localStorage.setItem("targetCartID", cartID);
+    localStorage.setItem("pizzaType", pizzaType);
 }
 
 function editCartItem() {
@@ -173,6 +174,7 @@ function editAndAddToCart() {
 
 async function addEdittedItem() {
     let memberID = localStorage.getItem("targetCartID")
+    let pizzaType = localStorage.getItem("pizzaType")
     let size = localStorage.getItem("size")
     let crust = localStorage.getItem("crust")
     let cheese = localStorage.getItem("cheese")
@@ -191,6 +193,7 @@ async function addEdittedItem() {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
+            "pizzaType": pizzaType,
             "memberid": memberID,
             "size": size,
             "crust": crust,
