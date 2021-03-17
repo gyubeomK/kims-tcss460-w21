@@ -31,14 +31,14 @@ const config = {
  */ 
 
 /**
- * @api {get} /orders Request to get all Order entries in the DB
- * @apiName GetOrders
- * @apiGroup Orders
+ * @api {get} /order Request to get all Order entries in the DB
+ * @apiName GetOrder
+ * @apiGroup Order
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ *     https://kims-tcss460-w21.herokuapp.com/orders
  * 
  * @apiSuccess {Object[]} orders List of Orders in the database
  * 
@@ -91,14 +91,14 @@ router.get("/", (request, response) => {
 })
 
 /**
- * @api {post} /orders Request to Post all Order entries in the DB
- * @apiName PostOrders
- * @apiGroup Orders
+ * @api {post} /order Request to Post all Order entries in the DB
+ * @apiName PostOrder
+ * @apiGroup Order
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ *     https://kims-tcss460-w21.herokuapp.com/order
  * 
  * @apiSuccess {Object[]} orders List of Orders in the database
  * 
@@ -160,13 +160,13 @@ router.post('/', (request, response) => {
 
 /**
  * @api {delete} /order Request to Delete Distict Entry
- * @apiName DeleteOrders
+ * @apiName DeleteOrder
  * @apiGroup Orders
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ *     https://kims-tcss460-w21.herokuapp.com/orders
  * 
  * @apiSuccess {Object[]} orders List of Orders in the database
  * 

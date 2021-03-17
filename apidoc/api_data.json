@@ -167,15 +167,6 @@
             "description": "<p>&quot;Missing required information&quot;</p>"
           }
         ],
-        "400: Username exists": [
-          {
-            "group": "400: Username exists",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Username exists&quot;</p>"
-          }
-        ],
         "400: Email exists": [
           {
             "group": "400: Email exists",
@@ -448,9 +439,9 @@
   },
   {
     "type": "get",
-    "url": "/favOrders",
+    "url": "/favOrder",
     "title": "Request to get all favOrders entries in the DB",
-    "name": "GetFavOrders",
+    "name": "GetFavOrder",
     "group": "FavOrder",
     "header": {
       "fields": {
@@ -469,7 +460,7 @@
       "examples": [
         {
           "title": "Request-Query-Example:",
-          "content": "https://uwnetid-tcss460-w21.herokuapp.com/favOrders",
+          "content": "https://kims-tcss460-w21.herokuapp.com/favOrder",
           "type": "json"
         }
       ]
@@ -533,9 +524,9 @@
   },
   {
     "type": "post",
-    "url": "/favOrders",
+    "url": "/favOrder",
     "title": "Request to Post all favOrders entries in the DB",
-    "name": "GetFavOrders",
+    "name": "GetFavOrder",
     "group": "FavOrder",
     "header": {
       "fields": {
@@ -554,7 +545,7 @@
       "examples": [
         {
           "title": "Request-Query-Example:",
-          "content": "https://uwnetid-tcss460-w21.herokuapp.com/favOrders",
+          "content": "https://kims-tcss460-w21.herokuapp.com/favOrder",
           "type": "json"
         }
       ]
@@ -691,12 +682,173 @@
     "version": "0.0.0",
     "filename": "routes/favOrder.js",
     "groupTitle": "FavOrder"
+  },
+  {
+    "type": "get",
+    "url": "/order",
+    "title": "Request to get all Order entries in the DB",
+    "name": "GetOrder",
+    "group": "Order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://kims-tcss460-w21.herokuapp.com/orders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "404: No Orders Found": [
+          {
+            "group": "404: No Orders Found",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;No Orders&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ],
+        "403: JSON Error": [
+          {
+            "group": "403: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Token is not valid&quot; when a JWT is provided but it is expired or otherwise not valid</p>"
+          }
+        ],
+        "401: JSON Error": [
+          {
+            "group": "401: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Auth token is not supplied&quot; when a JWT is not provided or it is provided in an incorrect format</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/order.js",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "post",
+    "url": "/order",
+    "title": "Request to Post all Order entries in the DB",
+    "name": "PostOrder",
+    "group": "Order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://kims-tcss460-w21.herokuapp.com/orders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
+        "400: Missing Parameters": [
+          {
+            "group": "400: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/order.js",
+    "groupTitle": "Order"
   },
   {
     "type": "delete",
     "url": "/order",
     "title": "Request to Delete Distict Entry",
-    "name": "DeleteOrders",
+    "name": "DeleteOrder",
     "group": "Orders",
     "header": {
       "fields": {
@@ -715,7 +867,7 @@
       "examples": [
         {
           "title": "Request-Query-Example:",
-          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "content": "https://kims-tcss460-w21.herokuapp.com/orders",
           "type": "json"
         }
       ]
@@ -760,167 +912,6 @@
             "optional": false,
             "field": "message",
             "description": "<p>&quot;Name not found&quot;</p>"
-          }
-        ],
-        "400: JSON Error": [
-          {
-            "group": "400: JSON Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/order.js",
-    "groupTitle": "Orders"
-  },
-  {
-    "type": "get",
-    "url": "/orders",
-    "title": "Request to get all Order entries in the DB",
-    "name": "GetOrders",
-    "group": "Orders",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "authorization",
-            "description": "<p>Valid JSON Web Token JWT</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Query-Example:",
-          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "orders",
-            "description": "<p>List of Orders in the database</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "404: No Orders Found": [
-          {
-            "group": "404: No Orders Found",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;No Orders&quot;</p>"
-          }
-        ],
-        "400: JSON Error": [
-          {
-            "group": "400: JSON Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
-          }
-        ],
-        "403: JSON Error": [
-          {
-            "group": "403: JSON Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Token is not valid&quot; when a JWT is provided but it is expired or otherwise not valid</p>"
-          }
-        ],
-        "401: JSON Error": [
-          {
-            "group": "401: JSON Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Auth token is not supplied&quot; when a JWT is not provided or it is provided in an incorrect format</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/order.js",
-    "groupTitle": "Orders"
-  },
-  {
-    "type": "post",
-    "url": "/orders",
-    "title": "Request to Post all Order entries in the DB",
-    "name": "PostOrders",
-    "group": "Orders",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "authorization",
-            "description": "<p>Valid JSON Web Token JWT</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Query-Example:",
-          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "orders",
-            "description": "<p>List of Orders in the database</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "400: Input Error": [
-          {
-            "group": "400: Input Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Invalid Parameters&quot;</p>"
-          }
-        ],
-        "400: Missing Parameters": [
-          {
-            "group": "400: Missing Parameters",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Missing Parameters&quot;</p>"
           }
         ],
         "400: JSON Error": [

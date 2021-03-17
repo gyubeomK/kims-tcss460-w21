@@ -31,14 +31,14 @@ const config = {
  */ 
 
 /**
- * @api {get} /favOrders Request to get all favOrders entries in the DB
- * @apiName GetFavOrders
+ * @api {get} /favOrder Request to get all favOrders entries in the DB
+ * @apiName GetFavOrder
  * @apiGroup FavOrder
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/favOrders
+ *     https://kims-tcss460-w21.herokuapp.com/favOrder
  * 
  * @apiSuccess {Object[]} favOrders List of favOrders in the database
  * 
@@ -84,14 +84,14 @@ router.get("/", (request, response) => {
 
 
 /**
- * @api {post} /favOrders Request to Post all favOrders entries in the DB
- * @apiName GetFavOrders
+ * @api {post} /favOrder Request to Post all favOrders entries in the DB
+ * @apiName GetFavOrder
  * @apiGroup FavOrder
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/favOrders
+ *     https://kims-tcss460-w21.herokuapp.com/favOrder
  * 
  * @apiSuccess {Object[]} favOrders List of favOrders in the database
  * 
