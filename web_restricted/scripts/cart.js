@@ -182,8 +182,8 @@ function editAndAddToCart() {
 
 
 async function addEdittedItem() {
-    let memberID = sessionStorage.getItem("tempCartID")
-    let pizzaType = sessionStorage.getItem("tempPizzaType")
+    let memberID = localStorage.getItem("tempCartID")
+    //let pizzaType = sessionStorage.getItem("tempPizzaType")
 
     let size = localStorage.getItem("size")
     let crust = localStorage.getItem("crust")
@@ -206,7 +206,7 @@ async function addEdittedItem() {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            "pizzaType": pizzaType,
+            //"pizzaType": pizzaType,
             "memberid": memberID,
             "size": size,
             "crust": crust,
