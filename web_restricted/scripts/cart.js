@@ -175,8 +175,7 @@ function editAndAddToCart() {
 
 
 async function addEdittedItem(memberID, pizzaType) {
-    let memberID = memberID
-    let pizzaType = pizzaType
+    
     let size = localStorage.getItem("size")
     let crust = localStorage.getItem("crust")
     let cheese = localStorage.getItem("cheese")
