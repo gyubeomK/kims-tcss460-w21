@@ -182,7 +182,7 @@ function editAndAddToCart() {
 
 async function addEdittedItem() {
     let memberID = localStorage.getItem("tempCartID")
-    //let pizzaType = sessionStorage.getItem("tempPizzaType")
+    
 
     let size = localStorage.getItem("size")
     let crust = localStorage.getItem("crust")
@@ -194,9 +194,9 @@ async function addEdittedItem() {
 
     // console.log(typeof size)
 
-    console.log(memberID + ", " + size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
+    
 
-    console.log("member: " + memberID + ", " + pizzaType)
+    
 
 
     let response = await fetch("/cart", {
@@ -205,7 +205,6 @@ async function addEdittedItem() {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            //"pizzaType": pizzaType,
             "memberid": memberID,
             "size": size,
             "crust": crust,
