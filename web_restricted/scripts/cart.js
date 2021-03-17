@@ -104,7 +104,7 @@ async function getCartItem() {
 
 let tempCartID
 let tempPizzaType
-function setCartID(cartID, pizzaType) {
+function setCartID(json) {
     sessionStorage.setItem("tempCartID", cartID);
     sessionStorage.setItem("tempPizzaType", pizzaType);
     tempCartID = cartID
