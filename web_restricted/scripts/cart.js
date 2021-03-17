@@ -64,7 +64,8 @@ async function getCartItem() {
                 let toppings = "Toppings: " + json.orders[i].secing
                 let sToppings = "Special Toppings: " + json.orders[i].thirding
 
-
+                console.log("1." + json.orders[i].cartid)
+                console.log("2." + json.orders[i].pizzatype)
                 $(".cartSpecific").append($("<div class='cart-items'>")
                                             .append($("<span class='cart-item-title'>").text(json.orders[i].pizzatype))
                                             .append($("<ol>")
