@@ -53,7 +53,7 @@ async function getCartItem() {
                 secIngList.push(json.orders[i].secing)
                 thirdIngList.push(json.orders[i].thirding)
                 cartIDList.push(json.orders[i].cartid)
-                pizzaTypeList.push(json.orders[i].pizzatype)
+                //pizzaTypeList.push(json.orders[i].pizzatype)
                 runningTotal += json.orders[i].total
                 
                 
@@ -65,9 +65,9 @@ async function getCartItem() {
                 let sToppings = "Special Toppings: " + json.orders[i].thirding
 
                 console.log("1." + json.orders[i].cartid)
-                console.log("2." + json.orders[i].pizzatype)
+                //console.log("2." + json.orders[i].pizzatype)
                 $(".cartSpecific").append($("<div class='cart-items'>")
-                                            .append($("<span class='cart-item-title'>").text(json.orders[i].pizzatype))
+                                            .append($("<span class='cart-item-title'>").text("Pizza " + (i+1)))
                                             .append($("<ol>")
                                             .append($("<li style='font-size:14px'>").text(size))
                                             .append($("<li style='font-size:14px'>").text(crust))
