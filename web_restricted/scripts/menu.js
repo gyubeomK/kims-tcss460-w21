@@ -108,7 +108,7 @@ function saucePrice(sauceInput) {
 
 async function submit_order() {
     console.log("submit_order triggered")
-
+    let pizzaType = localStorage.getItem("pizzaType")
     let size = localStorage.getItem("size")
     let crust = localStorage.getItem("crust")
     let cheese = localStorage.getItem("cheese")
@@ -119,7 +119,7 @@ async function submit_order() {
 
     // console.log(typeof size)
 
-    console.log(size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
+    console.log(pizzaType + ", " + size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
 
     let response = await fetch("/cart", {
         method: "POST",
@@ -127,6 +127,7 @@ async function submit_order() {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
+            "pizzaType": pizzaType,
             "size": size,
             "crust": crust,
             "cheese": cheese,
