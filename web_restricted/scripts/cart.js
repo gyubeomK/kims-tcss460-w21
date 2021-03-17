@@ -165,8 +165,10 @@ function editCartItem() {
 }
 function editAndAddToCart() {
     addEdittedItem()
-    console.log("Data added, need to erase now")
+    removeCartItem(localStorage.getItem("targetCartID"))
 }
+
+
 
 async function addEdittedItem() {
     let memberID = localStorage.getItem("targetCartID")
