@@ -105,8 +105,8 @@ async function getCartItem() {
 let tempCartID
 let tempPizzaType
 function setCartID(cartID, pizzaType) {
-    localStorage.setItem("targetCartID", cartID);
-    localStorage.setItem("pizzaType", pizzaType);
+    localStorage.setItem("tempCartID", cartID);
+    localStorage.setItem("tempPizzaType", pizzaType);
     tempCartID = cartID
     tempPizzaType = pizzaType
 }
@@ -181,8 +181,9 @@ function editAndAddToCart() {
 
 
 async function addEdittedItem() {
-    let memberID = tempCartID
-    let pizzaType = tempPizzaType
+    let memberID = localStorage.getItem("tempCartID")
+    let pizzaType = localStorage.getItem("tempPizzaType")
+
     let size = localStorage.getItem("size")
     let crust = localStorage.getItem("crust")
     let cheese = localStorage.getItem("cheese")
