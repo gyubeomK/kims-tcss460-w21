@@ -51,7 +51,7 @@ const config = {
  */ 
 router.get("/", (request, response) => {
     const theQuery = 
-    `SELECT FavPizzaID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total 
+    `SELECT FavPizzaID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total, PizzaType 
      FROM FavPizza
      WHERE MemberID=$1`
     let values = [request.decoded.memberid]    
