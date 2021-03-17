@@ -31,16 +31,16 @@ const config = {
  */ 
 
 /**
- * @api {get} /orders Request to get all Order entries in the DB
- * @apiName GetOrders
- * @apiGroup Orders
+ * @api {get} /cart Request to get all cart entries in the DB
+ * @apiName GetCart
+ * @apiGroup Cart
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ *     https://uwnetid-tcss460-w21.herokuapp.com/cart
  * 
- * @apiSuccess {Object[]} orders List of Orders in the database
+ * @apiSuccess {Object[]} cart List of cart in the database
  * 
  * @apiError (404: No Orders Found) {String} message "No Orders"
  * @apiError (400: JSON Error) {String} message "malformed JSON in parameters"
@@ -84,16 +84,16 @@ const config = {
 
 
 /**
- * @api {post} /favOrders Request to Post all Order entries in the DB
- * @apiName PostOrders
- * @apiGroup Orders
+ * @api {post} /cart Request to Post all cart entries in the DB
+ * @apiName PostCart
+ * @apiGroup Cart
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ *     https://uwnetid-tcss460-w21.herokuapp.com/cart
  * 
- * @apiSuccess {Object[]} orders List of Orders in the database
+ * @apiSuccess {Object[]} cart List of cart in the database
  * 
  * @apiError (400: Input Error) {String} message "Invalid Parameters"
  * @apiError (400: Missing Parameters) {String} message "Missing Parameters"
@@ -157,15 +157,15 @@ router.post('/', (request, response) => {
 
 /**
  * @api {delete} /cart Request to Delete Distict Entry
- * @apiName PostOrders
- * @apiGroup Orders
+ * @apiName PostCart
+ * @apiGroup Cart
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ *     https://uwnetid-tcss460-w21.herokuapp.com/cart
  * 
- * @apiSuccess {Object[]} orders List of Orders in the database
+ * @apiSuccess {Object[]} cart List of cart in the database
  * 
  * @apiError (400: Input Error) {String} message "Invalid Parameters"
  * @apiError (400: Missing Parameters) {String} message "Missing Parameters"

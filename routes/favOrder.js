@@ -31,16 +31,16 @@ const config = {
  */ 
 
 /**
- * @api {get} /favOrders Request to get all Order entries in the DB
- * @apiName GetOrders
- * @apiGroup Orders
+ * @api {get} /favOrders Request to get all favOrders entries in the DB
+ * @apiName GetFavOrders
+ * @apiGroup FavOrder
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ *     https://uwnetid-tcss460-w21.herokuapp.com/favOrders
  * 
- * @apiSuccess {Object[]} orders List of Orders in the database
+ * @apiSuccess {Object[]} favOrders List of favOrders in the database
  * 
  * @apiError (404: No Orders Found) {String} message "No Orders"
  * @apiError (400: JSON Error) {String} message "malformed JSON in parameters"
@@ -84,16 +84,16 @@ router.get("/", (request, response) => {
 
 
 /**
- * @api {post} /favOrders Request to Post all Order entries in the DB
- * @apiName PostOrders
- * @apiGroup Orders
+ * @api {post} /favOrders Request to Post all favOrders entries in the DB
+ * @apiName GetFavOrders
+ * @apiGroup FavOrder
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ *     https://uwnetid-tcss460-w21.herokuapp.com/favOrders
  * 
- * @apiSuccess {Object[]} orders List of Orders in the database
+ * @apiSuccess {Object[]} favOrders List of favOrders in the database
  * 
  * @apiError (400: Input Error) {String} message "Invalid Parameters"
  * @apiError (400: Missing Parameters) {String} message "Missing Parameters"
@@ -154,15 +154,15 @@ router.post('/', (request, response) => {
 
 /**
  * @api {delete} /favOrders Request to Delete Distict Entry
- * @apiName PostOrders
- * @apiGroup Orders
+ * @apiName GetFavOrders
+ * @apiGroup FavOrder
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
  * 
  * @apiParamExample {json} Request-Query-Example:
- *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ *     https://uwnetid-tcss460-w21.herokuapp.com/favOrders
  * 
- * @apiSuccess {Object[]} orders List of Orders in the database
+ * @apiSuccess {Object[]} favOrders List of favOrders in the database
  * 
  * @apiError (400: Input Error) {String} message "Invalid Parameters"
  * @apiError (400: Missing Parameters) {String} message "Missing Parameters"

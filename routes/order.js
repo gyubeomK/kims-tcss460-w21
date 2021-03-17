@@ -160,7 +160,7 @@ router.post('/', (request, response) => {
 
 /**
  * @api {delete} /order Request to Delete Distict Entry
- * @apiName PostOrders
+ * @apiName DeleteOrders
  * @apiGroup Orders
  *
  * @apiHeader {String} authorization Valid JSON Web Token JWT 
