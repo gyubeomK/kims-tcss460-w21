@@ -245,7 +245,9 @@ async function getFavOrders() {
                             + json.orders[i].sauce + "-" 
                             + json.orders[i].secing + "-" 
                             + json.orders[i].thirding + "-" 
-                            + json.orders[i].total
+                            + json.orders[i].total+ "-"
+                            +json.orders[i].pizzatype
+
             favMap.set(json.orders[i].favpizzaid, resultString)
 
             let size = "Size: " + json.orders[i].size 
@@ -258,7 +260,7 @@ async function getFavOrders() {
             
 
             $(".favSpecific").append($("<div class='cart-items'>")
-            .append($("<span class='cart-item-title'>").text("Pizza " + (i + 1) + ":"))
+            .append($("<span class='cart-item-title'>").text(json.orders[i].pizzatype))
             .append($("<ol>")
             .append($("<li style='font-size:14px'>").text(size))
             .append($("<li style='font-size:14px'>").text(crust))
@@ -335,7 +337,9 @@ async function getPrevOrders() {
             + json.orders[i].sauce + "-" 
             + json.orders[i].secing + "-" 
             + json.orders[i].thirding + "-" 
-            + json.orders[i].total
+            + json.orders[i].total + "-" 
+            + json.orders[i].pizzatype
+
             prevMap.set(json.orders[i].orderid, resultString)
 
             let size = "Size: " + json.orders[i].size 
@@ -346,7 +350,7 @@ async function getPrevOrders() {
             let sToppings = "Special Toppings: " + json.orders[i].thirding
 
             $(".prevSpecific").append($("<div class='cart-items'>")
-            .append($("<span class='cart-item-title'>").text("Pizza " + (i + 1) + ":"))
+            .append($("<span class='cart-item-title'>").text(json.orders[i].pizzatype))
             .append($("<ol>")
             .append($("<li style='font-size:14px'>").text(size))
             .append($("<li style='font-size:14px'>").text(crust))
