@@ -91,7 +91,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/register",
+    "url": "/auth",
     "title": "Request to register a user",
     "name": "PostAuth",
     "group": "Auth",
@@ -532,6 +532,91 @@ define({ "api": [
     "groupTitle": "Orders"
   },
   {
+    "type": "delete",
+    "url": "/cart",
+    "title": "Request to Delete Distict Entry",
+    "name": "PostOrders",
+    "group": "Orders",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
+        "400: Missing Parameters": [
+          {
+            "group": "400: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "404: Missing Parameters": [
+          {
+            "group": "404: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Name not found&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/cart.js",
+    "groupTitle": "Orders"
+  },
+  {
     "type": "post",
     "url": "/favOrders",
     "title": "Request to Post all Order entries in the DB",
@@ -608,6 +693,91 @@ define({ "api": [
     "groupTitle": "Orders"
   },
   {
+    "type": "delete",
+    "url": "/favOrders",
+    "title": "Request to Delete Distict Entry",
+    "name": "PostOrders",
+    "group": "Orders",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
+        "400: Missing Parameters": [
+          {
+            "group": "400: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "404: Missing Parameters": [
+          {
+            "group": "404: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Name not found&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/favOrder.js",
+    "groupTitle": "Orders"
+  },
+  {
     "type": "post",
     "url": "/orders",
     "title": "Request to Post all Order entries in the DB",
@@ -666,6 +836,91 @@ define({ "api": [
             "optional": false,
             "field": "message",
             "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/order.js",
+    "groupTitle": "Orders"
+  },
+  {
+    "type": "delete",
+    "url": "/order",
+    "title": "Request to Delete Distict Entry",
+    "name": "PostOrders",
+    "group": "Orders",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
+        "400: Missing Parameters": [
+          {
+            "group": "400: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "404: Missing Parameters": [
+          {
+            "group": "404: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Name not found&quot;</p>"
           }
         ],
         "400: JSON Error": [
