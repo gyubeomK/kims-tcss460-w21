@@ -7,7 +7,7 @@ let sauceList = []
 let secIngList = []
 let thirdIngList = []
 let cartIDList = []
-let pizzaTypeList = []
+//let pizzaTypeList = []
 
 window.onload = function() {
     console.log("Triggered on reload()")
@@ -64,7 +64,7 @@ async function getCartItem() {
                 let toppings = "Toppings: " + json.orders[i].secing
                 let sToppings = "Special Toppings: " + json.orders[i].thirding
 
-                console.log("1." + json.orders[i].cartid)
+                //console.log("1." + json.orders[i].cartid)
                 //console.log("2." + json.orders[i].pizzatype)
                 $(".cartSpecific").append($("<div class='cart-items'>")
                                             .append($("<span class='cart-item-title'>").text("Pizza " + (i+1)))
