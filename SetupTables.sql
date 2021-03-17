@@ -26,7 +26,6 @@ CREATE TABLE PizzaOrder (OrderID SERIAL PRIMARY KEY,
                     SecIng VARCHAR(255) NOT NULL,
                     ThirdIng VARCHAR(255) NOT NULL,
                     Total INT,
-                    PizzaType VARCHAR(255) NOT NULL,
                     FOREIGN KEY(MemberID) REFERENCES Members(MemberID)
 );
 
@@ -40,7 +39,6 @@ CREATE TABLE FavPizza (FavPizzaID SERIAL PRIMARY KEY,
                     SecIng VARCHAR(255) NOT NULL,
                     ThirdIng VARCHAR(255) NOT NULL,
                     Total INT,
-                    PizzaType VARCHAR(255) NOT NULL,
                     FOREIGN KEY(MemberID) REFERENCES Members(MemberID)
 );
 
@@ -54,6 +52,5 @@ CREATE TABLE Cart (CartID SERIAL PRIMARY KEY,
                     SecIng VARCHAR(255) NOT NULL,
                     ThirdIng VARCHAR(255) NOT NULL,
                     Total INT,
-                    PizzaType VARCHAR(255) NOT NULL,
                     FOREIGN KEY(MemberID) REFERENCES Members(MemberID)
 );
