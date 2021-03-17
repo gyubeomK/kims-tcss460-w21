@@ -75,7 +75,7 @@ async function getCartItem() {
                                             .append($("<span class='cart-price cart-column' style='margin-left: 11em;display: inline-grid;' id='price'>$" + json.orders[i].total + "</span>"))
                                             //.append($("<input class='cart-quantity-input' type='number' value='1' style='margin-left: 2em;'>"))
                                             //.append($("<button class='btn btn-danger' data-toggle='modal' data-target='#myCartModal' onclick='editCartItem("+json.orders[i].cartid+")' type='button'>Edit Item</button>"))
-                                            .append($("<button class='btn btn-danger' data-toggle='modal' data-target='#myCartModal' type='button'>Edit Item</button>"))
+                                            .append($("<button class='btn btn-danger' data-toggle='modal' data-target='#myCartModal' onclick='setCartID("+json.orders[i].cartid+")' type='button'>Edit Item</button>"))
                                             .append($("<button class='btn btn-danger' onclick='removeCartItem("+json.orders[i].cartid+")' type='button'>REMOVE</button>")))
                                             
                 
@@ -98,6 +98,10 @@ async function getCartItem() {
 
         }                
     }
+}
+
+function setCartID(cartID) {
+    localStorage.setItem("targetCartID", cartID);
 }
 
 function editCartItem() {
@@ -144,7 +148,7 @@ function editCartItem() {
     $("input:checkbox[name=thirdIngCart]:checked").each(function(){
         thirdIngredientInput.push($(this).val());
     });
-    console.log(thirdIngredientInput.length)
+    console.log(thirdIngredientInput)
     total += thirdIngredientInput.length * 5
     document.getElementById("subTotal").innerHTML = "Current Total: $" + total
 
@@ -159,7 +163,9 @@ function editCartItem() {
     //3. Add new item 
 
 }
+function editAndAddToCart() {
 
+}
 
 function orderSubmit() {
     
