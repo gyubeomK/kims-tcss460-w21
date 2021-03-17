@@ -109,6 +109,7 @@ function setCartID(cartID, pizzaType) {
     sessionStorage.setItem("tempPizzaType", pizzaType);
     tempCartID = cartID
     tempPizzaType = pizzaType
+    console.log("setcartID triggered" + cartID + pizzaType)
 }
 
 function editCartItem() {
