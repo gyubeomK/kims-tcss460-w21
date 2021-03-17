@@ -91,7 +91,7 @@
   },
   {
     "type": "post",
-    "url": "/register",
+    "url": "/auth",
     "title": "Request to register a user",
     "name": "PostAuth",
     "group": "Auth",
@@ -202,10 +202,10 @@
   },
   {
     "type": "get",
-    "url": "/orders",
-    "title": "Request to get all Order entries in the DB",
-    "name": "GetOrders",
-    "group": "Orders",
+    "url": "/cart",
+    "title": "Request to get all cart entries in the DB",
+    "name": "GetCart",
+    "group": "Cart",
     "header": {
       "fields": {
         "Header": [
@@ -223,7 +223,7 @@
       "examples": [
         {
           "title": "Request-Query-Example:",
-          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/cart",
           "type": "json"
         }
       ]
@@ -235,8 +235,8 @@
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "orders",
-            "description": "<p>List of Orders in the database</p>"
+            "field": "cart",
+            "description": "<p>List of cart in the database</p>"
           }
         ]
       }
@@ -283,14 +283,14 @@
     },
     "version": "0.0.0",
     "filename": "routes/cart.js",
-    "groupTitle": "Orders"
+    "groupTitle": "Cart"
   },
   {
-    "type": "get",
-    "url": "/favOrders",
-    "title": "Request to get all Order entries in the DB",
-    "name": "GetOrders",
-    "group": "Orders",
+    "type": "post",
+    "url": "/cart",
+    "title": "Request to Post all cart entries in the DB",
+    "name": "PostCart",
+    "group": "Cart",
     "header": {
       "fields": {
         "Header": [
@@ -308,7 +308,7 @@
       "examples": [
         {
           "title": "Request-Query-Example:",
-          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/cart",
           "type": "json"
         }
       ]
@@ -320,8 +320,169 @@
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "orders",
-            "description": "<p>List of Orders in the database</p>"
+            "field": "cart",
+            "description": "<p>List of cart in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
+        "400: Missing Parameters": [
+          {
+            "group": "400: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/cart.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "delete",
+    "url": "/cart",
+    "title": "Request to Delete Distict Entry",
+    "name": "PostCart",
+    "group": "Cart",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/cart",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "cart",
+            "description": "<p>List of cart in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
+        "400: Missing Parameters": [
+          {
+            "group": "400: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "404: Missing Parameters": [
+          {
+            "group": "404: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Name not found&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/cart.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "get",
+    "url": "/favOrders",
+    "title": "Request to get all favOrders entries in the DB",
+    "name": "GetFavOrders",
+    "group": "FavOrder",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/favOrders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "favOrders",
+            "description": "<p>List of favOrders in the database</p>"
           }
         ]
       }
@@ -368,6 +529,252 @@
     },
     "version": "0.0.0",
     "filename": "routes/favOrder.js",
+    "groupTitle": "FavOrder"
+  },
+  {
+    "type": "post",
+    "url": "/favOrders",
+    "title": "Request to Post all favOrders entries in the DB",
+    "name": "GetFavOrders",
+    "group": "FavOrder",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/favOrders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "favOrders",
+            "description": "<p>List of favOrders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
+        "400: Missing Parameters": [
+          {
+            "group": "400: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/favOrder.js",
+    "groupTitle": "FavOrder"
+  },
+  {
+    "type": "delete",
+    "url": "/favOrders",
+    "title": "Request to Delete Distict Entry",
+    "name": "GetFavOrders",
+    "group": "FavOrder",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/favOrders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "favOrders",
+            "description": "<p>List of favOrders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
+        "400: Missing Parameters": [
+          {
+            "group": "400: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "404: Missing Parameters": [
+          {
+            "group": "404: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Name not found&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/favOrder.js",
+    "groupTitle": "FavOrder"
+  },
+  {
+    "type": "delete",
+    "url": "/order",
+    "title": "Request to Delete Distict Entry",
+    "name": "DeleteOrders",
+    "group": "Orders",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>Valid JSON Web Token JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Query-Example:",
+          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>List of Orders in the database</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400: Input Error": [
+          {
+            "group": "400: Input Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Invalid Parameters&quot;</p>"
+          }
+        ],
+        "400: Missing Parameters": [
+          {
+            "group": "400: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Missing Parameters&quot;</p>"
+          }
+        ],
+        "404: Missing Parameters": [
+          {
+            "group": "404: Missing Parameters",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;Name not found&quot;</p>"
+          }
+        ],
+        "400: JSON Error": [
+          {
+            "group": "400: JSON Error",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/order.js",
     "groupTitle": "Orders"
   },
   {
@@ -453,158 +860,6 @@
     },
     "version": "0.0.0",
     "filename": "routes/order.js",
-    "groupTitle": "Orders"
-  },
-  {
-    "type": "post",
-    "url": "/favOrders",
-    "title": "Request to Post all Order entries in the DB",
-    "name": "PostOrders",
-    "group": "Orders",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "authorization",
-            "description": "<p>Valid JSON Web Token JWT</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Query-Example:",
-          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "orders",
-            "description": "<p>List of Orders in the database</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "400: Input Error": [
-          {
-            "group": "400: Input Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Invalid Parameters&quot;</p>"
-          }
-        ],
-        "400: Missing Parameters": [
-          {
-            "group": "400: Missing Parameters",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Missing Parameters&quot;</p>"
-          }
-        ],
-        "400: JSON Error": [
-          {
-            "group": "400: JSON Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/cart.js",
-    "groupTitle": "Orders"
-  },
-  {
-    "type": "post",
-    "url": "/favOrders",
-    "title": "Request to Post all Order entries in the DB",
-    "name": "PostOrders",
-    "group": "Orders",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "authorization",
-            "description": "<p>Valid JSON Web Token JWT</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Query-Example:",
-          "content": "https://uwnetid-tcss460-w21.herokuapp.com/orders",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "orders",
-            "description": "<p>List of Orders in the database</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "400: Input Error": [
-          {
-            "group": "400: Input Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Invalid Parameters&quot;</p>"
-          }
-        ],
-        "400: Missing Parameters": [
-          {
-            "group": "400: Missing Parameters",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;Missing Parameters&quot;</p>"
-          }
-        ],
-        "400: JSON Error": [
-          {
-            "group": "400: JSON Error",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>&quot;malformed JSON in parameters&quot;</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/favOrder.js",
     "groupTitle": "Orders"
   },
   {
