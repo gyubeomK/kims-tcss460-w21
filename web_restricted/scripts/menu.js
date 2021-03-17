@@ -355,7 +355,7 @@ async function getPrevOrders() {
             // .append($("<button class='btn btn-danger' onclick='removeCartItem()' type='button' value=" + json.orders[i].cartid + ">REMOVE</button>")))
             
             .append($("<button class='btn btn-addItem' style='margin-left: 5em;' onclick='addprevCartItem("+json.orders[i].orderid+")' type='button'>Add to Cart</button>"))
-            .append($("<button class='btn btn-danger' onclick='removePrevItem("+json.orders[i].orderid+")' type='button'>REMOVE</button>")))
+            .append($("<button class='btn btn-danger' style='margin-left: 3em;' onclick='removePrevItem("+json.orders[i].orderid+")' type='button'>REMOVE</button>")))
         }
         
 
