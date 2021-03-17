@@ -81,7 +81,6 @@ async function getCartItem() {
                 
 
 
-                margin-left: 3em;
                 
             }
             $("#totalPrice").text("$" + runningTotal)
