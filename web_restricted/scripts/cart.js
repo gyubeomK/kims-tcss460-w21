@@ -7,7 +7,6 @@ let sauceList = []
 let secIngList = []
 let thirdIngList = []
 let cartIDList = []
-//let pizzaTypeList = []
 
 window.onload = function() {
     console.log("Triggered on reload()")
