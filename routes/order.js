@@ -157,6 +157,26 @@ router.post('/', (request, response) => {
     }
 })
 
+
+/**
+ * @api {delete} /order Request to Delete Distict Entry
+ * @apiName PostOrders
+ * @apiGroup Orders
+ *
+ * @apiHeader {String} authorization Valid JSON Web Token JWT 
+ * 
+ * @apiParamExample {json} Request-Query-Example:
+ *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ * 
+ * @apiSuccess {Object[]} orders List of Orders in the database
+ * 
+ * @apiError (400: Input Error) {String} message "Invalid Parameters"
+ * @apiError (400: Missing Parameters) {String} message "Missing Parameters"
+ * @apiError (404: Missing Parameters) {String} message "Name not found"
+ * 
+ * @apiUse JSONError
+ */ 
+
 router.delete("/", (request, response) => { 
     console.log("request.body.prevID " + request.body.prevID)
     if (request.body.prevID != null) {

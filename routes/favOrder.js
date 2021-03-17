@@ -55,15 +55,9 @@ router.get("/", (request, response) => {
      FROM FavPizza
      WHERE MemberID=$1`
     let values = [request.decoded.memberid]    
-
-
     pool.query(theQuery, values)
         .then(result => {
             if (result.rowCount > 0) {
-
-
-                
-
                     response.send({
                         
                         orders: result.rows,
@@ -71,12 +65,6 @@ router.get("/", (request, response) => {
 
                         message: "/favOrders GET successful!"
                     })                    
-
-                    
-                
-                
-
-
 
             } else {
                 response.status(404).send({
@@ -164,6 +152,24 @@ router.post('/', (request, response) => {
     }
 })
 
+/**
+ * @api {delete} /favOrders Request to Delete Distict Entry
+ * @apiName PostOrders
+ * @apiGroup Orders
+ *
+ * @apiHeader {String} authorization Valid JSON Web Token JWT 
+ * 
+ * @apiParamExample {json} Request-Query-Example:
+ *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ * 
+ * @apiSuccess {Object[]} orders List of Orders in the database
+ * 
+ * @apiError (400: Input Error) {String} message "Invalid Parameters"
+ * @apiError (400: Missing Parameters) {String} message "Missing Parameters"
+ * @apiError (404: Missing Parameters) {String} message "Name not found"
+ * 
+ * @apiUse JSONError
+ */ 
 router.delete("/", (request, response) => { 
     console.log("request.body.favID" + request.body.favID)
     if (request.body.favID != null) {

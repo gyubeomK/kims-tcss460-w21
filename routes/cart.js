@@ -49,109 +49,39 @@ const config = {
  * 
  * @apiUse JSONError
  */ 
-// router.get("/", (request, response) => {
-//     // const theQuery = 
-//     //     `SELECT My_Size, My_Color, Option1, Option2, Option3 
-//     //      FROM Orders`
+ router.get("/", (request, response) => {
+    const theQuery = 
+        `SELECT CartID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total
+        FROM Cart
+        WHERE MemberID=$1`
+    let values = [request.decoded.memberid]
 
-//     const theQuery = 
-//         `SELECT My_Size, My_Color, Option1, Option2, Option3 
-//          FROM Orders
-//          WHERE MemberID=$1`
-//     let values = [request.decoded.memberid]
-
-//     // const theQuery = 
-//     //     `SELECT * 
-//     //      FROM Orders`
-
-//     pool.query(theQuery, values)
-//         .then(result => {
-//             if (result.rowCount > 0) {
-
-
-//                 //JWT into JSON token---------------------------------------------------------------------
-//                 // let salt = result.rows[0].salt
-//                 // //Retrieve our copy of the password
-//                 // let ourSaltedHash = result.rows[0].password 
-    
-//                 // //Combined their password with our salt, then hash
-//                 // let theirSaltedHash = getHash(request.auth.password, salt)
-    
-//                 // //Did our salted hash match their salted hash?
-//                 // if (ourSaltedHash === theirSaltedHash ) {
-//                 //     //credentials match. get a new JWT
-//                 //     let token = jwt.sign(
-//                 //         {
-//                 //             "email": request.auth.email,
-//                 //             "memberid": result.rows[0].memberid
-//                 //         },
-//                 //         config.secret,
-//                 //         { 
-//                 //             expiresIn: '14 days' // expires in 14 days
-//                 //         }
-//                 //     )
-//                 //     response.cookie('access_token', 'Bearer ' + token,
-//                 //         {
-//                 //             expires: new Date(Date.now() + 14 * 24 * 60 * 60000),
-//                 //             httpOnly: true
-                            
-//                 //         })
-//                 //     //use this cookie client side to know if a user is signed in    
-//                 //     response.cookie('authorized', true,
-//                 //         {
-//                 //             expires: new Date(Date.now() + 14 * 24 * 60 * 60000),
-//                 //             //note this cookie is NOT httpOnly                   
-//                 //             httpOnly: false     
-//                 //         })
-    
-//                     //package and send the results
-//                     // response.json({
-//                     //     success: true,
-//                     //     message: 'Authentication successful!',
-//                     //     token: token
-//                     // })
-
-//                     // response.json({
-//                     //     success: true,
-//                     //     message: "Get /orders successful!",
-//                     //     orders: result.rows,
-//                     //     token: token
-//                     // })
-
-//                     response.send({
+    pool.query(theQuery, values)
+        .then(result => {
+            if (result.rowCount > 0) {
+                    response.send({
                         
-//                         orders: result.rows,
-//                         // JWT: request.headers.cookie,
+                        orders: result.rows,
+                        
 
-//                         message: "/orders GET successful!"
-//                     })                    
+                        message: "/cart GET successful!"
+                    })                    
+            } else {
+                response.status(404).send({
+                    message: "No Orders"
+                })
+            }
+        })
+        .catch(err => {
+            //log the error
+            // console.log(err.details)
+            response.status(400).send({
+                message: err.detail
+            })
+        })
+})
 
-                    
-//                 // } else {
-//                 //     //credentials dod not match
-//                 //     response.status(400).send({
-//                 //         message: 'Credentials did not match' 
-//                 //     })
-//                 // }
-//                 //----------------------------------------------------------------------------------------
-                
 
-
-
-//             } else {
-//                 response.status(404).send({
-//                     message: "No Orders"
-//                 })
-//             }
-//         })
-//         .catch(err => {
-//             //log the error
-//             // console.log(err.details)
-//             response.status(400).send({
-//                 message: err.detail
-//             })
-//         })
-// })
 
 /**
  * @api {post} /favOrders Request to Post all Order entries in the DB
@@ -223,38 +153,26 @@ router.post('/', (request, response) => {
 })
 
 
-router.get("/", (request, response) => {
-    const theQuery = 
-        `SELECT CartID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total
-        FROM Cart
-        WHERE MemberID=$1`
-    let values = [request.decoded.memberid]
 
-    pool.query(theQuery, values)
-        .then(result => {
-            if (result.rowCount > 0) {
-                    response.send({
-                        
-                        orders: result.rows,
-                        
 
-                        message: "/cart GET successful!"
-                    })                    
-            } else {
-                response.status(404).send({
-                    message: "No Orders"
-                })
-            }
-        })
-        .catch(err => {
-            //log the error
-            // console.log(err.details)
-            response.status(400).send({
-                message: err.detail
-            })
-        })
-})
-
+/**
+ * @api {delete} /cart Request to Delete Distict Entry
+ * @apiName PostOrders
+ * @apiGroup Orders
+ *
+ * @apiHeader {String} authorization Valid JSON Web Token JWT 
+ * 
+ * @apiParamExample {json} Request-Query-Example:
+ *     https://uwnetid-tcss460-w21.herokuapp.com/orders
+ * 
+ * @apiSuccess {Object[]} orders List of Orders in the database
+ * 
+ * @apiError (400: Input Error) {String} message "Invalid Parameters"
+ * @apiError (400: Missing Parameters) {String} message "Missing Parameters"
+ * @apiError (404: Missing Parameters) {String} message "Name not found"
+ * 
+ * @apiUse JSONError
+ */ 
 router.delete("/", (request, response) => { 
     console.log("request.body.cartID" + request.body.cartID)
     if (request.body.cartID != null) {
