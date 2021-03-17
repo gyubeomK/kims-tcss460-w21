@@ -187,6 +187,9 @@ async function addEdittedItem() {
 
     console.log(memberID + ", " + size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
 
+    console.log("member: " + memberID + ", " + pizzaType)
+
+
     let response = await fetch("/cart", {
         method: "POST",
         headers: {
