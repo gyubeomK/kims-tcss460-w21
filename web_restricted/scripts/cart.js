@@ -101,9 +101,13 @@ async function getCartItem() {
     }
 }
 
+let tempCartID
+let tempPizzaType
 function setCartID(cartID, pizzaType) {
     localStorage.setItem("targetCartID", cartID);
     localStorage.setItem("pizzaType", pizzaType);
+    tempCartID = cartID
+    tempPizzaType = pizzaType
 }
 
 function editCartItem() {
@@ -166,16 +170,18 @@ function editCartItem() {
 
 }
 function editAndAddToCart() {
-    let memberID = localStorage.getItem("targetCartID")
-    let pizzaType = localStorage.getItem("pizzaType")
-    addEdittedItem(memberID, pizzaType)
+//    let memberID = localStorage.getItem("targetCartID")
+//    let pizzaType = localStorage.getItem("pizzaType")
+//    addEdittedItem(memberID, pizzaType)
+    addEdittedItem()
     removeCartItem()
 }
 
 
 
-async function addEdittedItem(memberID, pizzaType) {
-    
+async function addEdittedItem() {
+    let memberID = tempCartID
+    let pizzaType = tempPizzaType
     let size = localStorage.getItem("size")
     let crust = localStorage.getItem("crust")
     let cheese = localStorage.getItem("cheese")
