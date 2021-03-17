@@ -164,8 +164,50 @@ function editCartItem() {
 
 }
 function editAndAddToCart() {
-
+    addEdittedItem()
+    console.log("Data added, need to erase now")
 }
+
+async function addEdittedItem() {
+    let memberID = localStorage.getItem("targetCartID")
+    let size = localStorage.getItem("size")
+    let crust = localStorage.getItem("crust")
+    let cheese = localStorage.getItem("cheese")
+    let sauce = localStorage.getItem("sauce")
+    let secIng = localStorage.getItem("secIng")
+    let thirdIng = localStorage.getItem("thirdIng")
+    let total = localStorage.getItem("total")
+
+    // console.log(typeof size)
+
+    console.log(memberID + ", " + size + ", " + crust + ", " + cheese + ", " + sauce + ", (" + secIng + "), (" + thirdIng + "), " + total)
+
+    let response = await fetch("/cart", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            "memberid": memberID,
+            "size": size,
+            "crust": crust,
+            "cheese": cheese,
+            "sauce": sauce,
+            "secIng": secIng,
+            "thirdIng": thirdIng,
+            "total": total
+        })
+    })
+
+    if(response.ok) {
+        let json = await response.json()
+        //window.location.href = "./r_cart.html";
+    } else {
+        alert("HTTP-Error: " + response.status)
+    }
+    
+}
+
 
 function orderSubmit() {
     
