@@ -151,7 +151,7 @@ async function submit_order() {
 async function addFavData() {
 
     console.log("addFavData() Triggered")
-    let pizzaType = localStorage.getItem("pizzaType")
+    
     let size = localStorage.getItem("size")
     let crust = localStorage.getItem("crust")
     let cheese = localStorage.getItem("cheese")
@@ -167,7 +167,6 @@ async function addFavData() {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            "pizzaType": pizzaType,
             "size": size,
             "crust": crust,
             "cheese": cheese,
