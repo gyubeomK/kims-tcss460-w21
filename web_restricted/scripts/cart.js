@@ -158,7 +158,7 @@ function editCartItem() {
     console.log(thirdIngredientInput)
     total += thirdIngredientInput.length * 5
     document.getElementById("subTotal").innerHTML = "Current Total: $" + total
-
+ 
     localStorage.setItem("size", sizeInput);
     localStorage.setItem("crust", crustInput);
     localStorage.setItem("cheese", cheeseInput);
