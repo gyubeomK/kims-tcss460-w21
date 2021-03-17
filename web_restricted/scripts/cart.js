@@ -215,6 +215,7 @@ async function addEdittedItem() {
 function orderSubmit() {
     
     for(let i = 0; i < sizeList.length; i++) {
+        let pizzaType = pizzaTypeList[i]
         let size = sizeList[i]
         let crust = crustList[i]
         let cheese = cheeseList[i]
@@ -222,7 +223,7 @@ function orderSubmit() {
         let secIng = secIngList[i]
         let thirdIng = thirdIngList[i]
         let total = totalList[i]
-        addPizzaOrder(size, crust, cheese, sauce, secIng, thirdIng, total)
+        addPizzaOrder(pizzaType, size, crust, cheese, sauce, secIng, thirdIng, total)
         removeCartItem(cartIDList[i])
     }
 
@@ -230,13 +231,14 @@ function orderSubmit() {
     
 }
 
-async function addPizzaOrder(size, crust, cheese, sauce, secIng, thirdIng, total) {
+async function addPizzaOrder(pizzaType, size, crust, cheese, sauce, secIng, thirdIng, total) {
     let response = await fetch("/order", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
+            "pizzaType": pizzaType,
             "size": size,
             "crust": crust,
             "cheese": cheese,

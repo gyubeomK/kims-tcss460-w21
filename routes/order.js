@@ -112,6 +112,7 @@ router.post('/', (request, response) => {
 
 
     const memberid = request.decoded.memberid
+    const pizzaType = request.body.pizzaType
     const size = request.body.size
     const crust = request.body.crust
     const cheese = request.body.cheese
@@ -122,8 +123,8 @@ router.post('/', (request, response) => {
     // console.log("size: " + size)
 
     const theQuery = 
-        "INSERT INTO PizzaOrder(MemberID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)"
-    let values = [memberid, size, crust, cheese, sauce, secIng, thirdIng, total]
+        "INSERT INTO PizzaOrder(MemberID, Size, Crust, Cheese, Sauce, SecIng, ThirdIng, Total, PizzaType) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)"
+    let values = [memberid, size, crust, cheese, sauce, secIng, thirdIng, total, pizzaType]
 
     console.log("Here is the JSON")
     console.log("request.body.size: " + request.body.size)
