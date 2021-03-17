@@ -148,7 +148,13 @@ function editCartItem() {
     total += thirdIngredientInput.length * 5
     document.getElementById("subTotal").innerHTML = "Current Total: $" + total
 
-
+    localStorage.setItem("size", sizeInput);
+    localStorage.setItem("crust", crustInput);
+    localStorage.setItem("cheese", cheeseInput);
+    localStorage.setItem("sauce", sauceInput);
+    localStorage.setItem("secIng", secIngredientInput)
+    localStorage.setItem("thirdIng", thirdIngredientInput)
+    localStorage.setItem("total", total)
     //2. delete old Item
     //3. Add new item 
 
