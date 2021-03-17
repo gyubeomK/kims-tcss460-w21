@@ -1,6 +1,6 @@
 //Checks if a string exists and is not empty. Used for parameters.
 function isProvided(param) {    
-    return param !== undefined && param.length >= 0
+    return param !== undefined && param.length > 0
 }
 
 function isSize(param) {
