@@ -244,8 +244,7 @@ async function getFavOrders() {
                             + json.orders[i].sauce + "-" 
                             + json.orders[i].secing + "-" 
                             + json.orders[i].thirding + "-" 
-                            + json.orders[i].total+ "-"
-                            +json.orders[i].pizzatype
+                            + json.orders[i].total
 
             favMap.set(json.orders[i].favpizzaid, resultString)
 
